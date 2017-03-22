@@ -7,6 +7,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pvirtech.Metro", "Pvirtech.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pvirtech.CommandSystem.Test", "Pvirtech.CommandSystem.Test\Pvirtech.CommandSystem.Test.csproj", "{1E777765-CC92-46A6-A445-A1402DB7879C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lib", "Lib", "{143FF240-4FEA-44BB-B5CB-09AB89CA0CC0}"
+	ProjectSection(SolutionItems) = preProject
+		Lib\JetBrains.Annotations.dll = Lib\JetBrains.Annotations.dll
+		Lib\System.Windows.Interactivity.dll = Lib\System.Windows.Interactivity.dll
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
