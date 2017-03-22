@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.4
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pvirtech.Metro", "Pvirtech.Metro\Pvirtech.Metro.csproj", "{1A8F5E0B-5EA8-4C04-9F1B-1482D08F878A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pvirtech.CommandSystem.Test", "Pvirtech.CommandSystem.Test\Pvirtech.CommandSystem.Test.csproj", "{1E777765-CC92-46A6-A445-A1402DB7879C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1A8F5E0B-5EA8-4C04-9F1B-1482D08F878A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A8F5E0B-5EA8-4C04-9F1B-1482D08F878A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A8F5E0B-5EA8-4C04-9F1B-1482D08F878A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A8F5E0B-5EA8-4C04-9F1B-1482D08F878A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E777765-CC92-46A6-A445-A1402DB7879C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E777765-CC92-46A6-A445-A1402DB7879C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E777765-CC92-46A6-A445-A1402DB7879C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E777765-CC92-46A6-A445-A1402DB7879C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
