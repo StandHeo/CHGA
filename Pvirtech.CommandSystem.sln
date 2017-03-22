@@ -13,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lib", "Lib", "{143FF240-4FE
 		Lib\System.Windows.Interactivity.dll = Lib\System.Windows.Interactivity.dll
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pvirtech.CommandSystem", "Pvirtech.CommandSystem\Pvirtech.CommandSystem.csproj", "{73E04DD4-0FF7-472F-AB2C-8C7A0B18EE67}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{1E777765-CC92-46A6-A445-A1402DB7879C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1E777765-CC92-46A6-A445-A1402DB7879C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1E777765-CC92-46A6-A445-A1402DB7879C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73E04DD4-0FF7-472F-AB2C-8C7A0B18EE67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73E04DD4-0FF7-472F-AB2C-8C7A0B18EE67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73E04DD4-0FF7-472F-AB2C-8C7A0B18EE67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73E04DD4-0FF7-472F-AB2C-8C7A0B18EE67}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

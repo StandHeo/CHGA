@@ -1,0 +1,155 @@
+﻿ <Controls:MetroWindow x:Class="Pvirtech.CommandSystem.MainWindow"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:Controls="http://metro.pvirtech.com/winfx/xaml/controls"
+                      xmlns:Dialog="clr-namespace:Pvirtech.Metro.Controls.Dialogs;assembly=Pvirtech.Metro" 
+                      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+                      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+                      Title="MahApps.Metro - Demo Application"
+                      Width="960"
+                      Height="600"
+                      Closing="MetroWindow_Closing"
+                      Dialog:DialogParticipation.Register="{Binding}"
+                      GlowBrush="{DynamicResource AccentColorBrush}" 
+                      NonActiveGlowBrush="#CDFF0000"
+                      ShowIconOnTitleBar="True"
+                      WindowStartupLocation="CenterScreen"
+                      ShowTitleBar="{Binding ShowMyTitleBar, Mode=OneWay}"
+                      mc:Ignorable="d"  TitlebarHeight="72"
+                      d:DesignHeight="600"
+                      d:DesignWidth="800"
+                 >
+	<!--
+        if using DialogParticipation on Windows which open/close frequently you will get a
+        memory leak unless you unregister.  The easiest way to do this is in your Closing/Unloaded
+        event, as so:
+        
+        DialogParticipation.SetRegister(this, null);
+    -->
+
+	<Window.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary Source="pack://application:,,,/Pvirtech.Metro;component/Styles/FlatSlider.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+
+			<Ellipse x:Key="AppThemeMenuIcon"
+                     Width="16"
+                     Height="16"
+                     Fill="{Binding ColorBrush, Mode=OneWay}"
+                     Stroke="{Binding BorderColorBrush, Mode=OneWay}"
+                     StrokeThickness="1"
+                     x:Shared="False" />
+			<Ellipse x:Key="AccentMenuIcon"
+                     Width="16"
+                     Height="16"
+                     Fill="{Binding ColorBrush, Mode=OneWay}"
+                     x:Shared="False" />
+
+			<Style x:Key="AppThemeMenuItemStyle"
+                   BasedOn="{StaticResource MetroMenuItem}"
+                   TargetType="{x:Type MenuItem}">
+				<Setter Property="Command" Value="{Binding ChangeAccentCommand}" />
+				<Setter Property="Header" Value="{Binding Name, Mode=OneWay}" />
+				<Setter Property="Icon" Value="{StaticResource AppThemeMenuIcon}" />
+			</Style>
+
+			<Style x:Key="AccentColorMenuItemStyle"
+                   BasedOn="{StaticResource MetroMenuItem}"
+                   TargetType="{x:Type MenuItem}">
+				<Setter Property="Command" Value="{Binding ChangeAccentCommand}" />
+				<Setter Property="Header" Value="{Binding Name, Mode=OneWay}" />
+				<Setter Property="Icon" Value="{StaticResource AccentMenuIcon}" />
+			</Style>
+
+			<Dialog:CustomDialog x:Key="CustomDialogTest"
+                                 x:Name="CustomTestDialog"
+                                 Title="This dialog allows arbitrary content.">
+				<TextBlock x:Name="MessageTextBlock"
+                           Height="200"
+                           Foreground="{DynamicResource AccentColorBrush}"
+                           Text="{Binding Artists[0].Name}" />
+			</Dialog:CustomDialog>
+
+			<Dialog:CustomDialog x:Key="CustomCloseDialogTest"
+                                 x:Name="CustomCloseDialogTest"
+                                 Title="Custom Dialog which is awaitable">
+
+				<StackPanel>
+					<TextBlock Height="30"
+                               Foreground="{DynamicResource AccentColorBrush}"
+                               Text="This dialog allows arbitrary content. You have to close it yourself by clicking the close button below."
+                               TextWrapping="Wrap" />
+					<Button  Content="Close Me!" />
+				</StackPanel>
+
+			</Dialog:CustomDialog>
+
+		</ResourceDictionary>
+	</Window.Resources>
+
+	<Controls:MetroWindow.WindowButtonCommands>
+		<Controls:WindowButtonCommands Template="{DynamicResource Pvirtech.Metro.Templates.WindowButtonCommands.Win10}" />
+	</Controls:MetroWindow.WindowButtonCommands>
+
+	<Controls:MetroWindow.LeftWindowCommands>
+		<Controls:WindowCommands HorizontalAlignment="Left">
+			<Button Content="测试" Click="LaunchMahAppsOnGitHub" ToolTip="MahApps.Metro on GitHub">
+			 
+			</Button>
+		</Controls:WindowCommands>
+	</Controls:MetroWindow.LeftWindowCommands>
+
+	<Controls:MetroWindow.RightWindowCommands>
+		<Controls:WindowCommands ShowLastSeparator="False">
+			<Button  
+                    Content="VS"
+                    ToolTip="Visual Studio style demo" />
+			<Button 
+                    Content="Flyouts"
+                    ToolTip="Flyouts demo window" />
+			<Button  
+                    Content="Icons"
+                    ToolTip="All MahApp icons" />
+			<Button Click="LauchCleanDemo"
+                    Content="Clean"
+                    ToolTip="Clean window style demo" />
+			<Button  
+                    Content="Interop"
+                    ToolTip="The interop demo" />
+			<Button  
+                    Content="Navigation"
+                    ToolTip="Window navigation demo" />
+			<ToggleButton x:Name="MagicToggleButton"
+                          Content="ToggleButton"
+                          IsChecked="{Binding MagicToggleButtonIsChecked}"
+                          ToolTip="Shows the toggle button magic" />
+			<ToggleButton Content="Confirm quit"
+                          IsChecked="{Binding QuitConfirmationEnabled}"
+                          ToolTip="Enable quit confirmation dialog on exit" />
+		</Controls:WindowCommands>
+	</Controls:MetroWindow.RightWindowCommands>
+
+	<Grid>
+		<Grid.RowDefinitions> 
+			<RowDefinition Height="*" />
+			<RowDefinition Height="30" />
+		</Grid.RowDefinitions>
+ 
+
+		<Controls:MetroAnimatedSingleRowTabControl x:Name="MainTabControl" >
+
+			<TextBlock Text="测试"/> 
+
+		</Controls:MetroAnimatedSingleRowTabControl>
+
+		<StatusBar Grid.Row="1">
+			<StatusBarItem>成华分局扁平化</StatusBarItem>
+			<Separator Style="{StaticResource MetroStatusBarSeparator}" />
+			<StatusBarItem>Selected Tab:</StatusBarItem>
+			<StatusBarItem Content="2017" />
+		</StatusBar>
+
+	</Grid>
+	</Controls:MetroWindow>
+

@@ -18,11 +18,14 @@
                     <Grid.ColumnDefinitions>
                         <!--  icon  -->
                         <ColumnDefinition Width="Auto" />
-                        <!--  left window commands  -->
-                        <ColumnDefinition Width="Auto" />
+                      
                         <!--  title  -->
-                        <ColumnDefinition Width="*" />
-                        <!--  right window commands  -->
+                        <ColumnDefinition Width="Auto" />
+
+						<!--  left window commands  -->
+						<ColumnDefinition Width="*" />
+						
+						<!--  right window commands  -->
                         <ColumnDefinition Width="Auto" />
                         <!--  min,max,close buttons  -->
                         <ColumnDefinition Width="Auto" />
@@ -58,9 +61,9 @@
                     <ContentPresenter x:Name="PART_LeftWindowCommands"
                                       Grid.Row="0"
                                       Grid.RowSpan="2"
-                                      Grid.Column="1"
+                                      Grid.Column="2"
                                       Height="{Binding TitlebarHeight, RelativeSource={RelativeSource TemplatedParent}, Mode=OneWay}"
-                                      VerticalAlignment="Top"
+                                      VerticalAlignment="Top" 
                                       Panel.ZIndex="1"
                                       Content="{Binding LeftWindowCommands, RelativeSource={RelativeSource TemplatedParent}, Mode=OneWay}"
                                       Focusable="False"
@@ -74,7 +77,7 @@
                     <!--  the title bar  -->
                     <Controls:MetroThumbContentControl x:Name="PART_TitleBar"
                                                        Grid.Row="0"
-                                                       Grid.Column="2"
+                                                       Grid.Column="1"
                                                        ContentCharacterCasing="{TemplateBinding TitleCharacterCasing}"
                                                        Height="{Binding TitlebarHeight, RelativeSource={RelativeSource TemplatedParent}, Mode=OneWay}"
                                                        HorizontalAlignment="{TemplateBinding TitleAlignment}"
