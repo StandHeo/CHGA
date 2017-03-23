@@ -90,7 +90,7 @@
 	</Window.Resources>
 
 	<Controls:MetroWindow.WindowButtonCommands >
-		<Controls:WindowButtonCommands VerticalAlignment="Top"   Height="32" Template="{DynamicResource Pvirtech.Metro.Templates.WindowButtonCommands.Win10}" />
+		<Controls:WindowButtonCommands VerticalAlignment="Top"  Foreground="Red"  Height="32" Template="{DynamicResource Pvirtech.Metro.Templates.WindowButtonCommands.Win10}" />
 	</Controls:MetroWindow.WindowButtonCommands> 
 	<Controls:MetroWindow.LeftWindowCommands >
 		<Controls:WindowCommands HorizontalAlignment="Center" ShowSeparators="False" >
@@ -102,8 +102,7 @@
 				<StackPanel Orientation="Horizontal">
 					<iconPacks:PackIconModern Kind="App"  Width="16" Height="16" />
 					<TextBlock Margin="3,0,0,0" Text="测试"  VerticalAlignment="Center"/>
-				</StackPanel>
-
+				</StackPanel> 
 			</Button>
 			<Button Content="{iconPacks:PackIconFontAwesome Spinner, Width=32, Height=32, Spin=True}" Foreground="White" />
 			</StackPanel>
@@ -112,13 +111,12 @@
 
 	<Controls:MetroWindow.RightWindowCommands>
 		<Controls:WindowCommands  ShowSeparators="False"  VerticalContentAlignment="Top">
-			
-			<ToggleButton Content="Confirm quit"
-                          IsChecked="{Binding QuitConfirmationEnabled}"
-                          ToolTip="忙/闲" /> 
-			<iconPacks:PackIconFontAwesome Kind="ArrowsAlt" Margin="0,5,0,0" Height="12"  x:Name="MagToggleButton" 
+
+			<iconPacks:PackIconFontAwesome Kind="PowerOff" Foreground="Red"  Margin="0,5,0,0"  x:Name="MagleButton" 
+                          ToolTip="置忙/置闲" />
+			<iconPacks:PackIconFontAwesome Kind="ArrowsAlt"  Margin="10,6,0,0"  Height="14"  x:Name="MagToggleButton" 
                           ToolTip="全屏" />
-			<iconPacks:PackIconFontAwesome Kind="Cog" Margin="10,5,0,0" x:Name="MagicToggleButton" 
+			<iconPacks:PackIconFontAwesome Kind="Cog"   Margin="10,5,0,5" x:Name="MagicToggleButton" 
                           ToolTip="设置" />
 		</Controls:WindowCommands>
 	</Controls:MetroWindow.RightWindowCommands>

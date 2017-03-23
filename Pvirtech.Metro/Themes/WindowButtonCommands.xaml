@@ -81,10 +81,10 @@
         </ControlTemplate.Triggers>
     </ControlTemplate>
 
-    <ControlTemplate x:Key="Pvirtech.Metro.Templates.WindowButtonCommands.Win10" TargetType="{x:Type Controls:WindowButtonCommands}">
+    <ControlTemplate x:Key="Pvirtech.Metro.Templates.WindowButtonCommands.Win10"   TargetType="{x:Type Controls:WindowButtonCommands}">
         <StackPanel Orientation="Horizontal">
             <Button x:Name="PART_Min"
-                    Width="46"
+                    Width="42"					
                     Focusable="False"
                     IsEnabled="{Binding IsMinButtonEnabled, RelativeSource={RelativeSource AncestorType={x:Type Controls:MetroWindow}}}"
                     ToolTip="{Binding Minimize, RelativeSource={RelativeSource TemplatedParent}, Mode=OneWay}"
@@ -106,6 +106,7 @@
                       Height="10"
                       HorizontalAlignment="Center"
                       VerticalAlignment="Center"
+					  Opacity="1"
                       Fill="{Binding Path=Foreground, RelativeSource={RelativeSource AncestorType={x:Type Button}}}"
                       Data="M0,40 L96,40 96,48 0,48 0,40z"
                       RenderOptions.EdgeMode="Aliased"
@@ -113,7 +114,7 @@
                       Stretch="Uniform" />
             </Button>
             <Button x:Name="PART_Max"
-                    Width="46"
+                    Width="42"
                     Focusable="False"
                     IsEnabled="{Binding IsMaxRestoreButtonEnabled, RelativeSource={RelativeSource AncestorType={x:Type Controls:MetroWindow}}}"
                     ToolTip="{Binding Maximize, RelativeSource={RelativeSource TemplatedParent}, Mode=OneWay}"
@@ -145,7 +146,7 @@
                 </Canvas>
             </Button>
             <Button x:Name="PART_Close"
-                    Width="46"
+                    Width="42"
                     Focusable="False"
                     IsEnabled="{Binding IsCloseButtonEnabled, RelativeSource={RelativeSource AncestorType={x:Type Controls:MetroWindow}}}"
                     ToolTip="{Binding Close, RelativeSource={RelativeSource TemplatedParent}, Mode=OneWay}"

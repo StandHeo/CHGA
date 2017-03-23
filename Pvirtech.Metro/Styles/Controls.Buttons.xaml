@@ -333,7 +333,7 @@
                                                    Padding="{TemplateBinding Padding}"
                                                    HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                                                    VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                                                   Opacity="0.6"
+                                                   Opacity="{TemplateBinding Opacity}"
                                                    Content="{TemplateBinding Content}"
                                                    ContentCharacterCasing="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(Controls:ControlsHelper.ContentCharacterCasing)}"
                                                    ContentStringFormat="{TemplateBinding ContentStringFormat}"
@@ -344,7 +344,7 @@
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="PART_ContentPresenter" Property="Opacity" Value="1" />
+                            <Setter TargetName="PART_ContentPresenter" Property="Opacity" Value="0.8" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
