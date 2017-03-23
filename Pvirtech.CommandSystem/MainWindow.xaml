@@ -6,9 +6,11 @@
                       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
                       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
 					  xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
-                      Title="MahApps.Metro"
+                      Title="成华分局扁平化指挥平台" TitleTemplate="{StaticResource PvirtechWindowTitle}" 
                       Width="1280"
-                      Height="768"
+                      Height="768" 
+					  Icon="logo.ico" IconEdgeMode="Aliased" IconScalingMode="ScaleDownLargerFrame"
+					  xmlns:control="clr-namespace:Pvirtech.Framework.Controls;assembly=Pvirtech.Framework.Controls"
                       Closing="MetroWindow_Closing"
                       Dialog:DialogParticipation.Register="{Binding}"
                       GlowBrush="{DynamicResource AccentColorBrush}" 
@@ -75,7 +77,6 @@
 			<Dialog:CustomDialog x:Key="CustomCloseDialogTest"
                                  x:Name="CustomCloseDialogTest"
                                  Title="Custom Dialog which is awaitable">
-
 				<StackPanel>
 					<TextBlock Height="30"
                                Foreground="{DynamicResource AccentColorBrush}"
@@ -90,33 +91,27 @@
 	</Window.Resources>
 
 	<Controls:MetroWindow.WindowButtonCommands >
-		<Controls:WindowButtonCommands VerticalAlignment="Top"  Foreground="Red"  Height="32" Template="{DynamicResource Pvirtech.Metro.Templates.WindowButtonCommands.Win10}" />
+		<Controls:WindowButtonCommands VerticalAlignment="Top"  Margin="0,3,0,0"    Height="32" Template="{DynamicResource Pvirtech.Metro.Templates.WindowButtonCommands.Win10}" />
 	</Controls:MetroWindow.WindowButtonCommands> 
 	<Controls:MetroWindow.LeftWindowCommands >
-		<Controls:WindowCommands HorizontalAlignment="Center" ShowSeparators="False" >
-			<StackPanel Orientation="Horizontal" >
-			<Button Content="测试" Click="LaunchMahAppsOnGitHub" Foreground="White" ToolTip="MahApps.Metro on GitHub">
+		<Controls:WindowCommands  Margin="50,0,0,0" ShowSeparators="False" >
+			<control:SwitchControl Width="120" x:Name="switcon" VerticalAlignment="Bottom" Height="62" IsSelected="True"  SelectedBackground="Orange"  Content="成化态势" />
 
-			</Button>
-			<Button Click="LaunchMahAppsOnGitHub"   ToolTip="MahApps.Metro on GitHub">
-				<StackPanel Orientation="Horizontal">
-					<iconPacks:PackIconModern Kind="App"  Width="16" Height="16" />
-					<TextBlock Margin="3,0,0,0" Text="测试"  VerticalAlignment="Center"/>
-				</StackPanel> 
-			</Button>
+			<control:SwitchControl Width="120" x:Name="stcon" Margin="5,0,0,0" VerticalAlignment="Bottom" Height="62" IsSelected="False"  SelectedBackground="Orange"  Content="应急处置" />
+			 
 			<Button Content="{iconPacks:PackIconFontAwesome Spinner, Width=32, Height=32, Spin=True}" Foreground="White" />
-			</StackPanel>
+		 
 		</Controls:WindowCommands>
 	</Controls:MetroWindow.LeftWindowCommands>
 
 	<Controls:MetroWindow.RightWindowCommands>
-		<Controls:WindowCommands  ShowSeparators="False"  VerticalContentAlignment="Top">
+		<Controls:WindowCommands  ShowSeparators="False"  Margin="0,6,0,0" VerticalContentAlignment="Top">
 
-			<iconPacks:PackIconFontAwesome Kind="PowerOff" Foreground="Red"  Margin="0,5,0,0"  x:Name="MagleButton" 
+			<iconPacks:PackIconFontAwesome Kind="PowerOff"  Foreground="Red" Margin="0,3,0,0"    x:Name="MagleButton" 
                           ToolTip="置忙/置闲" />
-			<iconPacks:PackIconFontAwesome Kind="ArrowsAlt"  Margin="10,6,0,0"  Height="14"  x:Name="MagToggleButton" 
+			<iconPacks:PackIconFontAwesome Kind="ArrowsAlt"  Margin="10,4,0,0"  Height="14" Opacity="0.90"  x:Name="MagToggleButton" 
                           ToolTip="全屏" />
-			<iconPacks:PackIconFontAwesome Kind="Cog"   Margin="10,5,0,5" x:Name="MagicToggleButton" 
+			<iconPacks:PackIconFontAwesome Kind="Cog"   Margin="10,3,0,5" Opacity="0.90" x:Name="MagicToggleButton" 
                           ToolTip="设置" />
 		</Controls:WindowCommands>
 	</Controls:MetroWindow.RightWindowCommands>
@@ -131,13 +126,14 @@
 		<Controls:MetroAnimatedSingleRowTabControl x:Name="MainTabControl" FontFamily="Sitka Banner" >
 
 			<!--<TextBlock Text="测试"  FontSize="12"/>-->
-			<Button Click="LaunchMahAppsOnGitHub" ToolTip="MahApps.Metro on GitHub" FontSize="12" FontFamily="Microsoft YaHei UI" Margin="601,334,475,252">
+			<!--<Button Click="LaunchMahAppsOnGitHub" ToolTip="MahApps.Metro on GitHub" FontSize="12" FontFamily="Microsoft YaHei UI" Margin="601,334,475,252">
 				<StackPanel Orientation="Horizontal">
 					<iconPacks:PackIconModern Kind="App"  Width="16" Height="16" />
 					<TextBlock Margin="3,0,0,0" Text="测试"   VerticalAlignment="Center"/>
 				</StackPanel>
 
-			</Button>
+			</Button>-->
+		 
 		</Controls:MetroAnimatedSingleRowTabControl>
 
 		<StatusBar Grid.Row="1">

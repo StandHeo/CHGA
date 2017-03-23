@@ -15,6 +15,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lib", "Lib", "{143FF240-4FE
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pvirtech.CommandSystem", "Pvirtech.CommandSystem\Pvirtech.CommandSystem.csproj", "{73E04DD4-0FF7-472F-AB2C-8C7A0B18EE67}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pvirtech.Framework.Controls", "Pvirtech.Framework.Controls\Pvirtech.Framework.Controls.csproj", "{DC991A17-135E-427D-AF9F-DD1C55BBE359}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pvirtech.Framework.Resources", "Pvirtech.Framework.Resources\Pvirtech.Framework.Resources.csproj", "{2659BCF3-EA1F-4499-A505-83A7A341EDC1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{73E04DD4-0FF7-472F-AB2C-8C7A0B18EE67}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{73E04DD4-0FF7-472F-AB2C-8C7A0B18EE67}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{73E04DD4-0FF7-472F-AB2C-8C7A0B18EE67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC991A17-135E-427D-AF9F-DD1C55BBE359}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC991A17-135E-427D-AF9F-DD1C55BBE359}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC991A17-135E-427D-AF9F-DD1C55BBE359}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC991A17-135E-427D-AF9F-DD1C55BBE359}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2659BCF3-EA1F-4499-A505-83A7A341EDC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2659BCF3-EA1F-4499-A505-83A7A341EDC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2659BCF3-EA1F-4499-A505-83A7A341EDC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2659BCF3-EA1F-4499-A505-83A7A341EDC1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

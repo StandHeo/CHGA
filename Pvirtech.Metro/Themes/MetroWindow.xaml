@@ -51,6 +51,7 @@
                                     Grid.Column="0"  
                                     HorizontalContentAlignment="Center"
                                     VerticalContentAlignment="Center"
+									Margin="2,0,0,0"
                                     Panel.ZIndex="1"
                                     Content="{TemplateBinding Icon}"
                                     ContentTemplate="{TemplateBinding IconTemplate}"
@@ -71,7 +72,7 @@
                                                        HorizontalAlignment="{TemplateBinding TitleAlignment}"
                                                        HorizontalContentAlignment="Stretch"
                                                        VerticalContentAlignment="Stretch"
-                                                       Content="{TemplateBinding Title}"
+                                                       Content="{TemplateBinding Title}" 
                                                        ContentTemplate="{TemplateBinding TitleTemplate}"
                                                        Focusable="False"
                                                        Visibility="{TemplateBinding ShowTitleBar, Converter={StaticResource BooleanToVisibilityConverter}}">
