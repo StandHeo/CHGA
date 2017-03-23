@@ -2,14 +2,14 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:System="clr-namespace:System;assembly=mscorlib">
 
-    <FontFamily x:Key="DefaultFont">Segoe UI, Lucida Sans Unicode, Verdana</FontFamily>
-    <FontFamily x:Key="HeaderFontFamily">Segoe UI Light, Lucida Sans Unicode, Verdana</FontFamily>
-    <FontFamily x:Key="ContentFontFamily">Segoe UI, Lucida Sans Unicode, Verdana</FontFamily>
+	<FontFamily x:Key="DefaultFont">Segoe UI, Microsoft YaHei UI, Verdana</FontFamily>
+	<FontFamily x:Key="HeaderFontFamily">Segoe UI Light,Microsoft YaHei UI, Verdana</FontFamily>
+	<FontFamily x:Key="ContentFontFamily">Segoe UI, Microsoft YaHei UI, Verdana</FontFamily>
 
-    <FontFamily x:Key="ToggleSwitchFontFamily">Segoe UI Semibold, Segoe UI, Lucida Sans Unicode, Verdana</FontFamily>
-    <FontFamily x:Key="ToggleSwitchHeaderFontFamily">Segoe UI Semibold, Segoe UI, Lucida Sans Unicode, Verdana</FontFamily>
-    <FontFamily x:Key="ToggleSwitchFontFamily.Win10">Segoe UI, Lucida Sans Unicode, Verdana</FontFamily>
-    <FontFamily x:Key="ToggleSwitchHeaderFontFamily.Win10">Segoe UI, Lucida Sans Unicode, Verdana</FontFamily>
+	<FontFamily x:Key="ToggleSwitchFontFamily">Segoe UI Semibold, Segoe UI, Microsoft YaHei UI, Verdana</FontFamily>
+	<FontFamily x:Key="ToggleSwitchHeaderFontFamily">Segoe UI Semibold, Segoe UI, Microsoft YaHei UI, Verdana</FontFamily>
+	<FontFamily x:Key="ToggleSwitchFontFamily.Win10">Segoe UI, Microsoft YaHei UI, Verdana</FontFamily>
+	<FontFamily x:Key="ToggleSwitchHeaderFontFamily.Win10">Segoe UI, Microsoft YaHei UI, Verdana</FontFamily>
 
     <System:Double x:Key="HeaderFontSize">40</System:Double>
     <System:Double x:Key="SubHeaderFontSize">29.333</System:Double>
@@ -18,8 +18,8 @@
     <System:Double x:Key="ContentFontSize">12</System:Double>
     <System:Double x:Key="FlatButtonFontSize">14</System:Double>
     <System:Double x:Key="TabItemFontSize">26.67</System:Double>
-    <System:Double x:Key="UpperCaseContentFontSize">10</System:Double>
-    <System:Double x:Key="FloatingWatermarkFontSize">10</System:Double>
+    <System:Double x:Key="UpperCaseContentFontSize">12</System:Double>
+    <System:Double x:Key="FloatingWatermarkFontSize">12</System:Double>
     <System:Double x:Key="ClearTextButtonFontSize">16</System:Double>
 
     <System:Double x:Key="TooltipFontSize">12</System:Double>

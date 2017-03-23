@@ -18,7 +18,7 @@
                     <Grid.ColumnDefinitions>
                         <!--  icon  -->
                         <ColumnDefinition Width="Auto" />
-                      
+						
                         <!--  title  -->
                         <ColumnDefinition Width="Auto" />
 
@@ -56,19 +56,7 @@
                                     ContentTemplate="{TemplateBinding IconTemplate}"
                                     Focusable="False"
                                     Visibility="{TemplateBinding ShowIconOnTitleBar, Converter={StaticResource BooleanToVisibilityConverter}}" />
-
-                    <!--  the left window commands  -->
-                    <ContentPresenter x:Name="PART_LeftWindowCommands"
-                                      Grid.Row="0"
-                                      Grid.RowSpan="2"
-                                      Grid.Column="2"
-                                      Height="{Binding TitlebarHeight, RelativeSource={RelativeSource TemplatedParent}, Mode=OneWay}"
-                                      VerticalAlignment="Top" 
-                                      Panel.ZIndex="1"
-                                      Content="{Binding LeftWindowCommands, RelativeSource={RelativeSource TemplatedParent}, Mode=OneWay}"
-                                      Focusable="False"
-                                      Visibility="{TemplateBinding ShowTitleBar, Converter={StaticResource BooleanToVisibilityConverter}}" />
-
+ 
                     <Controls:MetroThumb x:Name="PART_WindowTitleThumb"
                                          Grid.Row="0"
                                          Grid.Column="0"
@@ -99,7 +87,20 @@
                         </ContentControl.Foreground>
                     </Controls:MetroThumbContentControl>
 
-                    <!--  the right window commands  -->
+					<!--  the left window commands  -->
+					<ContentPresenter x:Name="PART_LeftWindowCommands"
+                                      Grid.Row="0"
+                                      Grid.RowSpan="2"
+                                      Grid.Column="2"
+                                      Height="{Binding TitlebarHeight, RelativeSource={RelativeSource TemplatedParent}, Mode=OneWay}"
+                                      VerticalAlignment="Top" 
+                                      Panel.ZIndex="1"
+                                      Content="{Binding LeftWindowCommands, RelativeSource={RelativeSource TemplatedParent}, Mode=OneWay}"
+                                      Focusable="False"
+                                      Visibility="{TemplateBinding ShowTitleBar, Converter={StaticResource BooleanToVisibilityConverter}}" />
+
+
+					<!--  the right window commands  -->
                     <ContentPresenter x:Name="PART_RightWindowCommands"
                                       Grid.Row="0"
                                       Grid.RowSpan="2"
