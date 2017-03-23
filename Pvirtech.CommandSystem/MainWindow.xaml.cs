@@ -32,7 +32,7 @@ namespace Pvirtech.CommandSystem
 
 		private void LaunchMahAppsOnGitHub(object sender, RoutedEventArgs e)
 		{
-
+			 
 		}
 
 		private void LauchCleanDemo(object sender, RoutedEventArgs e)
