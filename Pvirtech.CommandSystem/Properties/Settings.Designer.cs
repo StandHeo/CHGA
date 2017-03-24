@@ -22,5 +22,17 @@ namespace Pvirtech.CommandSystem.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool IsBusy {
+            get {
+                return ((bool)(this["IsBusy"]));
+            }
+            set {
+                this["IsBusy"] = value;
+            }
+        }
     }
 }

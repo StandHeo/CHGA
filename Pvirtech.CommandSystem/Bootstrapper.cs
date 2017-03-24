@@ -9,6 +9,8 @@ using System.IO;
 using System.Reflection;
 using System;
 using System.Linq;
+using Pvirtech.CommandSystem.ViewModels;
+
 namespace Pvirtech.CommandSystem
 {
     class Bootstrapper : UnityBootstrapper
@@ -25,8 +27,12 @@ namespace Pvirtech.CommandSystem
 			//Thread.CurrentPrincipal = principal; 
 			AppDomain.CurrentDomain.SetThreadPrincipal(principal); 
             Application.Current.MainWindow.Show();
-        } 
-         
+        }
+		protected override void ConfigureServiceLocator()
+		{ 
+			base.ConfigureServiceLocator();
+			Container.RegisterType<MainWindowViewModel>(new ContainerControlledLifetimeManager());
+		}
 		protected override void ConfigureContainer()
 		{
 			base.ConfigureContainer();

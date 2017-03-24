@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.Practices.Unity;
+using Pvirtech.CommandSystem.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,7 +26,12 @@ namespace Pvirtech.CommandSystem
 		{
 			InitializeComponent();
 		}
-
+	
+		[InjectionMethod]
+		public void Load(MainWindowViewModel viewModel)
+		{
+			this.DataContext = viewModel;
+		}
 		private void MetroWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
 		{
 
