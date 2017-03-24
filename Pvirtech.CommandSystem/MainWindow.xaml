@@ -6,6 +6,7 @@
                       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
                       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
 					  xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+					  xmlns:prism="http://www.codeplex.com/prism"
                       Title="成华分局扁平化指挥平台" TitleTemplate="{StaticResource PvirtechWindowTitle}" 
                       Width="1280"
                       Height="768" 
@@ -121,21 +122,7 @@
 			<RowDefinition Height="*" />
 			<RowDefinition Height="30" />
 		</Grid.RowDefinitions>
-
-
-		<Controls:MetroAnimatedSingleRowTabControl x:Name="MainTabControl" FontFamily="Sitka Banner" >
-
-			<!--<TextBlock Text="测试"  FontSize="12"/>-->
-			<!--<Button Click="LaunchMahAppsOnGitHub" ToolTip="MahApps.Metro on GitHub" FontSize="12" FontFamily="Microsoft YaHei UI" Margin="601,334,475,252">
-				<StackPanel Orientation="Horizontal">
-					<iconPacks:PackIconModern Kind="App"  Width="16" Height="16" />
-					<TextBlock Margin="3,0,0,0" Text="测试"   VerticalAlignment="Center"/>
-				</StackPanel>
-
-			</Button>-->
-		 
-		</Controls:MetroAnimatedSingleRowTabControl>
-
+		<ItemsControl prism:RegionManager.RegionName="MainRegion" />
 		<StatusBar Grid.Row="1">
 			<StatusBarItem>成华分局扁平化</StatusBarItem>
 			<Separator Style="{StaticResource MetroStatusBarSeparator}" />

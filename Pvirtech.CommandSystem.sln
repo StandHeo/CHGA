@@ -5,21 +5,42 @@ VisualStudioVersion = 15.0.26228.4
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pvirtech.Metro", "Pvirtech.Metro\Pvirtech.Metro.csproj", "{1A8F5E0B-5EA8-4C04-9F1B-1482D08F878A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pvirtech.CommandSystem.Test", "Pvirtech.CommandSystem.Test\Pvirtech.CommandSystem.Test.csproj", "{1E777765-CC92-46A6-A445-A1402DB7879C}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lib", "Lib", "{143FF240-4FEA-44BB-B5CB-09AB89CA0CC0}"
 	ProjectSection(SolutionItems) = preProject
 		Lib\JetBrains.Annotations.dll = Lib\JetBrains.Annotations.dll
+		C:\Users\ZHW\Downloads\Prism-master\Source\Wpf\Prism.Unity.Wpf\bin\Release\Microsoft.Practices.ServiceLocation.dll = C:\Users\ZHW\Downloads\Prism-master\Source\Wpf\Prism.Unity.Wpf\bin\Release\Microsoft.Practices.ServiceLocation.dll
+		C:\Users\ZHW\Downloads\Prism-master\Source\Wpf\Prism.Unity.Wpf\bin\Release\Microsoft.Practices.Unity.Configuration.dll = C:\Users\ZHW\Downloads\Prism-master\Source\Wpf\Prism.Unity.Wpf\bin\Release\Microsoft.Practices.Unity.Configuration.dll
+		C:\Users\ZHW\Downloads\Prism-master\Source\Wpf\Prism.Unity.Wpf\bin\Release\Microsoft.Practices.Unity.dll = C:\Users\ZHW\Downloads\Prism-master\Source\Wpf\Prism.Unity.Wpf\bin\Release\Microsoft.Practices.Unity.dll
+		C:\Users\ZHW\Downloads\Prism-master\Source\Wpf\Prism.Unity.Wpf\bin\Release\Microsoft.Practices.Unity.RegistrationByConvention.dll = C:\Users\ZHW\Downloads\Prism-master\Source\Wpf\Prism.Unity.Wpf\bin\Release\Microsoft.Practices.Unity.RegistrationByConvention.dll
+		C:\Users\ZHW\Downloads\Prism-master\Source\Prism\bin\Release\Prism.dll = C:\Users\ZHW\Downloads\Prism-master\Source\Prism\bin\Release\Prism.dll
+		C:\Users\ZHW\Downloads\Prism-master\Source\Wpf\Prism.Unity.Wpf\bin\Release\Prism.Unity.Wpf.dll = C:\Users\ZHW\Downloads\Prism-master\Source\Wpf\Prism.Unity.Wpf\bin\Release\Prism.Unity.Wpf.dll
+		C:\Users\ZHW\Downloads\Prism-master\Source\Wpf\Prism.Wpf\bin\Release\Prism.Wpf.dll = C:\Users\ZHW\Downloads\Prism-master\Source\Wpf\Prism.Wpf\bin\Release\Prism.Wpf.dll
 		Lib\System.Windows.Interactivity.dll = Lib\System.Windows.Interactivity.dll
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pvirtech.CommandSystem", "Pvirtech.CommandSystem\Pvirtech.CommandSystem.csproj", "{73E04DD4-0FF7-472F-AB2C-8C7A0B18EE67}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pvirtech.Framework.Controls", "Pvirtech.Framework.Controls\Pvirtech.Framework.Controls.csproj", "{DC991A17-135E-427D-AF9F-DD1C55BBE359}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pvirtech.Framework.Resources", "Pvirtech.Framework.Resources\Pvirtech.Framework.Resources.csproj", "{2659BCF3-EA1F-4499-A505-83A7A341EDC1}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{768E323E-9833-4796-B8F8-B21830DD29C8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Framework", "Framework", "{DB40A969-1056-4011-BA2C-BB57A2F9C535}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{B48ECCB2-E233-4903-B6F2-51218D3CE58D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pvirtech.Model", "Data\Pvirtech.Model\Pvirtech.Model.csproj", "{5B00255D-4A26-4989-900E-0CFA222BDFBA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pvirtech.Services", "Data\Pvirtech.Services\Pvirtech.Services.csproj", "{51F40A79-7B70-49DB-A410-AB5E610676EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pvirtech.Framework", "Framework\Pvirtech.Framework\Pvirtech.Framework.csproj", "{3915BF30-2AB4-4323-B4BA-90C633EECC4E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pvirtech.Framework.Controls", "Framework\Pvirtech.Framework.Controls\Pvirtech.Framework.Controls.csproj", "{DC991A17-135E-427D-AF9F-DD1C55BBE359}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pvirtech.Framework.Resources", "Framework\Pvirtech.Framework.Resources\Pvirtech.Framework.Resources.csproj", "{2659BCF3-EA1F-4499-A505-83A7A341EDC1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pvirtech.Modules.MapPosture", "Modules\Pvirtech.Modules.MapPosture\Pvirtech.Modules.MapPosture.csproj", "{0AC3E1C7-20B9-480C-B506-C53506116B0B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pvirtech.Modules.NormalAlarm", "Modules\Pvirtech.Modules.NormalAlarm\Pvirtech.Modules.NormalAlarm.csproj", "{5DA1390C-9E45-425E-92F8-60143ABC0FE2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pvirtech.CommandSystem.Test", "Pvirtech.CommandSystem.Test\Pvirtech.CommandSystem.Test.csproj", "{1E777765-CC92-46A6-A445-A1402DB7879C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pvirtech.CommandSystem", "Pvirtech.CommandSystem\Pvirtech.CommandSystem.csproj", "{73E04DD4-0FF7-472F-AB2C-8C7A0B18EE67}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,14 +52,18 @@ Global
 		{1A8F5E0B-5EA8-4C04-9F1B-1482D08F878A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1A8F5E0B-5EA8-4C04-9F1B-1482D08F878A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1A8F5E0B-5EA8-4C04-9F1B-1482D08F878A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1E777765-CC92-46A6-A445-A1402DB7879C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1E777765-CC92-46A6-A445-A1402DB7879C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1E777765-CC92-46A6-A445-A1402DB7879C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1E777765-CC92-46A6-A445-A1402DB7879C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{73E04DD4-0FF7-472F-AB2C-8C7A0B18EE67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{73E04DD4-0FF7-472F-AB2C-8C7A0B18EE67}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{73E04DD4-0FF7-472F-AB2C-8C7A0B18EE67}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{73E04DD4-0FF7-472F-AB2C-8C7A0B18EE67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B00255D-4A26-4989-900E-0CFA222BDFBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B00255D-4A26-4989-900E-0CFA222BDFBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B00255D-4A26-4989-900E-0CFA222BDFBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B00255D-4A26-4989-900E-0CFA222BDFBA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51F40A79-7B70-49DB-A410-AB5E610676EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51F40A79-7B70-49DB-A410-AB5E610676EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51F40A79-7B70-49DB-A410-AB5E610676EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51F40A79-7B70-49DB-A410-AB5E610676EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3915BF30-2AB4-4323-B4BA-90C633EECC4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3915BF30-2AB4-4323-B4BA-90C633EECC4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3915BF30-2AB4-4323-B4BA-90C633EECC4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3915BF30-2AB4-4323-B4BA-90C633EECC4E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DC991A17-135E-427D-AF9F-DD1C55BBE359}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DC991A17-135E-427D-AF9F-DD1C55BBE359}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DC991A17-135E-427D-AF9F-DD1C55BBE359}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -47,8 +72,33 @@ Global
 		{2659BCF3-EA1F-4499-A505-83A7A341EDC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2659BCF3-EA1F-4499-A505-83A7A341EDC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2659BCF3-EA1F-4499-A505-83A7A341EDC1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0AC3E1C7-20B9-480C-B506-C53506116B0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AC3E1C7-20B9-480C-B506-C53506116B0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AC3E1C7-20B9-480C-B506-C53506116B0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AC3E1C7-20B9-480C-B506-C53506116B0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DA1390C-9E45-425E-92F8-60143ABC0FE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DA1390C-9E45-425E-92F8-60143ABC0FE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DA1390C-9E45-425E-92F8-60143ABC0FE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DA1390C-9E45-425E-92F8-60143ABC0FE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E777765-CC92-46A6-A445-A1402DB7879C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E777765-CC92-46A6-A445-A1402DB7879C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E777765-CC92-46A6-A445-A1402DB7879C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E777765-CC92-46A6-A445-A1402DB7879C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73E04DD4-0FF7-472F-AB2C-8C7A0B18EE67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73E04DD4-0FF7-472F-AB2C-8C7A0B18EE67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73E04DD4-0FF7-472F-AB2C-8C7A0B18EE67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73E04DD4-0FF7-472F-AB2C-8C7A0B18EE67}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5B00255D-4A26-4989-900E-0CFA222BDFBA} = {B48ECCB2-E233-4903-B6F2-51218D3CE58D}
+		{51F40A79-7B70-49DB-A410-AB5E610676EE} = {B48ECCB2-E233-4903-B6F2-51218D3CE58D}
+		{3915BF30-2AB4-4323-B4BA-90C633EECC4E} = {DB40A969-1056-4011-BA2C-BB57A2F9C535}
+		{DC991A17-135E-427D-AF9F-DD1C55BBE359} = {DB40A969-1056-4011-BA2C-BB57A2F9C535}
+		{2659BCF3-EA1F-4499-A505-83A7A341EDC1} = {DB40A969-1056-4011-BA2C-BB57A2F9C535}
+		{0AC3E1C7-20B9-480C-B506-C53506116B0B} = {768E323E-9833-4796-B8F8-B21830DD29C8}
+		{5DA1390C-9E45-425E-92F8-60143ABC0FE2} = {768E323E-9833-4796-B8F8-B21830DD29C8}
 	EndGlobalSection
 EndGlobal
