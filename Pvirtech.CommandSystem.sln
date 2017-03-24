@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pvirtech.Framework.Controls
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pvirtech.Framework.Resources", "Pvirtech.Framework.Resources\Pvirtech.Framework.Resources.csproj", "{2659BCF3-EA1F-4499-A505-83A7A341EDC1}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{768E323E-9833-4796-B8F8-B21830DD29C8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
