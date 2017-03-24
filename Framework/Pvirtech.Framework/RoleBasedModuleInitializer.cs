@@ -8,6 +8,7 @@ using System.Linq;
 using System.Resources;
 using System.Security.Principal;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Pvirtech.Framework
@@ -49,9 +50,9 @@ namespace Pvirtech.Framework
 			bool isInRole = false;
 
 			var roles = GetModuleRoles(moduleInfo);
-
+			if (roles == null) return true;
 			foreach (var role in roles)
-			{
+			{ 
 				if (WindowsPrincipal.Current.IsInRole(role))
 				{
 					isInRole = true;

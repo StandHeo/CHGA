@@ -22,7 +22,8 @@ namespace Pvirtech.CommandSystem
         {
 			var ident = WindowsIdentity.GetCurrent();
 			var principal = new GenericPrincipal(ident, new string[] { "User" });
-			Thread.CurrentPrincipal = principal;
+			//Thread.CurrentPrincipal = principal; 
+			AppDomain.CurrentDomain.SetThreadPrincipal(principal); 
             Application.Current.MainWindow.Show();
         } 
          
