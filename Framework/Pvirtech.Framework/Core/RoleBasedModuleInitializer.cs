@@ -56,11 +56,31 @@ namespace Pvirtech.Framework
 				if (WindowsPrincipal.Current.IsInRole(role))
 				{
 					isInRole = true;
+					GetModuleInfoDetail(moduleInfo);
 					break;
 				}
 			}
 
 			return isInRole;
+		}
+		private void GetModuleInfoDetail(ModuleInfo moduleInfo)
+		{
+			var type = Type.GetType(moduleInfo.ModuleType); 
+			foreach (var attr in GetCustomAttribute<ModuleInfoAttribute>(type))
+			{
+				var info = new SystemInfo()
+				{
+					Id = attr.Id,
+					Title = attr.Title,
+					InitMode = InitializationMode.WhenAvailable,
+					IsDefaultShow = attr.IsDefaultShow
+				};
+			}
+			//foreach (var att in attr.GetInfoAttribute(type))
+			//{
+			//	return att.AsEnumerable();
+			//}
+			
 		}
 		private IEnumerable<string> GetModuleRoles(ModuleInfo moduleInfo)
 		{
@@ -76,8 +96,9 @@ namespace Pvirtech.Framework
 
 		private IEnumerable<T> GetCustomAttribute<T>(Type type)
 		{
-			return type.GetCustomAttributes(typeof(T), true).OfType<T>();
+			return type.GetCustomAttributes(typeof(T),true).OfType<T>();
 		}
+	 
 		public virtual void HandleModuleInitializationError(ModuleInfo moduleInfo, string assemblyName, Exception exception)
 		{
 			if (moduleInfo == null) throw new ArgumentNullException("moduleInfo");

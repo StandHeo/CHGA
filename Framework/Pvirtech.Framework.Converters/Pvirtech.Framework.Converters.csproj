@@ -52,14 +52,6 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
-    <Reference Include="Telerik.Windows.Controls">
-      <HintPath>..\Pvirtech.Commander\Runtime\Telerik\Telerik.Windows.Controls.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Telerik.Windows.Controls.Navigation">
-      <HintPath>..\Pvirtech.Commander\Runtime\Telerik\Telerik.Windows.Controls.Navigation.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -75,7 +67,6 @@
     <Compile Include="DateHoursConverter.cs" />
     <Compile Include="DateToStringConverter.cs" />
     <Compile Include="FalseToVisibleConverter.cs" />
-    <Compile Include="FluidContentStateConverter.cs" />
     <Compile Include="IntToVisibleConverter.cs" />
     <Compile Include="LoginIconConverter.cs" />
     <Compile Include="MultiStatusColorConverter.cs" />
@@ -106,7 +97,6 @@
     <Compile Include="SexToTextConverter.cs" />
     <Compile Include="StoryBoardTimeConverter.cs" />
     <Compile Include="StringToVisibleConverter.cs" />
-    <Compile Include="TileStateConverter.cs" />
     <Compile Include="TypeFaceLineConverter.cs" />
     <Compile Include="VehicleType.cs" />
     <Compile Include="VideoOnlineConverter.cs" />

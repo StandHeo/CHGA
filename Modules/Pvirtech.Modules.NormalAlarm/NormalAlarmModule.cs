@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 namespace Pvirtech.Modules.NormalAlarm
 {
     [Roles("User")]
+	[ModuleInfo(Id = "NormalAlarmModule",Title ="常规处警")]
 	public class NormalAlarmModule:IModule
 	{
 		private readonly IRegionManager _regionManager;
