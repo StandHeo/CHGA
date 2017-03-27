@@ -83,7 +83,8 @@ namespace Pvirtech.CommandSystem.ViewModels
 				if (model.State==ModuleState.NotStarted)
 				{ 
 					//_moduleManager.Run();
-					 InitModule(model.ModuleInfo.ModuleType);  
+					 InitModule(model.ModuleInfo.ModuleType);
+					model.State = ModuleState.Initialized;
 				}
 			}
 		}
