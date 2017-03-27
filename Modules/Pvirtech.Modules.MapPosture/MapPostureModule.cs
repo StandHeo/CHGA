@@ -9,7 +9,9 @@ using System.Threading.Tasks;
 
 namespace Pvirtech.Modules.MapPosture
 { 
-	[Roles("User")]
+	
+	[Roles("User")] 
+	[ModuleInfo(Id = "MapPostureModule",Title ="成华态势",IsDefaultShow =true,InitMode =InitializationMode.OnDemand)]
 	public class MapPostureModule : IModule
 	{
 		private readonly IRegionManager _regionManager;

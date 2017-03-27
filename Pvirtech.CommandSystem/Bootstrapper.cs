@@ -10,6 +10,7 @@ using System.Reflection;
 using System;
 using System.Linq;
 using Pvirtech.CommandSystem.ViewModels;
+using Prism.Events;
 
 namespace Pvirtech.CommandSystem
 {
@@ -40,7 +41,7 @@ namespace Pvirtech.CommandSystem
 		}
 		protected override IModuleCatalog CreateModuleCatalog()
 		{ 
-			DynamicDirectoryModuleCatalog catalog = new DynamicDirectoryModuleCatalog(Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, "Modules"));
+			DynamicDirectoryModuleCatalog catalog = new DynamicDirectoryModuleCatalog(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Modules"));
 			return catalog;
 		}
 	}

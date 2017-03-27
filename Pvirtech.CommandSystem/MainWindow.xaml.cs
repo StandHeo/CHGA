@@ -46,5 +46,10 @@ namespace Pvirtech.CommandSystem
 		{
 
 		}
+
+		private void LstBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+		{
+
+		}
 	}
 }
