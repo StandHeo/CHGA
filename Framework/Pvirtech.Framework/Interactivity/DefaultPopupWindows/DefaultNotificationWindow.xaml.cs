@@ -8,7 +8,7 @@ namespace Pvirtech.Framework.Interactivity.DefaultPopupWindows
     /// <summary>
     /// Interaction logic for NotificationChildWindow.xaml
     /// </summary>
-    public partial class DefaultNotificationWindow : Window
+    public partial class DefaultNotificationWindow
     {
         /// <summary>
         /// Creates a new instance of <see cref="DefaultNotificationWindow"/>

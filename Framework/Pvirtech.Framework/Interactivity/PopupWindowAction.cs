@@ -1,12 +1,10 @@
-
-
 using Prism.Common;
-using Prism.Interactivity.DefaultPopupWindows;
-using Prism.Interactivity.InteractionRequest;
 using System;
 using System.Windows;
 using System.Windows.Interactivity;
 using Microsoft.Practices.ServiceLocation;
+using Pvirtech.Framework.Interactivity.DefaultPopupWindows;
+using Pvirtech.Metro.Controls;
 
 namespace Pvirtech.Framework.Interactivity
 {
@@ -303,9 +301,9 @@ namespace Pvirtech.Framework.Interactivity
         /// </summary>
         /// <param name="notification">The INotification or IConfirmation parameter to show.</param>
         /// <returns></returns>
-        protected Window CreateDefaultWindow(INotification notification)
+        protected MetroWindow CreateDefaultWindow(INotification notification)
         {
-            Window window = null;
+			MetroWindow window = null;
 
             if (notification is IConfirmation)
             {

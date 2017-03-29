@@ -8,11 +8,13 @@
 					  xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
 					  xmlns:prism="http://prismlibrary.com/" 
 					  prism:ViewModelLocator.AutoWireViewModel="True"
+					  xmlns:pvirtech="clr-namespace:Pvirtech.Framework.Interactivity;assembly=Pvirtech.Framework"
                       Title="{Binding Title}" TitleTemplate="{StaticResource PvirtechWindowTitle}" 
                       Width="1280"
                       Height="768"  
 					  Icon="/logo.ico" IconEdgeMode="Aliased" IconScalingMode="ScaleDownLargerFrame"
 					  xmlns:control="clr-namespace:Pvirtech.Framework.Controls;assembly=Pvirtech.Framework.Controls"
+					  xmlns:views="clr-namespace:Pvirtech.CommandSystem.Views"
                       Closing="MetroWindow_Closing"
                       Dialog:DialogParticipation.Register="{Binding}"
                       GlowBrush="{DynamicResource AccentColorBrush}" 
@@ -22,7 +24,9 @@
                       ShowTitleBar="True"
                       mc:Ignorable="d"  TitlebarHeight="65"
                       d:DesignHeight="600"
+					  FocusVisualStyle="{x:Null}"
                       d:DesignWidth="800"
+					   TextOptions.TextFormattingMode="Display"  TextOptions.TextRenderingMode="ClearType" 
 					  xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
                  >
 	<!--
@@ -62,7 +66,24 @@
 
 		</ResourceDictionary>
 	</Window.Resources>
+	<i:Interaction.Triggers>	
+		<pvirtech:InteractionRequestTrigger SourceObject="{Binding CustomPopupRequest}">
+			<pvirtech:PopupWindowAction IsModal="False"    CenterOverAssociatedObject="True">
+				<pvirtech:PopupWindowAction.WindowContent>
+					<views:CustomPopupView />
+				</pvirtech:PopupWindowAction.WindowContent>
+			</pvirtech:PopupWindowAction>
+		</pvirtech:InteractionRequestTrigger>
 
+		<!--<prism:InteractionRequestTrigger SourceObject="{Binding CustomNotificationRequest}">
+			<prism:PopupWindowAction IsModal="True" CenterOverAssociatedObject="True">
+				<prism:PopupWindowAction.WindowContent>
+					<views:ItemSelectionView />
+				</prism:PopupWindowAction.WindowContent>
+			</prism:PopupWindowAction>
+		</prism:InteractionRequestTrigger>-->
+
+	</i:Interaction.Triggers>
 	<Controls:MetroWindow.WindowButtonCommands >
 		<Controls:WindowButtonCommands VerticalAlignment="Top"  Margin="0,3,0,0"    Height="32" Template="{DynamicResource Pvirtech.Metro.Templates.WindowButtonCommands.Win10}" />
 	</Controls:MetroWindow.WindowButtonCommands> 

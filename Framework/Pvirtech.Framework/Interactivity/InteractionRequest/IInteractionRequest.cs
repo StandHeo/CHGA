@@ -2,7 +2,7 @@
 
 using System;
 
-namespace Pvirtech.Framework.Interactivity.InteractionRequest
+namespace Pvirtech.Framework.Interactivity
 {
     /// <summary>
     /// Represents a request from user interaction.

@@ -1,9 +1,12 @@
-﻿<Window x:Class="Pvirtech.Framework.Interactivity.DefaultPopupWindows.DefaultWindow"
+﻿<Controls:MetroWindow x:Class="Pvirtech.Framework.Interactivity.DefaultPopupWindows.DefaultWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" >   
-    <Window.Style>
-        <Style TargetType="{x:Type Window}" >
+		 xmlns:Controls="http://metro.pvirtech.com/winfx/xaml/controls"		 
+		 BorderBrush="{DynamicResource AccentColorBrush}"
+         BorderThickness="1" 
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" >
+	<Controls:MetroWindow.Style>
+		<Style TargetType="{x:Type Controls:MetroWindow}" >
             <Setter Property="SizeToContent" Value="WidthAndHeight" />
         </Style>
-    </Window.Style>
-</Window>
+    </Controls:MetroWindow.Style>
+</Controls:MetroWindow>

@@ -1,10 +1,9 @@
 
-
 using System;
 using System.Threading.Tasks;
 using Prism.Common;
 
-namespace Pvirtech.Framework.Interactivity.InteractionRequest
+namespace Pvirtech.Framework.Interactivity
 {
     /// <summary>
     /// Implementation of the <see cref="IInteractionRequest"/> interface.

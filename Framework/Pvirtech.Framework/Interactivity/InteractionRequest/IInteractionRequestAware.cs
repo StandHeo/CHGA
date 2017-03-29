@@ -1,9 +1,7 @@
 
-
-using Prism.Interactivity.InteractionRequest;
 using System;
 
-namespace Pvirtech.Framework.Interactivity.InteractionRequest
+namespace Pvirtech.Framework.Interactivity
 {
     /// <summary>
     /// Interface used by the <see cref="PopupWindowAction"/>.

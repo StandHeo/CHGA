@@ -3,7 +3,7 @@ using Prism.Commands;
 using Prism.Events;
 using Prism.Mvvm;
 using Prism.Regions;
-using Pvirtech.Framework.Interactivity.InteractionRequest;
+using Pvirtech.Framework.Interactivity;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows.Input;

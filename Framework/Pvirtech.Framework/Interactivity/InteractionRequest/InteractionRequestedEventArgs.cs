@@ -1,8 +1,6 @@
-
-
 using System;
 
-namespace Pvirtech.Framework.Interactivity.InteractionRequest
+namespace Pvirtech.Framework.Interactivity
 {
     /// <summary>
     /// Event args for the <see cref="IInteractionRequest.Raised"/> event.

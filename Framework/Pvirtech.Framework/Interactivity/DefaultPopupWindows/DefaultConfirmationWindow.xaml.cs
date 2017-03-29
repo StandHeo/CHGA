@@ -1,4 +1,4 @@
-using Pvirtech.Framework.Interactivity.InteractionRequest;
+using Pvirtech.Framework.Interactivity;
 using System.Windows;
 
 namespace Pvirtech.Framework.Interactivity.DefaultPopupWindows
@@ -6,7 +6,7 @@ namespace Pvirtech.Framework.Interactivity.DefaultPopupWindows
     /// <summary>
     /// Interaction logic for ConfirmationChildWindow.xaml
     /// </summary>
-    public partial class DefaultConfirmationWindow : Window
+    public partial class DefaultConfirmationWindow 
     {
         /// <summary>
         /// Creates a new instance of ConfirmationChildWindow.
