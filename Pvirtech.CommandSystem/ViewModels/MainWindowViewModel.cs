@@ -4,12 +4,14 @@ using Prism.Commands;
 using Prism.Events;
 using Prism.Modularity;
 using Prism.Mvvm;
+using Prism.Regions;
 using Pvirtech.CommandSystem.Properties;
 using Pvirtech.Framework;
 using Pvirtech.Framework.Core;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,14 +28,14 @@ namespace Pvirtech.CommandSystem.ViewModels
 		}
 		private readonly IEventAggregator _eventAggregator;
 		private readonly IUnityContainer _container;
-		private readonly IModuleCatalog _moduleCatalog;
+		private readonly IRegionManager _regionManager;
 		private readonly IModuleManager _moduleManager;
 		private readonly IServiceLocator _serviceLocator;
-		public MainWindowViewModel(IUnityContainer container, IEventAggregator eventAggregator, IModuleCatalog moduleCatalog, IModuleManager moduleManager,IServiceLocator  serviceLocator)
+		public MainWindowViewModel(IUnityContainer container, IEventAggregator eventAggregator, IRegionManager  regionManager, IModuleManager moduleManager,IServiceLocator  serviceLocator)
 		{
 	        _container = container;
 			_eventAggregator = eventAggregator;
-			_moduleCatalog = moduleCatalog;
+			_regionManager = regionManager;
 			_moduleManager = moduleManager;
 			_serviceLocator = serviceLocator;
 		}
@@ -67,9 +69,9 @@ namespace Pvirtech.CommandSystem.ViewModels
 		{
 			_systemInfos = new ObservableCollection<SystemInfoViewModel>();
 			_eventAggregator.GetEvent<MessageSentEvent<SystemInfo>>().Subscribe(MessageReceived);
-			SelectedCommand = new DelegateCommand<object[]>(OnItemSelected);
+			SelectedCommand = new DelegateCommand<object[]>(OnItemSelected);  
 		}
-
+		 
 		private void OnItemSelected(object[] selectedItems)
 		{
 			if (selectedItems != null && selectedItems.Count() > 0)
@@ -86,7 +88,20 @@ namespace Pvirtech.CommandSystem.ViewModels
 					 InitModule(model.ModuleInfo.ModuleType);
 					model.State = ModuleState.Initialized;
 				}
+				var region = _regionManager.Regions["MainRegion"];
+				//region.ActiveViews.CollectionChanged += Views_CollectionChanged;
+				_regionManager.RequestNavigate("MainRegion",model.Id,navigationCallback);
 			}
+		}
+
+		private void Regions_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+		{
+			int s = 9;
+		}
+
+		private void navigationCallback(NavigationResult result)
+		{
+			var s = result;
 		}
 
 		private void InitModule(string moduleName)

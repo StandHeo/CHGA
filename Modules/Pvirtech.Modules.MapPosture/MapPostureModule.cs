@@ -1,11 +1,9 @@
-﻿using Prism.Modularity;
+﻿using Microsoft.Practices.Unity;
+using Prism.Modularity;
 using Prism.Regions;
 using Pvirtech.Framework;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Prism.Unity;
 
 namespace Pvirtech.Modules.MapPosture
 { 
@@ -15,14 +13,16 @@ namespace Pvirtech.Modules.MapPosture
 	public class MapPostureModule : IModule
 	{
 		private readonly IRegionManager _regionManager;
-		public MapPostureModule(IRegionManager regionManager)
+		private readonly IUnityContainer _unityContainer;
+		public MapPostureModule(IRegionManager regionManager, IUnityContainer unityContainer)
 		{
 			_regionManager = regionManager;
+			_unityContainer = unityContainer;
 		}
 
 		public void Initialize()
 		{
-			_regionManager.RegisterViewWithRegion("MainRegion", typeof(MainWindow));
+			_unityContainer.RegisterTypeForNavigation<MainWindow>("MapPostureModule");
 		}
 	}
 }
