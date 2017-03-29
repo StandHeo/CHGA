@@ -101,11 +101,11 @@
     <Compile Include="Views\AlarmPrint.xaml.cs">
       <DependentUpon>AlarmPrint.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\VAlarmList01.xaml.cs">
-      <DependentUpon>VAlarmList01.xaml</DependentUpon>
+    <Compile Include="Views\WorkingAlarms.xaml.cs">
+      <DependentUpon>WorkingAlarms.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\VAlarmList02.xaml.cs">
-      <DependentUpon>VAlarmList02.xaml</DependentUpon>
+    <Compile Include="Views\CompletedAlarms.xaml.cs">
+      <DependentUpon>CompletedAlarms.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -119,11 +119,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\VAlarmList01.xaml">
+    <Page Include="Views\WorkingAlarms.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\VAlarmList02.xaml">
+    <Page Include="Views\CompletedAlarms.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

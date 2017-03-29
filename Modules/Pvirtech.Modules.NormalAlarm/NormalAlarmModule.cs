@@ -2,6 +2,7 @@
 using Prism.Modularity;
 using Prism.Regions;
 using Pvirtech.Framework;
+using Pvirtech.Framework.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,13 +27,11 @@ namespace Pvirtech.Modules.NormalAlarm
 		{
             _regionManager.RegisterViewWithRegion("MainRegion", typeof(MainWindow));
 
-            //this._container.RegisterType<ICommonRepository, CommonRepository>(new ContainerControlledLifetimeManager());
-
             this._regionManager.RegisterViewWithRegion(RegionNames.MainRegion, typeof(MainWindow));
 
             // View discovery
-            this._regionManager.RegisterViewWithRegion(RegionNames.AlarmTabRegion, () => this._container.Resolve<VAlarmList01>());
-            this._regionManager.RegisterViewWithRegion(RegionNames.AlarmTabRegion, () => this._container.Resolve<VAlarmList02>());
+            this._regionManager.RegisterViewWithRegion(RegionNames.AlarmTabRegion, () => this._container.Resolve<Pvirtech.Modules.NormalAlarm.Views.WorkingAlarms>());
+            this._regionManager.RegisterViewWithRegion(RegionNames.AlarmTabRegion, () => this._container.Resolve<Pvirtech.Modules.NormalAlarm.Views.CompletedAlarms>());
             _regionManager.RegisterViewWithRegion("MainRegion", typeof(MainWindow));
 		}
 	}

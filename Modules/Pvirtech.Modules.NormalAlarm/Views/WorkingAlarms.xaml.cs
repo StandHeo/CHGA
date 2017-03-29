@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Pvirtech.Modules.NormalAlarm.Views
 {
     /// <summary>
-    /// VAlarmList02.xaml 的交互逻辑
+    /// VAlarmList01.xaml 的交互逻辑
     /// </summary>
-    public partial class VAlarmList02 : UserControl
+    public partial class WorkingAlarms : UserControl
     {
-        public VAlarmList02()
+        public WorkingAlarms()
         {
             InitializeComponent();
         }
