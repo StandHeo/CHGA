@@ -4,12 +4,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
-
-namespace Pvirtech.Framework.Map
+namespace Pvirtech.Framework.Maps
 {
-	public class FunMap
+	public class PvirtechMap
 	{
-		public static void ZoomToCenter(Map map, double x, double y)
+		public static void ZoomToCenter(ESRI.ArcGIS.Client.Map map, double x, double y)
 		{
 			map.PanTo(new MapPoint(x, y)
 			{
@@ -17,7 +16,7 @@ namespace Pvirtech.Framework.Map
 			});
 		}
 
-		public static void ZoomToDistance(Map map, double width)
+		public static void ZoomToDistance(ESRI.ArcGIS.Client.Map map, double width)
 		{
 			Envelope extent = map.Extent;
 			double factor = width / extent.Width;
@@ -25,20 +24,20 @@ namespace Pvirtech.Framework.Map
 			map.Extent = extent2;
 		}
 
-		public static void ZoomToCentreAndWidth(Map map, double x, double y, double width)
+		public static void ZoomToCentreAndWidth(ESRI.ArcGIS.Client.Map map, double x, double y, double width)
 		{
-			map.Extent = FunGeometry.GetEnvelope(x, y, width);
+			map.Extent = MapGeometry.GetEnvelope(x, y, width);
 		}
 
-		public static void LocateMapByScale(Map map, double x, double y, double scale)
+		public static void LocateMapByScale(ESRI.ArcGIS.Client.Map map, double x, double y, double scale)
 		{
-			double mapResolution = FunMap.GetMapResolution(map, scale);
+			double mapResolution = GetMapResolution(map, scale);
 			map.ZoomToResolution(mapResolution);
 		}
 
-		public static Envelope LocateMap(Map map, IEnumerable<Graphic> graphics)
+		public static Envelope LocateMap(ESRI.ArcGIS.Client.Map map, IEnumerable<Graphic> graphics)
 		{
-			Envelope envelope = FunGeometry.GetEnvelope(graphics);
+			Envelope envelope = MapGeometry.GetEnvelope(graphics);
 			if (envelope != null && envelope.Width > 0.0 && envelope.Height > 0.0)
 			{
 				map.Extent = envelope;
@@ -46,7 +45,7 @@ namespace Pvirtech.Framework.Map
 			return envelope;
 		}
 
-		public static void LocateMap(Map map, IEnumerable<Point> points)
+		public static void LocateMap(ESRI.ArcGIS.Client.Map map, IEnumerable<Point> points)
 		{
 			if (points == null || points.Count<Point>() == 0)
 			{
@@ -103,7 +102,7 @@ namespace Pvirtech.Framework.Map
 			return result;
 		}
 
-		public static void RefreshMap(Map map)
+		public static void RefreshMap(ESRI.ArcGIS.Client.Map map)
 		{
 			foreach (Layer current in map.Layers)
 			{
@@ -122,7 +121,7 @@ namespace Pvirtech.Framework.Map
 			}
 		}
 
-		public static double GetMapResolution(Map map, double scale)
+		public static double GetMapResolution(ESRI.ArcGIS.Client.Map map, double scale)
 		{
 			return scale / (map.Scale / map.Resolution);
 		}

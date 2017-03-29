@@ -7,13 +7,13 @@ using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
-namespace Pvirtech.Framework.Map
+namespace Pvirtech.Framework.Maps
 {
-	public class FunSymbol
+	public class MapSymbol
 	{
 		public static SimpleFillSymbol GetDefaultSimpleFillSymbol()
 		{
-			return FunSymbol.GetSimpleFillSymbol(Colors.Red, 1.0, 1.0, Colors.Red, 1.0);
+			return GetSimpleFillSymbol(Colors.Red, 1.0, 1.0, Colors.Red, 1.0);
 		}
 
 		public static SimpleLineSymbol GetSimpleLineSymbol(Color color, double width, SimpleLineSymbol.LineStyle lineStyle)
@@ -85,7 +85,7 @@ namespace Pvirtech.Framework.Map
 			{
 				Color = new SolidColorBrush(color),
 				Size = size,
-				Style = FunSymbol.GetSimpleMarkerStyleByInt(style)
+				Style = GetSimpleMarkerStyleByInt(style)
 			};
 		}
 
@@ -112,7 +112,7 @@ namespace Pvirtech.Framework.Map
 		public static PictureMarkerSymbol GetPictureMarkerSymbol(string pictureSource, double width, double height, double offsetX, double offsetY, double opacity)
 		{
 			ImageSource imageSource = new BitmapImage(new Uri(pictureSource, UriKind.Relative));
-			return FunSymbol.GetPictureMarkerSymbol(imageSource, width, height, offsetX, offsetY, opacity);
+			return GetPictureMarkerSymbol(imageSource, width, height, offsetX, offsetY, opacity);
 		}
 
 		public static PictureMarkerSymbol GetPictureMarkerSymbol(ImageSource imageSource, double width, double height, double offsetX, double offsetY, double opacity)

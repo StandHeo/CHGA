@@ -4,12 +4,13 @@ using ESRI.ArcGIS.Client.Geometry;
 using System;
 using System.IO;
 using System.Text;
+using System.Windows;
 using System.Windows.Media;
 using System.Xml;
 
-namespace Pvirtech.Framework.Map
+namespace Pvirtech.Framework.Maps
 {
-	public class EzMapTiledLayer : TiledMapServiceLayer
+	public class PGisMapTiledLayer : TiledMapServiceLayer
 	{
 		private TileInfo ezTileInfo = null;
 
@@ -150,14 +151,14 @@ namespace Pvirtech.Framework.Map
 			}
 		}
 
-		public EzMapTiledLayer(string mapServer_NodeName)
+		public PGisMapTiledLayer(string mapServerName)
 		{
-			this.InitLayer(mapServer_NodeName);
-			base.TileLoaded += new EventHandler<TiledLayer.TileLoadEventArgs>(this.EzMapTiledLayer_TileLoaded);
+			this.InitLayer(mapServerName);
+			base.TileLoaded += new EventHandler<TileLoadEventArgs>(pGisMapTiledLayerTileLoaded);
 			this.mapCacheManager.Cachepath = this.Cachepath;
 		}
 
-		private void EzMapTiledLayer_TileLoaded(object sender, TiledLayer.TileLoadEventArgs e)
+		private void pGisMapTiledLayerTileLoaded(object sender, TileLoadEventArgs e)
 		{
 			this.mapCacheManager.SaveImage(e.ImageStream, e.Level, e.Row, e.Column);
 		}
@@ -167,10 +168,7 @@ namespace Pvirtech.Framework.Map
 			ImageSource image = this.mapCacheManager.GetImage(level, row, col);
 			if (image != null)
 			{
-				if (onComplete != null)
-				{
-					onComplete(image);
-				}
+				onComplete?.Invoke(image);
 			}
 			else
 			{

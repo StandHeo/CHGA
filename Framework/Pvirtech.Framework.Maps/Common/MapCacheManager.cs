@@ -6,15 +6,17 @@ using System.Text;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
-namespace Pvirtech.Framework.Map
+namespace Pvirtech.Framework.Maps
 {
 	public class MapCacheManager
 	{
+		private object locker = new object();
 		public string Cachepath
 		{
 			get;
 			set;
 		}
+		public object Locker { get => locker; set => locker = value; }
 
 		public MapCacheManager()
 		{
@@ -28,7 +30,7 @@ namespace Pvirtech.Framework.Map
 		public string GetImageFile(int level, int row, int col)
 		{
 			StringBuilder stringBuilder = new StringBuilder();
-			stringBuilder.Append(this.Cachepath);
+			stringBuilder.Append(Cachepath);
 			stringBuilder.Append(level);
 			stringBuilder.Append("\\");
 			stringBuilder.Append(row);
@@ -47,6 +49,7 @@ namespace Pvirtech.Framework.Map
 				Uri uriSource = new Uri(imageFile);
 				ImageSource imageSource = new BitmapImage(uriSource);
 				result = imageSource;
+				//imageSource.Freeze();
 			}
 			else
 			{
@@ -88,7 +91,7 @@ namespace Pvirtech.Framework.Map
 			}
 			else
 			{
-				lock (this)
+				lock (Locker)
 				{
 					if (File.Exists(imageFile))
 					{

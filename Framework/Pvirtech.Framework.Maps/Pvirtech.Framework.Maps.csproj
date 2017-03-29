@@ -7,8 +7,8 @@
     <ProjectGuid>{3E96D0E4-151F-44AA-A0AD-842C3083B08C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Pvirtech.Framework.Map</RootNamespace>
-    <AssemblyName>Pvirtech.Framework.Map</AssemblyName>
+    <RootNamespace>Pvirtech.Framework.Maps</RootNamespace>
+    <AssemblyName>Pvirtech.Framework.Maps</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -49,9 +49,11 @@
       <HintPath>..\..\Lib\ESRI.ArcGIS.Client.Toolkit.DataSources.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -62,16 +64,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
-    <Compile Include="Common\EzMapTiledLayer.cs" />
-    <Compile Include="Common\FunColor.cs" />
-    <Compile Include="Common\FunCoordinateConvert.cs" />
-    <Compile Include="Common\FunGeometry.cs" />
-    <Compile Include="Common\FunLayer.cs" />
-    <Compile Include="Common\FunMap.cs" />
-    <Compile Include="Common\FunSymbol.cs" />
+    <Compile Include="Common\PGisMapTiledLayer.cs" />
+    <Compile Include="Common\MapColor.cs" />
+    <Compile Include="Common\MapCoordinateConvert.cs" />
+    <Compile Include="Common\MapGeometry.cs" />
+    <Compile Include="Common\MapSymbol.cs" />
     <Compile Include="Common\MapCacheManager.cs" />
     <Compile Include="Common\MapServer.cs" />
     <Compile Include="Common\MapServerTypeEnum.cs" />
+    <Compile Include="Common\PvirtechLayer.cs" />
+    <Compile Include="Common\PvirtechMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

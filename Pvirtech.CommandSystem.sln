@@ -54,7 +54,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pvirtech.Framework.Converte
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pvirtech.Modules.MapCommander", "Modules\Pvirtech.Modules.MapCommander\Pvirtech.Modules.MapCommander.csproj", "{0B127D67-D70D-402E-B040-07375429235B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pvirtech.Framework.Map", "Framework\Pvirtech.Framework.Map\Pvirtech.Framework.Map.csproj", "{3E96D0E4-151F-44AA-A0AD-842C3083B08C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pvirtech.Framework.Maps", "Framework\Pvirtech.Framework.Maps\Pvirtech.Framework.Maps.csproj", "{3E96D0E4-151F-44AA-A0AD-842C3083B08C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

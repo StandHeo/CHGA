@@ -1,9 +1,9 @@
 using ESRI.ArcGIS.Client.Geometry;
 using System;
 
-namespace Pvirtech.Framework.Map
+namespace Pvirtech.Framework.Maps
 {
-	public class FunCoordinateConvert
+	public class MapCoordinateConvert
 	{
 		private const double pi = 3.1415926535897931;
 
@@ -70,15 +70,15 @@ namespace Pvirtech.Framework.Map
 
 		public static void transform(double wgLon, double wgLat, out double mgLon, out double mgLat)
 		{
-			if (FunCoordinateConvert.outOfChina(wgLat, wgLon))
+			if (outOfChina(wgLat, wgLon))
 			{
 				mgLat = wgLat;
 				mgLon = wgLon;
 			}
 			else
 			{
-				double num = FunCoordinateConvert.transformLat(wgLon - 105.0, wgLat - 35.0);
-				double num2 = FunCoordinateConvert.transformLon(wgLon - 105.0, wgLat - 35.0);
+				double num = transformLat(wgLon - 105.0, wgLat - 35.0);
+				double num2 = transformLon(wgLon - 105.0, wgLat - 35.0);
 				double d = wgLat / 180.0 * 3.1415926535897931;
 				double num3 = Math.Sin(d);
 				num3 = 1.0 - 0.0066934216229659433 * num3 * num3;

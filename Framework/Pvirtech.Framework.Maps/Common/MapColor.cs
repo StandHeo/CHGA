@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Windows.Media;
 
-namespace Pvirtech.Framework.Map
+namespace Pvirtech.Framework.Maps
 {
-	public class FunColor
+	public class MapColor
 	{
 		public static List<Color> GetRandomColors(int count)
 		{
 			List<Color> list = new List<Color>();
 			for (int i = 0; i < count; i++)
 			{
-				list.Add(FunColor.GetRandomColor(i));
+				list.Add(GetRandomColor(i));
 			}
 			return list;
 		}
@@ -45,9 +45,9 @@ namespace Pvirtech.Framework.Map
 			List<Color> list = new List<Color>();
 			for (int i = 0; i < count; i++)
 			{
-				int num = (int)colorFrom.R + i * (int)(colorTo.R - colorFrom.R) / (count - 1);
-				int num2 = (int)colorFrom.G + i * (int)(colorTo.G - colorFrom.G) / (count - 1);
-				int num3 = (int)colorFrom.B + i * (int)(colorTo.B - colorFrom.B) / (count - 1);
+				int num = colorFrom.R + i * (colorTo.R - colorFrom.R) / (count - 1);
+				int num2 = colorFrom.G + i * (colorTo.G - colorFrom.G) / (count - 1);
+				int num3 = colorFrom.B + i * (colorTo.B - colorFrom.B) / (count - 1);
 				Color item = Color.FromArgb(colorFrom.A, (byte)num, (byte)num2, (byte)num3);
 				list.Add(item);
 			}
@@ -73,9 +73,9 @@ namespace Pvirtech.Framework.Map
 				{
 					for (int i = 0; i < intBreakCount; i++)
 					{
-						int num = (int)colorMin.R + i * (int)(colorMax.R - colorMin.R) / (intBreakCount - 1);
-						int num2 = (int)colorMin.G + i * (int)(colorMax.G - colorMin.G) / (intBreakCount - 1);
-						int num3 = (int)colorMin.B + i * (int)(colorMax.B - colorMin.B) / (intBreakCount - 1);
+						int num = colorMin.R + i * (colorMax.R - colorMin.R) / (intBreakCount - 1);
+						int num2 = colorMin.G + i * (colorMax.G - colorMin.G) / (intBreakCount - 1);
+						int num3 = colorMin.B + i * (colorMax.B - colorMin.B) / (intBreakCount - 1);
 						Color item = Color.FromArgb(255, (byte)num, (byte)num2, (byte)num3);
 						list.Add(item);
 					}

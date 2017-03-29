@@ -5,9 +5,9 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-namespace Pvirtech.Framework.Map
+namespace Pvirtech.Framework.Maps
 {
-	public class FunGeometry
+	public class MapGeometry
 	{
 		public static bool IsInSiChuanXY(double x, double y)
 		{
@@ -23,7 +23,7 @@ namespace Pvirtech.Framework.Map
 				MapPoint mapPoint = pointCollection[i];
 				list.Add(new MapPoint(mapPoint.X, mapPoint.Y));
 			}
-			return FunGeometry.PointInPolygon(point, list);
+			return PointInPolygon(point, list);
 		}
 
 		public static bool PointInPolygon(MapPoint point, List<MapPoint> polygonPoints)
@@ -129,7 +129,7 @@ namespace Pvirtech.Framework.Map
 			MapPoint result;
 			if (geo is Polygon)
 			{
-				result = FunGeometry.GetGravityCenter(geo as Polygon);
+				result = GetGravityCenter(geo as Polygon);
 			}
 			else if (geo is MapPoint)
 			{
@@ -160,7 +160,7 @@ namespace Pvirtech.Framework.Map
 			Envelope result;
 			if (featureSet != null && featureSet.Features.Count > 0)
 			{
-				result = FunGeometry.GetEnvelope(featureSet.Features);
+				result = GetEnvelope(featureSet.Features);
 			}
 			else
 			{
@@ -191,9 +191,9 @@ namespace Pvirtech.Framework.Map
 
 		public static Polygon GetCellShape(double dblOriginX, double dblOriginY, double dblRadius, double dblStartAngle, double dblEndAngle, double stepAngle = 1.0)
 		{
-			dblStartAngle = FunCoordinateConvert.GetRadian(dblStartAngle);
-			dblEndAngle = FunCoordinateConvert.GetRadian(dblEndAngle);
-			stepAngle = FunCoordinateConvert.GetRadian(stepAngle);
+			dblStartAngle = MapCoordinateConvert.GetRadian(dblStartAngle);
+			dblEndAngle = MapCoordinateConvert.GetRadian(dblEndAngle);
+			stepAngle = MapCoordinateConvert.GetRadian(stepAngle);
 			dblStartAngle = ((dblEndAngle > dblStartAngle) ? dblStartAngle : (dblStartAngle - 6.2831853071795862));
 			Polygon polygon = new Polygon();
 			PointCollection pointCollection = new PointCollection();
@@ -218,14 +218,14 @@ namespace Pvirtech.Framework.Map
 			try
 			{
 				pointCollection.Add(new MapPoint(start_x, start_y));
-				double num = FunGeometry.CalPointToPointLength(start_x, start_y, end_x, end_y);
+				double num = CalPointToPointLength(start_x, start_y, end_x, end_y);
 				if (num <= step_length)
 				{
 					pointCollection.Add(new MapPoint(end_x, end_y));
 					result = pointCollection;
 					return result;
 				}
-				double angle = FunGeometry.GetAngle(start_x, start_y, end_x, end_y);
+				double angle = GetAngle(start_x, start_y, end_x, end_y);
 				for (double num2 = step_length; num2 < num; num2 += step_length)
 				{
 					double x = start_x + num2 * Math.Cos(angle);
@@ -256,7 +256,7 @@ namespace Pvirtech.Framework.Map
 			}
 			else
 			{
-				double d = FunGeometry.CalPointToPointSlope(start_x, start_y, end_x, end_y);
+				double d = CalPointToPointSlope(start_x, start_y, end_x, end_y);
 				double num3 = Math.Atan(d);
 				if (num <= 0.0 || num2 <= 0.0)
 				{
