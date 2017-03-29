@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace Pvirtech.Model
 {
-    public class Class1
+   public class AllEnum
     {
+        public enum PolSource
+        {
+            市局 = 0,
+            大联动 = 1,
+            分局 = 2
+        }
     }
 }

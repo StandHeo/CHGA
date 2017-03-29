@@ -1,11 +1,9 @@
-﻿using Prism.Modularity;
+﻿using Microsoft.Practices.Unity;
+using Prism.Modularity;
 using Prism.Regions;
 using Pvirtech.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Pvirtech.Framework.Domain;
+using Pvirtech.Modules.NormalAlarm.Views;
 
 namespace Pvirtech.Modules.NormalAlarm
 {
@@ -14,14 +12,25 @@ namespace Pvirtech.Modules.NormalAlarm
 	public class NormalAlarmModule:IModule
 	{
 		private readonly IRegionManager _regionManager;
-		public NormalAlarmModule(IRegionManager regionManager)
+        private readonly IUnityContainer _container;
+        public NormalAlarmModule(IUnityContainer container, IRegionManager regionManager)
 		{
 			_regionManager = regionManager;
+            _container = container;
 		}
 
 		public void Initialize()
 		{
 			_regionManager.RegisterViewWithRegion("MainRegion", typeof(MainWindow));
-		}
+
+            //this._container.RegisterType<ICommonRepository, CommonRepository>(new ContainerControlledLifetimeManager());
+
+            this._regionManager.RegisterViewWithRegion(RegionNames.MainRegion, typeof(MainWindow));
+
+            // View discovery
+            this._regionManager.RegisterViewWithRegion(RegionNames.AlarmTabRegion, () => this._container.Resolve<VAlarmList01>());
+            this._regionManager.RegisterViewWithRegion(RegionNames.AlarmTabRegion, () => this._container.Resolve<VAlarmList02>());
+
+        }
 	}
 }

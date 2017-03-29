@@ -22,5 +22,7 @@ namespace Pvirtech.Framework.Interactivity.InteractionRequest
         /// Gets or sets the content of the notification.
         /// </summary>
         public object Content { get; set; }
+
+        public bool Topmost { get; set; }
     }
 }
