@@ -1,6 +1,8 @@
 ﻿using Microsoft.Practices.ServiceLocation;
+using Prism.Events;
 using Prism.Logging;
 using Prism.Modularity;
+using Pvirtech.Framework.Core;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -17,10 +19,13 @@ namespace Pvirtech.Framework
 	{
 		private readonly IServiceLocator serviceLocator;
 		private readonly ILoggerFacade loggerFacade;
-		public RoleBasedModuleInitializer(IServiceLocator serviceLocator, ILoggerFacade loggerFacade)
+		private readonly IEventAggregator eventAggregator;
+
+		public RoleBasedModuleInitializer(IServiceLocator serviceLocator, ILoggerFacade loggerFacade, IEventAggregator eventAggregator)
 		{
 			this.serviceLocator = serviceLocator ?? throw new ArgumentNullException("serviceLocator");
 			this.loggerFacade = loggerFacade ?? throw new ArgumentNullException("loggerFacade");
+			this.eventAggregator = eventAggregator ?? throw new ArgumentNullException("eventAggregator");
 		}
 		[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes", Justification = "Catches Exception to handle any exception thrown during the initialization process with the HandleModuleInitializationError method.")]
 		public void Initialize(ModuleInfo moduleInfo)
@@ -32,9 +37,9 @@ namespace Pvirtech.Framework
 			{
 				if (ModuleIsInUserRole(moduleInfo))
 				{
-					moduleInstance = this.CreateModule(moduleInfo);
-					if (moduleInstance != null)
-						moduleInstance.Initialize();
+					//moduleInstance = this.CreateModule(moduleInfo);
+					//if (moduleInstance != null)
+					//	moduleInstance.Initialize();
 				}
 			}
 			catch (Exception ex)
@@ -65,6 +70,7 @@ namespace Pvirtech.Framework
 		}
 		private void GetModuleInfoDetail(ModuleInfo moduleInfo)
 		{
+			moduleInfo.InitializationMode = InitializationMode.OnDemand; 
 			var type = Type.GetType(moduleInfo.ModuleType); 
 			foreach (var attr in GetCustomAttribute<ModuleInfoAttribute>(type))
 			{
@@ -72,9 +78,11 @@ namespace Pvirtech.Framework
 				{
 					Id = attr.Id,
 					Title = attr.Title,
-					InitMode = InitializationMode.WhenAvailable,
-					IsDefaultShow = attr.IsDefaultShow
-				};
+					InitMode = attr.InitMode,
+					IsDefaultShow = attr.IsDefaultShow,
+					ModuleInfo = moduleInfo
+				};				
+				eventAggregator.GetEvent<MessageSentEvent<SystemInfo>>().Publish(info);
 			}
 			//foreach (var att in attr.GetInfoAttribute(type))
 			//{

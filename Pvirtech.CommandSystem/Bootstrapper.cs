@@ -10,6 +10,8 @@ using System.Reflection;
 using System;
 using System.Linq;
 using Pvirtech.CommandSystem.ViewModels;
+using Prism.Events;
+using Pvirtech.CommandSystem.Views;
 
 namespace Pvirtech.CommandSystem
 {
@@ -31,7 +33,7 @@ namespace Pvirtech.CommandSystem
 		protected override void ConfigureServiceLocator()
 		{ 
 			base.ConfigureServiceLocator();
-			Container.RegisterType<MainWindowViewModel>(new ContainerControlledLifetimeManager());
+		//	Container.RegisterType<MainWindowViewModel>(new ContainerControlledLifetimeManager());
 		}
 		protected override void ConfigureContainer()
 		{
@@ -40,7 +42,7 @@ namespace Pvirtech.CommandSystem
 		}
 		protected override IModuleCatalog CreateModuleCatalog()
 		{ 
-			DynamicDirectoryModuleCatalog catalog = new DynamicDirectoryModuleCatalog(Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, "Modules"));
+			DynamicDirectoryModuleCatalog catalog = new DynamicDirectoryModuleCatalog(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Modules"));
 			return catalog;
 		}
 	}

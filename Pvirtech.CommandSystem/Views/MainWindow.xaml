@@ -1,4 +1,4 @@
-﻿<Controls:MetroWindow x:Class="Pvirtech.CommandSystem.MainWindow"
+﻿<Controls:MetroWindow x:Class="Pvirtech.CommandSystem.Views.MainWindow"
                       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                       xmlns:Controls="http://metro.pvirtech.com/winfx/xaml/controls"
@@ -7,10 +7,11 @@
                       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
 					  xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
 					  xmlns:prism="http://prismlibrary.com/" 
+					  prism:ViewModelLocator.AutoWireViewModel="True"
                       Title="{Binding Title}" TitleTemplate="{StaticResource PvirtechWindowTitle}" 
                       Width="1280"
                       Height="768"  
-					  Icon="logo.ico" IconEdgeMode="Aliased" IconScalingMode="ScaleDownLargerFrame"
+					  Icon="/logo.ico" IconEdgeMode="Aliased" IconScalingMode="ScaleDownLargerFrame"
 					  xmlns:control="clr-namespace:Pvirtech.Framework.Controls;assembly=Pvirtech.Framework.Controls"
                       Closing="MetroWindow_Closing"
                       Dialog:DialogParticipation.Register="{Binding}"
@@ -18,10 +19,11 @@
                       NonActiveGlowBrush="#CDFF0000"
                       ShowIconOnTitleBar="True"
                       WindowStartupLocation="CenterScreen"
-                      ShowTitleBar="{Binding ShowMyTitleBar, Mode=OneWay}"
+                      ShowTitleBar="True"
                       mc:Ignorable="d"  TitlebarHeight="72"
                       d:DesignHeight="600"
                       d:DesignWidth="800"
+					  xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
                  >
 	<!--
         if using DialogParticipation on Windows which open/close frequently you will get a
@@ -35,37 +37,7 @@
 		<ResourceDictionary>
 			<ResourceDictionary.MergedDictionaries>
 				<ResourceDictionary Source="pack://application:,,,/Pvirtech.Metro;component/Styles/FlatSlider.xaml" />
-			</ResourceDictionary.MergedDictionaries>
-
-			<Ellipse x:Key="AppThemeMenuIcon"
-                     Width="16"
-                     Height="16"
-                     Fill="{Binding ColorBrush, Mode=OneWay}"
-                     Stroke="{Binding BorderColorBrush, Mode=OneWay}"
-                     StrokeThickness="1"
-                     x:Shared="False" />
-			<Ellipse x:Key="AccentMenuIcon"
-                     Width="16"
-                     Height="16"
-                     Fill="{Binding ColorBrush, Mode=OneWay}"
-                     x:Shared="False" />
-
-			<Style x:Key="AppThemeMenuItemStyle"
-                   BasedOn="{StaticResource MetroMenuItem}"
-                   TargetType="{x:Type MenuItem}">
-				<Setter Property="Command" Value="{Binding ChangeAccentCommand}" />
-				<Setter Property="Header" Value="{Binding Name, Mode=OneWay}" />
-				<Setter Property="Icon" Value="{StaticResource AppThemeMenuIcon}" />
-			</Style>
-
-			<Style x:Key="AccentColorMenuItemStyle"
-                   BasedOn="{StaticResource MetroMenuItem}"
-                   TargetType="{x:Type MenuItem}">
-				<Setter Property="Command" Value="{Binding ChangeAccentCommand}" />
-				<Setter Property="Header" Value="{Binding Name, Mode=OneWay}" />
-				<Setter Property="Icon" Value="{StaticResource AccentMenuIcon}" />
-			</Style>
-
+			</ResourceDictionary.MergedDictionaries> 
 			<Dialog:CustomDialog x:Key="CustomDialogTest"
                                  x:Name="CustomTestDialog"
                                  Title="This dialog allows arbitrary content.">
@@ -94,14 +66,34 @@
 	<Controls:MetroWindow.WindowButtonCommands >
 		<Controls:WindowButtonCommands VerticalAlignment="Top"  Margin="0,3,0,0"    Height="32" Template="{DynamicResource Pvirtech.Metro.Templates.WindowButtonCommands.Win10}" />
 	</Controls:MetroWindow.WindowButtonCommands> 
-	<Controls:MetroWindow.LeftWindowCommands >
-		<Controls:WindowCommands  Margin="50,0,0,0" ShowSeparators="False" >
-			<control:SwitchControl Width="120" x:Name="switcon" VerticalAlignment="Bottom" Height="62" IsSelected="True"  SelectedBackground="Orange"  Content="成化态势" />
+	<Controls:MetroWindow.LeftWindowCommands  >
+		<Controls:WindowCommands  BorderThickness="0" Margin="50,0,0,0" ShowSeparators="False" ShowLastSeparator="False" >
+			<!--<control:SwitchControl Width="120" x:Name="switcon" VerticalAlignment="Bottom" Height="62" IsSelected="True"  SelectedBackground="Orange"  Content="成化态势" />
 
-			<control:SwitchControl Width="120" x:Name="stcon" Margin="5,0,0,0" VerticalAlignment="Bottom" Height="62" IsSelected="False"  SelectedBackground="Orange"  Content="应急处置" />
+			<control:SwitchControl Width="120" x:Name="stcon" Margin="5,0,0,0" VerticalAlignment="Bottom" Height="62" IsSelected="False"  SelectedBackground="Orange"  Content="应急处置" />-->
 			 
-			<Button Content="{iconPacks:PackIconFontAwesome Spinner, Width=32, Height=32, Spin=True}" Foreground="White" />
-		 
+			<!--<Button Content="{iconPacks:PackIconFontAwesome Spinner, Width=32, Height=32, Spin=True}" Foreground="White" />-->
+			<ListBox BorderThickness="0" Background="#41B1E1" SelectedIndex="0"  SelectionMode="Single" VerticalAlignment="Bottom"   ItemsSource="{Binding SystemInfos}"   x:Name="LstBoxMore"
+                      ItemContainerStyle="{StaticResource HeaderListBoxItem}" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+				<i:Interaction.Triggers> 
+					<i:EventTrigger EventName="SelectionChanged"> 
+						<prism:InvokeCommandAction Command="{Binding SelectedCommand}"    TriggerParameterPath="AddedItems" />
+					</i:EventTrigger>
+				</i:Interaction.Triggers>
+				<ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+                <ListBox.ItemTemplate>
+                    <DataTemplate >
+						<control:SwitchControl Background="Transparent"  Width="120" IsSelected="{Binding IsSelected}"
+											    x:Name="stcon"  VerticalAlignment="Bottom" Height="62"  SelectedBackground="Orange"  
+                                                  Content="{Binding Title}"> 
+                        </control:SwitchControl>
+                    </DataTemplate>
+                </ListBox.ItemTemplate> 
+			</ListBox>
 		</Controls:WindowCommands>
 	</Controls:MetroWindow.LeftWindowCommands>
 
@@ -122,7 +114,7 @@
 			<RowDefinition Height="*" />
 			<RowDefinition Height="30" />
 		</Grid.RowDefinitions>
-		<ItemsControl prism:RegionManager.RegionName="MainRegion" />
+		<ContentControl prism:RegionManager.RegionName="MainRegion" />
 		<StatusBar Grid.Row="1">
 			<StatusBarItem>成华分局扁平化</StatusBarItem>
 			<Separator Style="{StaticResource MetroStatusBarSeparator}" />

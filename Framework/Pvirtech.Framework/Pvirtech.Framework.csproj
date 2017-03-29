@@ -77,6 +77,7 @@
     <Compile Include="Common\ObservableObject.cs" />
     <Compile Include="Common\UriParsingHelper.cs" />
     <Compile Include="Core\DynamicDirectoryModuleCatalog.cs" />
+    <Compile Include="Core\MessageSentEvent.cs" />
     <Compile Include="Core\ModuleInfoAttribute.cs" />
     <Compile Include="Core\SystemInfo.cs" />
     <Compile Include="Domain\EventArgs.cs" />

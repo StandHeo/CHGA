@@ -2,13 +2,16 @@
 using Prism.Modularity;
 using Prism.Regions;
 using Pvirtech.Framework;
-using Pvirtech.Framework.Domain;
-using Pvirtech.Modules.NormalAlarm.Views;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Pvirtech.Modules.NormalAlarm
 {
     [Roles("User")]
-	[ModuleInfo(Id = "NormalAlarmModule",Title ="常规处警")]
+	[ModuleInfo(Id = "NormalAlarmModule",Title ="常规处警",InitMode =InitializationMode.OnDemand)]
 	public class NormalAlarmModule:IModule
 	{
 		private readonly IRegionManager _regionManager;
@@ -17,11 +20,11 @@ namespace Pvirtech.Modules.NormalAlarm
 		{
 			_regionManager = regionManager;
             _container = container;
-		}
+        }
 
 		public void Initialize()
 		{
-			_regionManager.RegisterViewWithRegion("MainRegion", typeof(MainWindow));
+            _regionManager.RegisterViewWithRegion("MainRegion", typeof(MainWindow));
 
             //this._container.RegisterType<ICommonRepository, CommonRepository>(new ContainerControlledLifetimeManager());
 
@@ -30,7 +33,7 @@ namespace Pvirtech.Modules.NormalAlarm
             // View discovery
             this._regionManager.RegisterViewWithRegion(RegionNames.AlarmTabRegion, () => this._container.Resolve<VAlarmList01>());
             this._regionManager.RegisterViewWithRegion(RegionNames.AlarmTabRegion, () => this._container.Resolve<VAlarmList02>());
-
-        }
+            _regionManager.RegisterViewWithRegion("MainRegion", typeof(MainWindow));
+		}
 	}
 }

@@ -19,5 +19,6 @@ namespace Pvirtech.Framework
 		public bool IsReadOnly { get; set; }
 		public ModuleState State { get; set; }
 		public int MsgCount { get; set; } = 0;
+		public ModuleInfo ModuleInfo { get; set; }
 	}
 }
