@@ -20,7 +20,7 @@
                       ShowIconOnTitleBar="True"
                       WindowStartupLocation="CenterScreen"
                       ShowTitleBar="True"
-                      mc:Ignorable="d"  TitlebarHeight="72"
+                      mc:Ignorable="d"  TitlebarHeight="65"
                       d:DesignHeight="600"
                       d:DesignWidth="800"
 					  xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"

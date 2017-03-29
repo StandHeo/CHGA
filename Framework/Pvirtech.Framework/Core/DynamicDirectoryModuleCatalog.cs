@@ -24,6 +24,7 @@ namespace Pvirtech.Framework
 			FileSystemWatcher fileWatcher = new FileSystemWatcher(ModulePath, "*.dll");
 			fileWatcher.Created += FileWatcher_Created;
 			fileWatcher.EnableRaisingEvents = true;
+            
 		}
 
 		 /// <summary>
