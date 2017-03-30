@@ -1,12 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26228.4
+VisualStudioVersion = 15.0.26228.9
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pvirtech.Metro", "Pvirtech.Metro\Pvirtech.Metro.csproj", "{1A8F5E0B-5EA8-4C04-9F1B-1482D08F878A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lib", "Lib", "{143FF240-4FEA-44BB-B5CB-09AB89CA0CC0}"
 	ProjectSection(SolutionItems) = preProject
+		..\..\..\Pro\Main\1.6\Pvirtech.Commander\Runtime\Telerik\EQATEC.Analytics.Monitor.dll = ..\..\..\Pro\Main\1.6\Pvirtech.Commander\Runtime\Telerik\EQATEC.Analytics.Monitor.dll
 		Lib\JetBrains.Annotations.dll = Lib\JetBrains.Annotations.dll
 		C:\Users\ZHW\Downloads\Prism-master\Source\Wpf\Prism.Unity.Wpf\bin\Release\Microsoft.Practices.ServiceLocation.dll = C:\Users\ZHW\Downloads\Prism-master\Source\Wpf\Prism.Unity.Wpf\bin\Release\Microsoft.Practices.ServiceLocation.dll
 		C:\Users\ZHW\Downloads\Prism-master\Source\Wpf\Prism.Unity.Wpf\bin\Release\Microsoft.Practices.Unity.Configuration.dll = C:\Users\ZHW\Downloads\Prism-master\Source\Wpf\Prism.Unity.Wpf\bin\Release\Microsoft.Practices.Unity.Configuration.dll
@@ -16,6 +17,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lib", "Lib", "{143FF240-4FE
 		C:\Users\ZHW\Downloads\Prism-master\Source\Wpf\Prism.Unity.Wpf\bin\Release\Prism.Unity.Wpf.dll = C:\Users\ZHW\Downloads\Prism-master\Source\Wpf\Prism.Unity.Wpf\bin\Release\Prism.Unity.Wpf.dll
 		C:\Users\ZHW\Downloads\Prism-master\Source\Wpf\Prism.Wpf\bin\Release\Prism.Wpf.dll = C:\Users\ZHW\Downloads\Prism-master\Source\Wpf\Prism.Wpf\bin\Release\Prism.Wpf.dll
 		Lib\System.Windows.Interactivity.dll = Lib\System.Windows.Interactivity.dll
+		Lib\Telerik.Windows.Controls.Data.dll = Lib\Telerik.Windows.Controls.Data.dll
+		Lib\Telerik.Windows.Controls.dll = Lib\Telerik.Windows.Controls.dll
+		Lib\Telerik.Windows.Controls.GridView.dll = Lib\Telerik.Windows.Controls.GridView.dll
+		Lib\Telerik.Windows.Controls.Input.dll = Lib\Telerik.Windows.Controls.Input.dll
+		Lib\Telerik.Windows.Controls.Navigation.dll = Lib\Telerik.Windows.Controls.Navigation.dll
+		Lib\Telerik.Windows.Data.dll = Lib\Telerik.Windows.Data.dll
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{768E323E-9833-4796-B8F8-B21830DD29C8}"

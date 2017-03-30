@@ -74,6 +74,30 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="Telerik.Windows.Controls, Version=2016.2.503.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Lib\Telerik.Windows.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Data, Version=2016.2.503.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Lib\Telerik.Windows.Controls.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.GridView, Version=2016.2.503.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Lib\Telerik.Windows.Controls.GridView.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Input, Version=2016.2.503.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Lib\Telerik.Windows.Controls.Input.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Navigation, Version=2016.2.503.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Lib\Telerik.Windows.Controls.Navigation.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Data, Version=2016.2.503.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Lib\Telerik.Windows.Data.dll</HintPath>
+    </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -165,9 +189,17 @@
       <Project>{DC991A17-135E-427D-AF9F-DD1C55BBE359}</Project>
       <Name>Pvirtech.Framework.Controls</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Framework\Pvirtech.Framework.Converters\Pvirtech.Framework.Converters.csproj">
+      <Project>{771fbb29-b61d-416b-a6eb-ba39e90a6247}</Project>
+      <Name>Pvirtech.Framework.Converters</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Framework\Pvirtech.Framework\Pvirtech.Framework.csproj">
       <Project>{3915bf30-2ab4-4323-b4ba-90c633eecc4e}</Project>
       <Name>Pvirtech.Framework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Pvirtech.Metro\Pvirtech.Metro.csproj">
+      <Project>{1a8f5e0b-5ea8-4c04-9f1b-1482d08f878a}</Project>
+      <Name>Pvirtech.Metro</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

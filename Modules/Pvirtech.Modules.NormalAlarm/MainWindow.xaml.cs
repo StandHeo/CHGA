@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pvirtech.Modules.NormalAlarm.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,10 @@ namespace Pvirtech.Modules.NormalAlarm
 	/// </summary>
 	public partial class MainWindow : UserControl
 	{
-		public MainWindow()
+		public MainWindow(MainWindowViewModel viewModels)
 		{
 			InitializeComponent();
+            this.DataContext = viewModels;
 		}
 	}
 }
