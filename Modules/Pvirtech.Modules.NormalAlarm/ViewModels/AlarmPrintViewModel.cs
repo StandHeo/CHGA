@@ -2,7 +2,7 @@
 using Prism.Commands;
 using Prism.Mvvm;
 using Pvirtech.Framework.Common;
-using Pvirtech.Framework.Interactivity.InteractionRequest;
+using Pvirtech.Framework.Interactivity;
 using Pvirtech.Model;
 using Pvirtech.Modules.NormalAlarm.ViewModels;
 using System;

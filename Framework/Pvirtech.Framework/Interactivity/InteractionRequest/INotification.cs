@@ -1,6 +1,5 @@
 
-
-namespace Pvirtech.Framework.Interactivity.InteractionRequest
+namespace Pvirtech.Framework.Interactivity
 {
     /// <summary>
     /// Represents an interaction request used for notifications.

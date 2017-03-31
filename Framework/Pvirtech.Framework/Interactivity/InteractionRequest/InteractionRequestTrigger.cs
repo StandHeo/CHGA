@@ -1,7 +1,7 @@
 using System;
 using System.Windows.Interactivity;
 
-namespace Pvirtech.Framework.Interactivity.InteractionRequest
+namespace Pvirtech.Framework.Interactivity
 {
     /// <summary>
     /// Custom event trigger for using with <see cref="IInteractionRequest"/> objects.

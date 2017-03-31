@@ -11,7 +11,7 @@ namespace Pvirtech.Framework.Interactivity.DefaultPopupWindows
     /// <summary>
     /// Interaction logic for DefaultWindow.xaml
     /// </summary>
-    public partial class DefaultWindow : Window
+    public partial class DefaultWindow 
     {
         public DefaultWindow()
         {

@@ -7,7 +7,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pvirtech.Metro", "Pvirtech.
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lib", "Lib", "{143FF240-4FEA-44BB-B5CB-09AB89CA0CC0}"
 	ProjectSection(SolutionItems) = preProject
-		..\..\..\Pro\Main\1.6\Pvirtech.Commander\Runtime\Telerik\EQATEC.Analytics.Monitor.dll = ..\..\..\Pro\Main\1.6\Pvirtech.Commander\Runtime\Telerik\EQATEC.Analytics.Monitor.dll
+		Lib\ESRI.ArcGIS.Client.Behaviors.dll = Lib\ESRI.ArcGIS.Client.Behaviors.dll
+		Lib\ESRI.ArcGIS.Client.Bing.dll = Lib\ESRI.ArcGIS.Client.Bing.dll
+		Lib\ESRI.ArcGIS.Client.dll = Lib\ESRI.ArcGIS.Client.dll
+		Lib\ESRI.ArcGIS.Client.Local.dll = Lib\ESRI.ArcGIS.Client.Local.dll
+		Lib\ESRI.ArcGIS.Client.Portal.dll = Lib\ESRI.ArcGIS.Client.Portal.dll
+		Lib\ESRI.ArcGIS.Client.Printing.dll = Lib\ESRI.ArcGIS.Client.Printing.dll
+		Lib\ESRI.ArcGIS.Client.Toolkit.DataSources.dll = Lib\ESRI.ArcGIS.Client.Toolkit.DataSources.dll
+		Lib\ESRI.ArcGIS.Client.Toolkit.dll = Lib\ESRI.ArcGIS.Client.Toolkit.dll
 		Lib\JetBrains.Annotations.dll = Lib\JetBrains.Annotations.dll
 		C:\Users\ZHW\Downloads\Prism-master\Source\Wpf\Prism.Unity.Wpf\bin\Release\Microsoft.Practices.ServiceLocation.dll = C:\Users\ZHW\Downloads\Prism-master\Source\Wpf\Prism.Unity.Wpf\bin\Release\Microsoft.Practices.ServiceLocation.dll
 		C:\Users\ZHW\Downloads\Prism-master\Source\Wpf\Prism.Unity.Wpf\bin\Release\Microsoft.Practices.Unity.Configuration.dll = C:\Users\ZHW\Downloads\Prism-master\Source\Wpf\Prism.Unity.Wpf\bin\Release\Microsoft.Practices.Unity.Configuration.dll
@@ -52,6 +59,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pvirtech.Framework.Converters", "Framework\Pvirtech.Framework.Converters\Pvirtech.Framework.Converters.csproj", "{771FBB29-B61D-416B-A6EB-BA39E90A6247}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pvirtech.Modules.MapCommander", "Modules\Pvirtech.Modules.MapCommander\Pvirtech.Modules.MapCommander.csproj", "{0B127D67-D70D-402E-B040-07375429235B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pvirtech.Framework.Maps", "Framework\Pvirtech.Framework.Maps\Pvirtech.Framework.Maps.csproj", "{3E96D0E4-151F-44AA-A0AD-842C3083B08C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -157,6 +166,14 @@ Global
 		{0B127D67-D70D-402E-B040-07375429235B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0B127D67-D70D-402E-B040-07375429235B}.Release|x86.ActiveCfg = Release|Any CPU
 		{0B127D67-D70D-402E-B040-07375429235B}.Release|x86.Build.0 = Release|Any CPU
+		{3E96D0E4-151F-44AA-A0AD-842C3083B08C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E96D0E4-151F-44AA-A0AD-842C3083B08C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E96D0E4-151F-44AA-A0AD-842C3083B08C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{3E96D0E4-151F-44AA-A0AD-842C3083B08C}.Debug|x86.Build.0 = Debug|Any CPU
+		{3E96D0E4-151F-44AA-A0AD-842C3083B08C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E96D0E4-151F-44AA-A0AD-842C3083B08C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E96D0E4-151F-44AA-A0AD-842C3083B08C}.Release|x86.ActiveCfg = Release|Any CPU
+		{3E96D0E4-151F-44AA-A0AD-842C3083B08C}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -171,5 +188,6 @@ Global
 		{5DA1390C-9E45-425E-92F8-60143ABC0FE2} = {768E323E-9833-4796-B8F8-B21830DD29C8}
 		{771FBB29-B61D-416B-A6EB-BA39E90A6247} = {DB40A969-1056-4011-BA2C-BB57A2F9C535}
 		{0B127D67-D70D-402E-B040-07375429235B} = {768E323E-9833-4796-B8F8-B21830DD29C8}
+		{3E96D0E4-151F-44AA-A0AD-842C3083B08C} = {DB40A969-1056-4011-BA2C-BB57A2F9C535}
 	EndGlobalSection
 EndGlobal

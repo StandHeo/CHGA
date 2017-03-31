@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Pvirtech.Framework.Interactivity.InteractionRequest
+namespace Pvirtech.Framework.Interactivity
 {
     /// <summary>
     /// Basic implementation of <see cref="IConfirmation"/>.

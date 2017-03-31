@@ -1,7 +1,7 @@
 ﻿using Prism.Commands;
 using Prism.Events;
 using Prism.Mvvm;
-using Pvirtech.Framework.Interactivity.InteractionRequest;
+using Pvirtech.Framework.Interactivity;
 using System;
 using System.Windows;
 using System.Windows.Input;

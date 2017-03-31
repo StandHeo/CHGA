@@ -8,6 +8,7 @@ using Prism.Regions;
 using Pvirtech.CommandSystem.Properties;
 using Pvirtech.Framework;
 using Pvirtech.Framework.Core;
+using Pvirtech.Framework.Interactivity;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -38,6 +39,8 @@ namespace Pvirtech.CommandSystem.ViewModels
 			_regionManager = regionManager;
 			_moduleManager = moduleManager;
 			_serviceLocator = serviceLocator;
+			CustomPopupRequest = new InteractionRequest<INotification>();
+			CustomPopupCommand = new DelegateCommand(RaiseCustomPopup);
 		}
 		public DelegateCommand<object[]> SelectedCommand { get; private set; }
 		private ObservableCollection<SystemInfoViewModel> _systemInfos;
@@ -46,7 +49,8 @@ namespace Pvirtech.CommandSystem.ViewModels
 			get { return _systemInfos; }
 			set { SetProperty(ref _systemInfos, value); }
 		}
-
+		public InteractionRequest<INotification> CustomPopupRequest { get; set; }
+		public DelegateCommand CustomPopupCommand { get; set; }
 		/// <summary>
 		/// 加载设置选项
 		/// </summary>
@@ -69,9 +73,15 @@ namespace Pvirtech.CommandSystem.ViewModels
 		{
 			_systemInfos = new ObservableCollection<SystemInfoViewModel>();
 			_eventAggregator.GetEvent<MessageSentEvent<SystemInfo>>().Subscribe(MessageReceived);
-			SelectedCommand = new DelegateCommand<object[]>(OnItemSelected);  
+			SelectedCommand = new DelegateCommand<object[]>(OnItemSelected);
+		
 		}
+
+		private void RaiseCustomPopup()
+		{
 		 
+		}
+
 		private void OnItemSelected(object[] selectedItems)
 		{
 			if (selectedItems != null && selectedItems.Count() > 0)
@@ -91,6 +101,7 @@ namespace Pvirtech.CommandSystem.ViewModels
 				var region = _regionManager.Regions["MainRegion"];
 				//region.ActiveViews.CollectionChanged += Views_CollectionChanged;
 				_regionManager.RequestNavigate("MainRegion",model.Id,navigationCallback);
+				CustomPopupRequest.Raise(new Notification { Title = "Custom Popup", Content = "Custom Popup Message " });
 			}
 		}
 
