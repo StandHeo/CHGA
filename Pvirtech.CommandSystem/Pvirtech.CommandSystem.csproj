@@ -145,6 +145,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Data\Pvirtech.Services\Pvirtech.Services.csproj">
+      <Project>{51F40A79-7B70-49DB-A410-AB5E610676EE}</Project>
+      <Name>Pvirtech.Services</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Framework\Pvirtech.Framework.Controls\Pvirtech.Framework.Controls.csproj">
       <Project>{dc991a17-135e-427d-af9f-dd1c55bbe359}</Project>
       <Name>Pvirtech.Framework.Controls</Name>

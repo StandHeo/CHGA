@@ -202,7 +202,8 @@ namespace Pvirtech.Framework
 											.Where(IModuleType.IsAssignableFrom)
 											.Where(t => t != IModuleType)
 											.Where(t => !t.IsAbstract)
-											.Select(type => CreateModuleInfo(type)));
+											.Select(type => CreateModuleInfo(type)))
+                                            .ToList();
 
 
 

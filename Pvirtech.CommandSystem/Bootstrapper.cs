@@ -12,6 +12,7 @@ using System.Linq;
 using Pvirtech.CommandSystem.ViewModels;
 using Prism.Events;
 using Pvirtech.CommandSystem.Views;
+using Pvirtech.Services;
 
 namespace Pvirtech.CommandSystem
 {
@@ -39,6 +40,7 @@ namespace Pvirtech.CommandSystem
 		{
 			base.ConfigureContainer();
 			Container.RegisterType<IModuleInitializer, RoleBasedModuleInitializer>(new ContainerControlledLifetimeManager());
+            Container.RegisterType<IPoliceCaseRepository, PoliceCaseRepository>(new ContainerControlledLifetimeManager());
 		}
 		protected override IModuleCatalog CreateModuleCatalog()
 		{ 

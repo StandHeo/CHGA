@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using Pvirtech.Modules.NormalAlarm.ViewModels;
+using System.Windows.Controls;
 
 namespace Pvirtech.Modules.NormalAlarm.Views
 {
@@ -7,9 +8,10 @@ namespace Pvirtech.Modules.NormalAlarm.Views
     /// </summary>
     public partial class CompletedAlarms : UserControl
     {
-        public CompletedAlarms()
+        public CompletedAlarms(CompletedAlarmsViewModel viewModel)
         {
             InitializeComponent();
+            this.DataContext = viewModel;
         }
     }
 }

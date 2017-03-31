@@ -52,6 +52,7 @@
     <Compile Include="IPoliceCaseRepository.cs" />
     <Compile Include="LocalData.cs" />
     <Compile Include="LocalDataCenter.cs" />
+    <Compile Include="PoliceCaseRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
