@@ -21,10 +21,15 @@ namespace Pvirtech.Modules.NormalAlarm
 	/// </summary>
 	public partial class MainWindow : UserControl
 	{
-		public MainWindow(MainWindowViewModel viewModels)
-		{
-			InitializeComponent();
-            this.DataContext = viewModels;
-		}
-	}
+		//public MainWindow(MainWindowViewModel viewModels)
+		//{
+		//	InitializeComponent();
+  //          this.DataContext = viewModels;
+		//}
+
+        public MainWindow()
+        {
+            InitializeComponent();
+        }
+    }
 }
