@@ -14,7 +14,6 @@ namespace Pvirtech.Services
     /// </summary>
     public class LocalDataCenter : LocalData
     {
-        private static IPoliceCaseRepository policeCaseRepository;
 
         public static ZhiYinXMLModel ZhiYinXML { get; set; }
         public static void SetZhiYin()

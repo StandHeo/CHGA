@@ -103,6 +103,7 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="StyleSlectors\AlarmStyleSlector.cs" />
     <Compile Include="ViewModels\AlarmPatrolList.cs" />
     <Compile Include="ViewModels\AlarmPrintViewModel.cs" />
     <Compile Include="ViewModels\AlarmStatus.cs" />

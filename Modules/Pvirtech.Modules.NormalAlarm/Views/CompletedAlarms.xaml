@@ -4,9 +4,117 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Pvirtech.Modules.NormalAlarm.Views"
+             xmlns:my="clr-namespace:Pvirtech.Framework.Converters;assembly=Pvirtech.Framework.Converters"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <my:AjztColorConverter x:Key="ajztConverter"/>
+    </UserControl.Resources>
     <Grid>
-            
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="45"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="1" x:Name="dgalarmContent">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="*"/>
+
+                </Grid.RowDefinitions>
+                <StackPanel Orientation="Horizontal" Margin="3"  VerticalAlignment="Center">
+                    <Label>辖区:</Label>
+                    <ComboBox  ItemsSource="{Binding XiaQus,Mode=TwoWay}" SelectedItem="{Binding SelectedXiaQu,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Height="20" Text="成华分局"  VerticalAlignment="Center" Margin="10,0,0,0" Width="120">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding detail}"></TextBlock>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    <Label>报警内容：</Label>
+                    <TextBox  x:Name="txt_polText" Width="120" Text="{Binding FilterString,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" VerticalAlignment="Center"/>
+                    <Label Content="结案时间："/>
+                    <StackPanel Orientation="Horizontal">
+                        <telerik:RadDateTimePicker  DateTimeWatermarkContent="请输入开始时间" Width="160" SelectedValue="{Binding Path=BeginselDate,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" />
+                    </StackPanel>
+                    <Label Content=" - "/>
+                    <telerik:RadDateTimePicker DateTimeWatermarkContent="请输入结束时间" Width="160" x:Name="endDate" SelectedValue="{Binding Path= endDate,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+                    <Button x:Name="btnSearch" Content="查询" Command="{Binding cmdQueryAlarm}" CommandParameter="{Binding ElementName=txtBjlx,Path=SelectedItem}"  
+                            VerticalAlignment="Center" FontSize="12" Width="60"  Margin="10,0,0,0"/>
+                    <Button Width="60" Canvas.Right="50" Content="更多查询"  Command="{Binding AdvanceQueryAlarm}" />
+                </StackPanel>
+                <Border Background="Gray" Grid.Row="1">
+                    <Border Background="White" Margin="10">
+
+                        <telerik:RadGridView x:Name="dgReceiveAlarm" telerik:StyleManager.Theme="Windows8"  FontSize="14" Grid.Row="2" ShowGroupPanel="False"
+						    RowHeight="26"   GridLinesVisibility="Horizontal"  IsFilteringAllowed="False" ItemsSource="{Binding AlarmCollection,Mode=OneWay}"
+							 RowIndicatorVisibility="Collapsed"  SelectionUnit="FullRow" SelectionMode="Single" 
+                                 IsReadOnly="True"	SelectedItem="{Binding Path=SelectedAlarm,Mode=TwoWay}"
+                                 GroupRenderMode="Flat" 
+							 AutoGenerateColumns="False"
+							 CanUserFreezeColumns="False" AlternateRowBackground="{x:Null}">
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="MouseDoubleClick">
+                                    <i:InvokeCommandAction Command="{Binding CmdPrintAlarm}" CommandParameter="{Binding ElementName=dgReceiveAlarm,Path=SelectedItem}" />
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                            <telerik:RadGridView.Columns>
+                                <telerik:GridViewDataColumn Header="警单号" DataMemberBinding="{Binding Jjdbh}" SortingState="None" ></telerik:GridViewDataColumn>
+                                <telerik:GridViewDataColumn Header="级别" DataMemberBinding="{Binding CaseLevelDesc,Mode=TwoWay}" />
+                                <telerik:GridViewDataColumn Header="接警时间" DataMemberBinding="{Binding BjriOrBjsjDesc}" />
+                                <telerik:GridViewDataColumn Header="管辖" Width="40" FooterTextAlignment="Center" DataMemberBinding="{Binding Gxdwjc,Mode =TwoWay}" />
+                                <telerik:GridViewDataColumn Header="类别" Width="36" DataMemberBinding="{Binding BjlbjcDesc}" />
+                                <telerik:GridViewDataColumn Header="类型" Width="35" DataMemberBinding="{Binding BjlxjcDesc}" />
+                                <telerik:GridViewDataColumn Header="报警人" DataMemberBinding="{Binding Bjrxm}" Width="100" />
+                                <telerik:GridViewDataColumn Header="联系电话" HeaderTextAlignment="Center" DataMemberBinding="{Binding lxdh}" Width="100" />
+                                <telerik:GridViewDataColumn Header="事发地址" DataMemberBinding="{Binding Sfdz}" SortingState="None" TextWrapping="Wrap" Width="*" />
+                                <telerik:GridViewDataColumn Header="报警内容" DataMemberBinding="{Binding Bjnr}" SortingState="None" TextWrapping="Wrap" Width="*" />
+                                <telerik:GridViewDataColumn Header="结案人" DataMemberBinding="{Binding Jarxm}"  SortingState="None" Width="100" />
+                                <telerik:GridViewDataColumn Header="结案时间" DataMemberBinding="{Binding BjriOrJasjDesc}" SortingState="Descending" Width="180" />
+                            </telerik:RadGridView.Columns>
+                            <telerik:RadGridView.RowDetailsTemplate>
+                                <DataTemplate>
+                                    <telerik:RadTabControl x:Name="RadTabControl1"  MinHeight="250" HorizontalAlignment="Stretch"  FontSize="14"  Margin="2,0,2,0" VerticalAlignment="Center">
+                                        <telerik:RadTabItem FontSize="14" Header="警情跟踪">
+                                            <ListBox ItemsSource="{Binding p.opinions,Mode=TwoWay}">
+                                                <ListBox.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <StackPanel Orientation="Horizontal" Height="30">
+                                                            <TextBlock VerticalAlignment="Center"  Text="{Binding info,Mode=TwoWay}" />
+                                                        </StackPanel>
+                                                    </DataTemplate>
+                                                </ListBox.ItemTemplate>
+                                            </ListBox>
+                                        </telerik:RadTabItem>
+                                        <telerik:RadTabItem FontSize="14" Header="反馈跟踪"
+											HorizontalContentAlignment="Stretch"
+											HorizontalAlignment="Left">
+                                            <ListBox ItemsSource="{Binding p.feedbacks,Mode=TwoWay}">
+                                                <ListBox.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <StackPanel Orientation="Horizontal" Height="30">
+                                                            <TextBlock VerticalAlignment="Center"  Text="{Binding fknr,Mode=TwoWay}" />
+                                                        </StackPanel>
+                                                    </DataTemplate>
+                                                </ListBox.ItemTemplate>
+                                            </ListBox>
+                                        </telerik:RadTabItem>
+                                    </telerik:RadTabControl>
+                                </DataTemplate>
+                            </telerik:RadGridView.RowDetailsTemplate>
+                        </telerik:RadGridView>
+                    </Border>
+                </Border>
+
+            </Grid>
+            <Grid Grid.Row="2">
+                <telerik:RadDataPager x:Name="radDataPager"  DisplayMode="All" 
+                          Source="{Binding Items, ElementName=dgReceiveAlarm}"
+                          PageSize="30" telerik:StyleManager.Theme="Windows8Touch"/>
+            </Grid>
+        </Grid>
     </Grid>
 </UserControl>

@@ -8,6 +8,7 @@
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns:local="clr-namespace:Pvirtech.Modules.NormalAlarm.Views"
              xmlns:my="clr-namespace:Pvirtech.Framework.Converters;assembly=Pvirtech.Framework.Converters"
+             xmlns:cmd="clr-namespace:Pvirtech.Modules.NormalAlarm.StyleSlectors"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <UserControl.Resources>
@@ -89,18 +90,14 @@
         </Style>
         <my:PoliceLevelConverter  x:Key="JiBie"/>
         <my:ProceParentConverter x:Key="p_XiaQu"/>
-        <!--<my:OccurDate x:Key="uk" />-->
-        <!--<my:WidthConverters x:Key="width"/>
-        <my:HeightConverters x:Key="height"/>-->
-        <!--<my:PoliceCategory_Change x:Key="Category_change" />-->
         <my:PoliceCaseTypeConverter x:Key="p_case" />
         <my:AjztColorConverter x:Key="ajztConverter"/>
     </UserControl.Resources>
 
     <Grid x:Name="dgalarmContent" >
         <Grid.Resources>
-            <cmd:AlarmStyle x:Key="stadiumCapacityStyle">
-                <cmd:AlarmStyle.BigStadiumStyle>
+            <cmd:AlarmStyleSlector x:Key="stadiumCapacityStyle">
+                <cmd:AlarmStyleSlector.BigStadiumStyle>
                     <Style TargetType="telerik:GridViewRow">
                         <Style.Triggers>
                             <Trigger Property="IsSelected" Value="True">
@@ -114,8 +111,8 @@
                         </Style.Triggers>
                         <Setter Property="Background" Value="#FFC1C1"/>
                     </Style>
-                </cmd:AlarmStyle.BigStadiumStyle>
-                <cmd:AlarmStyle.SmallStadiumStyle>
+                </cmd:AlarmStyleSlector.BigStadiumStyle>
+                <cmd:AlarmStyleSlector.SmallStadiumStyle>
                     <Style TargetType="telerik:GridViewRow">
                         <Style.Triggers>
                             <Trigger Property="IsSelected" Value="True">
@@ -129,8 +126,8 @@
                         </Style.Triggers>
                         <Setter Property="Background" Value="White" />
                     </Style>
-                </cmd:AlarmStyle.SmallStadiumStyle>
-            </cmd:AlarmStyle>
+                </cmd:AlarmStyleSlector.SmallStadiumStyle>
+            </cmd:AlarmStyleSlector>
         </Grid.Resources>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>

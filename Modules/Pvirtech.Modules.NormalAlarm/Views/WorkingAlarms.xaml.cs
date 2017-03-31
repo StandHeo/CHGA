@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pvirtech.Modules.NormalAlarm.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,11 @@ namespace Pvirtech.Modules.NormalAlarm.Views
     /// </summary>
     public partial class WorkingAlarms : UserControl
     {
-        public WorkingAlarms()
+
+        public WorkingAlarms(WorkingAlarmsViewModel viewModel)
         {
             InitializeComponent();
+            this.DataContext = viewModel;
         }
     }
 }
