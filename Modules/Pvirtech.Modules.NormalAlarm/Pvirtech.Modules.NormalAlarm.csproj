@@ -147,6 +147,9 @@
     <Compile Include="Views\CasePatrolInfo.xaml.cs">
       <DependentUpon>CasePatrolInfo.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\CaseProcess110SheetPrint.xaml.cs">
+      <DependentUpon>CaseProcess110SheetPrint.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\CaseProcessPrint.xaml.cs">
       <DependentUpon>CaseProcessPrint.xaml</DependentUpon>
     </Compile>
@@ -193,6 +196,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\CasePatrolInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CaseProcess110SheetPrint.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
