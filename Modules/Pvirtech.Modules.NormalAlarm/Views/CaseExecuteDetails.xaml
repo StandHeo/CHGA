@@ -1,0 +1,128 @@
+﻿<UserControl x:Class="Pvirtech.Modules.NormalAlarm.Views.CaseExecuteDetails"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:local="clr-namespace:Pvirtech.Modules.NormalAlarm.Views"
+             xmlns:convert="clr-namespace:Pvirtech.Framework.Converters;assembly=Pvirtech.Framework.Converters"
+             mc:Ignorable="d" 
+              Background="WhiteSmoke">
+    <UserControl.Resources>
+        <convert:BoolToVisibleConverter x:Key="trueToVisible" />
+    </UserControl.Resources>
+    <StackPanel>
+        <!--接警-->
+        <StackPanel Width="250" Visibility="{Binding ShowOne,Converter={StaticResource trueToVisible}}">
+            <Canvas Margin="20,10,0,0">
+                <Ellipse Width="20" Height="20" Fill="#79c8ea" />
+                <TextBlock Text="1"  FontSize="16" Canvas.Left="6" Canvas.Top="0.5" Foreground="White" />
+                <TextBlock Text="时间要求：30秒"  Canvas.Left="50"/>
+                <TextBlock Text="根据报警描述，快速进行敏感要素的初步筛选判定" Canvas.Top="20" TextWrapping="Wrap" Width="160"  Canvas.Left="50"/>
+            </Canvas>
+            <Rectangle Height="1" Fill="#999999" Margin="10,70,10,0"/>
+            <Canvas Margin="20,20,0,0">
+                <Ellipse Width="20" Height="20" Fill="#79c8ea" />
+                <TextBlock Text="2"  FontSize="16" Canvas.Left="6" Canvas.Top="0" Foreground="White" />
+                <TextBlock Text="敏感六要素" Canvas.Top="7" Canvas.Left="50"/>
+                <TextBlock Text=">"  MouseLeftButtonDown="TextBlock_MouseLeftButtonDown"  Foreground="#999999" FontSize="24" Canvas.Left="210"/>
+            </Canvas>
+            <Rectangle Height="1" Fill="#999999" Margin="10,50,10,0"/>
+            <ScrollViewer MaxHeight="300">
+                <StackPanel x:Name="spOne"  Visibility="Collapsed" >
+                    <TextBlock TextWrapping="Wrap"   Width="210">
+            <Run>   警情性质的判定：核实警情"六何要素"是否涉及敏感信息作为判定的主要依据。</Run>
+                    </TextBlock>
+                    <TextBlock TextWrapping="Wrap"  Margin="5,5,0,0" Width="210"><Run>①敏感时间：指发生在法定节假日、“两考”期间、政治敏感期、全国及省市重要会议活动等期间的案事件</Run></TextBlock>
+                    <TextBlock TextWrapping="Wrap"  Margin="5,5,0,0" Width="210"><Run>②敏感地点：指发生在国家（地方）政府机关、守护单位，重要景点、车站、商场、学校、医院、大型活动现场等区域的警情。</Run></TextBlock>
+                    <TextBlock TextWrapping="Wrap"  Margin="5,5,0,0" Width="210"><Run>③敏感人群：指发生涉及国家公职人员、人大代表、军警、学生、少数民族、外籍人士等特殊群体的警情，以及有对抗性冲突可能，涉及人数达到20人以上人员相对固定的群体。</Run></TextBlock>
+                    <TextBlock TextWrapping="Wrap"  Margin="5,5,0,0" Width="210"><Run>④敏感原因：指发生严重刑事犯罪、暴力、恐怖袭击，以及讨薪、索赔、征地拆迁等其他涉及民生的警情。</Run></TextBlock>
+                    <TextBlock TextWrapping="Wrap"  Margin="5,5,0,0" Width="210"><Run>⑤敏感经过：指发生情节恶劣、性质严重，可能造成敏感后果的警情。</Run></TextBlock>
+                    <TextBlock TextWrapping="Wrap"  Margin="5,5,0,0" Width="210"><Run>⑥敏感后果：指发生造成人员伤亡、重大财产损失等其他不良社会影响的警情。</Run></TextBlock>
+
+                </StackPanel>
+            </ScrollViewer>
+
+        </StackPanel>
+        <!--派警-->
+        <StackPanel VerticalAlignment="Top" MaxHeight="440" Width="250" Visibility="{Binding ShowSecond,Converter={StaticResource trueToVisible}}">
+            <Canvas Margin="20,10,0,0">
+                <Ellipse Width="20" Height="20" Fill="#79c8ea" />
+                <TextBlock Text="1"  FontSize="16" Canvas.Left="6" Canvas.Top="0" Foreground="White" />
+                <TextBlock Text="时间要求：30秒"  Canvas.Left="50"/>
+                <TextBlock Text="30秒内将警情指令下达。" Canvas.Top="20" TextWrapping="Wrap" Width="160"  Canvas.Left="50"/>
+            </Canvas>
+            <GroupBox Header="处置警力" Margin="0,50,0,0">
+               
+                <StackPanel Orientation="Vertical">
+                    <ItemsControl ItemsSource="{Binding SlectedPatrols}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Vertical">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="任务内容："></TextBlock>
+                                        <TextBox Text="{Binding TaskContent}"></TextBox>
+                                    </StackPanel>
+                                    <Grid Margin="2" >
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="30"/>
+                                            <RowDefinition />
+                                        </Grid.RowDefinitions>
+                                        <local:AlarmSendCombox   DataContext="{Binding SelectPatrols}" TabIndex="0" Margin="1" />
+                                        <local:AlarmPatrols Grid.Row="1" DataContext="{Binding UsePatrols}" />
+                                    </Grid>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="要求时限："></TextBlock>
+                                        <TextBox Text="{Binding LimitedTime}"></TextBox>
+                                        <TextBlock Text="分钟"></TextBlock>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="任务地点："></TextBlock>
+                                        <TextBox Text="{Binding TaskAddress}"></TextBox>
+                                        <Button>定位</Button>
+                                    </StackPanel>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                    <Button HorizontalAlignment="Right" Margin="0 0 10 0">增派</Button>
+                </StackPanel>
+            </GroupBox>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button HorizontalAlignment="Left" Margin="0 0 30 0">派警</Button>
+                <Button HorizontalAlignment="Right">重置</Button>
+            </StackPanel>
+
+        </StackPanel>
+        <!--到达-->
+        <StackPanel Width="250"  Height="800" Visibility="{Binding ShowThree,Converter={StaticResource trueToVisible}}" >
+            <GroupBox Header="处置状态">
+                <Canvas Margin="20,10,0,0">
+                    <Ellipse Width="20" Height="20" Fill="#79c8ea" />
+                    <TextBlock Text="1"  FontSize="16" Canvas.Left="6" Canvas.Top="0" Foreground="White" />
+                    <TextBlock Text="巡组到达时间:"  Canvas.Left="50"/>
+                    <TextBlock Text="{Binding PatrolName}" MinWidth="30" Canvas.Left="50" Canvas.Top="16"/>
+                    <TextBlock Text="{Binding CommitTime}" MinWidth="30" Canvas.Left="100" Canvas.Top="16" />
+                </Canvas>
+            </GroupBox>
+        </StackPanel>
+        <!--结案-->
+        <StackPanel Width="250" Visibility="{Binding ShowFour,Converter={StaticResource trueToVisible}}">
+            <GroupBox Header="处置状态">
+                <Canvas Margin="20,10,0,0">
+                    <Ellipse Width="20" Height="20" Fill="#79c8ea" />
+                    <TextBlock Text="1"  FontSize="16" Canvas.Left="6" Canvas.Top="0" Foreground="White" />
+                    <TextBlock Text="巡组提交时间:"  Canvas.Left="50"/>
+                    <TextBlock Text="{Binding PatrolName}" MinWidth="30" Canvas.Left="50" Canvas.Top="16"/>
+                    <TextBlock Text="{Binding CommitTime}" MinWidth="30" Canvas.Left="100" Canvas.Top="16" />
+                </Canvas>
+            </GroupBox>
+            <Rectangle Height="1" Fill="#999999" Margin="10,86,10,0"/>
+            <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Button Margin="0 10 0 0">巡警处警（移交）要记表</Button>
+                <Button Margin="0 20 0 10">110接处警综合记录单</Button>
+            </StackPanel>
+
+        </StackPanel>
+    </StackPanel>
+</UserControl>

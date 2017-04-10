@@ -4,9 +4,379 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Pvirtech.Modules.NormalAlarm.Views"
-             mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
-            
-    </Grid>
+             xmlns:control="clr-namespace:Pvirtech.Framework.Converters;assembly=Pvirtech.Framework.Converters"
+             mc:Ignorable="d" Background="WhiteSmoke">
+    <UserControl.Resources>
+        <Style TargetType="Table" x:Key="BorderedTable">
+            <Setter Property="CellSpacing" Value="0"></Setter>
+            <Setter Property="BorderThickness" Value="1"></Setter>
+            <Setter Property="BorderBrush" Value="#000"></Setter>
+            <!--<Setter Property="Margin" Value="55,0,0,0"/>-->
+        </Style>
+        <Style TargetType="TableCell" x:Key="BorderedCell">
+            <Setter Property="BorderThickness" Value="0.5"></Setter>
+            <Setter Property="BorderBrush" Value="#000"></Setter>
+            <Setter Property="Padding" Value="3"></Setter>
+        </Style>
+        <DataTemplate x:Key="DataTemplate1">
+            <Label Content="{Binding}" FontSize="16"></Label>
+        </DataTemplate>
+        <control:DateToStringConverter x:Key="DtatString"/>
+    </UserControl.Resources>
+    <Border                  
+		BorderThickness="1">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <ToolBar>
+                <Button Content="打印" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Command="{Binding PrintPage}"  x:Name="btnPrintDirect"  FontSize="12"/>
+                <TextBlock Margin="0,5,0,0">
+                    <ContentControl>
+                        <StackPanel Orientation="Horizontal">
+                            <CheckBox IsChecked="{Binding IsShowPDAFanKui,Mode=TwoWay}">
+                            </CheckBox>
+                            <TextBlock  Text="巡组反馈" Width="70" TextWrapping="Wrap"></TextBlock>
+                        </StackPanel>
+                    </ContentControl>
+                </TextBlock>
+                <Rectangle Height="1" Margin="0,0,0,0" Fill="#2DB0E6"/>
+                <TextBlock Margin="0,5,0,0">
+                    <ContentControl>
+                        <StackPanel Orientation="Horizontal">
+                            <CheckBox IsChecked="{Binding IsShowPDAJieAn,Mode=TwoWay}" >
+                </CheckBox>
+                            <TextBlock Text="巡组结案" Width="70" TextWrapping="Wrap"></TextBlock>
+                        </StackPanel>
+                    </ContentControl>
+                </TextBlock>
+            </ToolBar>
+            <Border Grid.Row="1" >
+                <FlowDocumentReader Background="White" ViewingMode="Scroll" HorizontalAlignment="Center"
+                                    MinZoom="50" MaxZoom="1000" Zoom="120"
+                                    ZoomIncrement="5" Width="900" DataContext="{Binding }">
+                    <FlowDocumentReader.Resources>
+                        <Style TargetType="TextBox">
+                            <Setter Property="TextWrapping" Value="Wrap"/>
+                            <Setter Property="IsReadOnly" Value="True"/>
+                            <Setter Property="HorizontalAlignment" Value="Left" />
+                            <Setter Property="VerticalAlignment" Value="Center" />
+                            <Setter Property="VerticalContentAlignment" Value="Center" />
+                            <Setter Property="Height" Value="30" />
+                            <Setter Property="Margin" Value="1" />
+                            <Setter Property="BorderThickness" Value="0" />
+                            <Setter Property="Grid.Column" Value="1" />
+                            <Setter Property="FontSize" Value="14" />
+                        </Style>
+                    </FlowDocumentReader.Resources>
+                    <FlowDocument ColumnWidth="900" PageHeight="1122.5" PageWidth="800">
+                      
+                        <Table Style="{StaticResource BorderedTable}" >
+                            <Table.Columns>
+                                <TableColumn Width="95"></TableColumn>
+                                <TableColumn Width="192"></TableColumn>
+                                <TableColumn Width="95"></TableColumn>
+                                <TableColumn Width="192"></TableColumn>
+                            </Table.Columns>
+                            <TableRowGroup>
+                                <TableRow FontWeight="SemiBold" >
+                                    <TableCell Style="{StaticResource BorderedCell}"  LineHeight="25"  >
+                                        <Paragraph FontSize="16" Margin="0,3,0,0">
+                                            接警单号</Paragraph>
+                                    </TableCell>
+                                    <TableCell Style="{StaticResource BorderedCell}">
+                                        <Paragraph FontSize="16">
+                                            <TextBlock FontSize="16" Margin="0,3,0,0" Text="{Binding ViewModel.Jjdbh}"/>
+                                        </Paragraph>
+                                    </TableCell>
+                                    <TableCell Style="{StaticResource BorderedCell}">
+                                        <Paragraph FontSize="16" Margin="0,3,0,0">接警单位</Paragraph>
+                                    </TableCell>
+                                    <TableCell Style="{StaticResource BorderedCell}">
+                                        <Paragraph FontSize="16" Margin="0,3,0,0">
+                                            <TextBlock Text="{Binding ViewModel.Jjdwbh}"></TextBlock>
+                                        </Paragraph>
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow FontWeight="SemiBold"  >
+                                    <TableCell Style="{StaticResource BorderedCell}" LineHeight="25">
+                                        <Paragraph FontSize="16" Margin="0,3,0,0">
+                                            接警人</Paragraph>
+                                    </TableCell>
+                                    <TableCell Style="{StaticResource BorderedCell}">
+                                        <Paragraph FontSize="16" Margin="0,3,0,0">
+                                            <TextBlock Text="{Binding ViewModel.Jjyxm}"/>
+                                        </Paragraph>
+                                    </TableCell>
+                                    <TableCell Style="{StaticResource BorderedCell}">
+                                        <Paragraph FontSize="16" Margin="0,3,0,0">接警时间</Paragraph>
+                                    </TableCell>
+                                    <TableCell Style="{StaticResource BorderedCell}">
+                                        <Paragraph FontSize="16" Margin="0,3,0,0">
+                                            <TextBlock  Text="{Binding ViewModel.Jjsj}"/>
+                                        </Paragraph>
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow FontWeight="SemiBold">
+                                    <TableCell Style="{StaticResource BorderedCell}" LineHeight="25">
+                                        <Paragraph FontSize="16" Margin="0,3,0,0">
+                                            报警方式</Paragraph>
+                                    </TableCell>
+                                    <TableCell Style="{StaticResource BorderedCell}">
+                                        <Paragraph FontSize="16" Margin="0,3,0,0">
+                                            <TextBlock Text="{Binding ViewModel.Bjfsbh}"/>
+                                        </Paragraph>
+                                    </TableCell>
+                                    <TableCell Style="{StaticResource BorderedCell}">
+                                        <Paragraph FontSize="16" Margin="0,3,0,0">报警电话</Paragraph>
+                                    </TableCell>
+                                    <TableCell Style="{StaticResource BorderedCell}">
+                                        <Paragraph FontSize="16" Margin="0,3,0,0">
+                                            <TextBlock  Text="{Binding ViewModel.Bjdh}"/>
+                                        </Paragraph>
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow FontWeight="SemiBold" >
+                                    <TableCell Style="{StaticResource BorderedCell}" LineHeight="25" >
+                                        <Paragraph FontSize="16" Margin="0,3,0,0">
+                                            用户姓名</Paragraph>
+                                    </TableCell>
+                                    <TableCell Style="{StaticResource BorderedCell}">
+                                        <Paragraph FontSize="16" Margin="0,3,0,0">
+                                            <TextBlock  Text="{Binding ViewModel.Bjdhyhxm}"/>
+                                        </Paragraph>
+                                    </TableCell>
+                                    <TableCell Style="{StaticResource BorderedCell}">
+                                        <Paragraph FontSize="16" Margin="0,3,0,0">性别</Paragraph>
+                                    </TableCell>
+                                    <TableCell Style="{StaticResource BorderedCell}">
+                                        <Paragraph FontSize="16" Margin="0,3,0,0">
+                                            <TextBlock  Text="{Binding ViewModel.Bjrxb}"/>
+                                        </Paragraph>
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow FontWeight="SemiBold"  >
+                                    <TableCell Style="{StaticResource BorderedCell}" LineHeight="25" >
+                                        <Paragraph FontSize="16" Margin="0,3,0,0">
+                                            用户地址</Paragraph>
+                                    </TableCell>
+                                    <TableCell Style="{StaticResource BorderedCell}" ColumnSpan="3">
+                                        <Paragraph FontSize="16" Margin="0,3,0,0">
+                                            <TextBlock  Text="{Binding ViewModel.Bjdhyhdz}"/>
+                                        </Paragraph>
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow FontWeight="SemiBold"  >
+                                    <TableCell Style="{StaticResource BorderedCell}" LineHeight="25">
+                                        <Paragraph FontSize="16" Margin="0,3,0,0">
+                                            报警人</Paragraph>
+                                    </TableCell>
+                                    <TableCell Style="{StaticResource BorderedCell}">
+                                        <Paragraph FontSize="16" Margin="0,3,0,0">
+                                            <TextBlock  Text="{Binding ViewModel.Bjrxm}"/>
+                                        </Paragraph>
+                                    </TableCell>
+                                    <TableCell Style="{StaticResource BorderedCell}">
+                                        <Paragraph FontSize="16" Margin="0,3,0,0">联系电话</Paragraph>
+                                    </TableCell>
+                                    <TableCell Style="{StaticResource BorderedCell}">
+                                        <Paragraph FontSize="16" Margin="0,3,0,0">
+                                            <TextBlock  Text="{Binding ViewModel.Lxdh}"/>
+                                        </Paragraph>
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow FontWeight="SemiBold"  >
+                                    <TableCell Style="{StaticResource BorderedCell}"  >
+                                        <Paragraph FontSize="16" Margin="0,3,0,0">
+                                            <TextBlock TextWrapping="Wrap">
+                            报警人联系住址或单位
+                                            </TextBlock>
+                                        </Paragraph>
+                                    </TableCell>
+                                    <TableCell Style="{StaticResource BorderedCell}" ColumnSpan="3">
+                                        <Paragraph FontSize="16">
+                                            <TextBlock  Text="{Binding ViewModel.Bjdhyhdz}"/>
+                                        </Paragraph>
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow FontWeight="SemiBold"  >
+                                    <TableCell Style="{StaticResource BorderedCell}" LineHeight="25">
+                                        <Paragraph FontSize="16" Margin="0,3,0,0">
+                                            事发地址</Paragraph>
+                                    </TableCell>
+                                    <TableCell Style="{StaticResource BorderedCell}" ColumnSpan="3">
+                                        <Paragraph FontSize="16" Margin="0,3,0,0">
+                                            <TextBlock  Text="{Binding ViewModel.Sfdz}"/>
+                                        </Paragraph>
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow FontWeight="SemiBold"  >
+                                    <TableCell Style="{StaticResource BorderedCell}" LineHeight="25">
+                                        <Paragraph FontSize="16" Margin="0,3,0,0">
+                                            管辖单位</Paragraph>
+                                    </TableCell>
+                                    <TableCell Style="{StaticResource BorderedCell}">
+                                        <Paragraph FontSize="16" Margin="0,3,0,0">
+                                            <TextBlock  Text="{Binding ViewModel.Gxdwbh}"/>
+                                        </Paragraph>
+                                    </TableCell>
+                                    <TableCell Style="{StaticResource BorderedCell}">
+                                        <Paragraph FontSize="16" Margin="0,3,0,0">报警类别</Paragraph>
+                                    </TableCell>
+                                    <TableCell Style="{StaticResource BorderedCell}">
+                                        <Paragraph FontSize="16" Margin="0,3,0,0">
+                                            <TextBlock  Text="{Binding ViewModel.Bjlb}"/>
+                                        </Paragraph>
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow FontWeight="SemiBold"  >
+                                    <TableCell Style="{StaticResource BorderedCell}" LineHeight="25">
+                                        <Paragraph FontSize="16" Margin="0,3,0,0">
+                                            报警类型</Paragraph>
+                                    </TableCell>
+                                    <TableCell Style="{StaticResource BorderedCell}">
+                                        <Paragraph FontSize="16" Margin="0,3,0,0">
+                                            <TextBlock  Text="{Binding ViewModel.Bjlx}"/>
+                                        </Paragraph>
+                                    </TableCell>
+                                    <TableCell Style="{StaticResource BorderedCell}">
+                                        <Paragraph FontSize="16" Margin="0,3,0,0">报警细类</Paragraph>
+                                    </TableCell>
+                                    <TableCell Style="{StaticResource BorderedCell}">
+                                        <Paragraph FontSize="16" Margin="0,3,0,0">
+                                            <TextBlock  Text="{Binding ViewModel.Bjxl}"/>
+                                        </Paragraph>
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow FontWeight="SemiBold" >
+                                    <TableCell Style="{StaticResource BorderedCell}" >
+                                        <Paragraph FontSize="16"  TextAlignment="Center" Margin="0,12,0,0">
+                                            <TextBlock   HorizontalAlignment="Center"  VerticalAlignment="Center" Width="26"  TextWrapping="Wrap">报警内容</TextBlock>
+                                        </Paragraph>
+                                    </TableCell>
+                                    <TableCell Style="{StaticResource BorderedCell}"  ColumnSpan="3"  >
+                                        <Paragraph>
+                                            <TextBlock  Height="100" TextWrapping="Wrap" Text="{Binding ViewModel.Bjnr}"/>
+                                        </Paragraph>
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow   >
+                                    <TableCell Style="{StaticResource BorderedCell}" >
+                                        <Paragraph FontSize="16" FontWeight="SemiBold" TextAlignment="Center">
+                                            <TextBlock   TextWrapping="Wrap" Margin="0,35,0,0" Width="20" VerticalAlignment="Center" HorizontalAlignment="Center">
+                            处警意见
+                                            </TextBlock>
+                                        </Paragraph>
+                                    </TableCell>
+                                    <TableCell Style="{StaticResource BorderedCell}" ColumnSpan="3">
+                                        <Paragraph FontSize="16"  FontWeight="SemiBold">
+                                            <ListBox Height="Auto" x:Name="lit_opinion" ItemsSource="{Binding ViewModel.LogTexts}" >
+                                                <ListBox.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <StackPanel Orientation="Horizontal" Height="30">
+                                                            <TextBox VerticalAlignment="Center" Text="{Binding string}" TextWrapping="Wrap" />
+                                                        </StackPanel>
+                                                    </DataTemplate>
+                                                </ListBox.ItemTemplate>
+                                            </ListBox>
+                                        </Paragraph>
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow   >
+                                    <TableCell Style="{StaticResource BorderedCell}" >
+                                        <Paragraph FontSize="16" FontWeight="SemiBold" TextAlignment="Center">
+                                            <TextBlock  Width="20" Margin="0,18,0,0" TextWrapping="Wrap">PDA反馈</TextBlock>
+                                        </Paragraph>
+                                    </TableCell>
+                                    <TableCell Style="{StaticResource BorderedCell}" ColumnSpan="3">
+                                        <Paragraph FontSize="16" FontWeight="SemiBold" >
+                                            <ListBox ItemsSource="{Binding ViewModel.PDABackTexts,Mode=TwoWay}">
+                                                <ListBox.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <StackPanel Orientation="Horizontal" Height="30">
+                                                            <TextBox VerticalAlignment="Center" Text="{Binding string}" TextWrapping="Wrap" />
+                                                        </StackPanel>
+                                                    </DataTemplate>
+                                                </ListBox.ItemTemplate>
+                                            </ListBox>
+                                        </Paragraph>
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow   >
+                                    <TableCell Style="{StaticResource BorderedCell}" >
+                                        <Paragraph FontSize="16" FontWeight="SemiBold" TextAlignment="Center">
+                                            <TextBlock  Width="20" Margin="0,18,0,0" TextWrapping="Wrap">反馈情况</TextBlock>
+                                        </Paragraph>
+                                    </TableCell>
+                                    <TableCell Style="{StaticResource BorderedCell}" ColumnSpan="3">
+                                        <Paragraph FontSize="16" FontWeight="SemiBold" >
+                                            <ListBox ItemsSource="{Binding ViewModel.AlarmBacks,Mode=TwoWay}">
+                                                <ListBox.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <StackPanel Orientation="Horizontal" Height="30">
+                                                            <TextBox VerticalAlignment="Center" Text="{Binding string}" TextWrapping="Wrap" />
+                                                        </StackPanel>
+                                                    </DataTemplate>
+                                                </ListBox.ItemTemplate>
+                                            </ListBox>
+                                        </Paragraph>
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow   >
+                                    <TableCell Style="{StaticResource BorderedCell}"   >
+                                        <Paragraph FontSize="16" FontWeight="SemiBold" TextAlignment="Center">
+                                            <TextBlock  Width="20"  Margin="0,3,0,0" TextWrapping="Wrap">PDA结案描述</TextBlock>
+                                        </Paragraph>
+                                    </TableCell>
+                                    <TableCell Style="{StaticResource BorderedCell}" ColumnSpan="3">
+                                        <Paragraph FontSize="16">
+                                            <TextBlock TextWrapping="Wrap" FontSize="16" Margin="5"  Text="{Binding ViewModel.PDAJanr}"></TextBlock>
+                                        </Paragraph>
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow   >
+                                    <TableCell Style="{StaticResource BorderedCell}"   >
+                                        <Paragraph FontSize="16" FontWeight="SemiBold" TextAlignment="Center">
+                                            <TextBlock  Width="20"  Margin="0,3,0,0" TextWrapping="Wrap">结案描述</TextBlock>
+                                        </Paragraph>
+                                    </TableCell>
+                                    <TableCell Style="{StaticResource BorderedCell}" ColumnSpan="3">
+                                        <Paragraph FontSize="16">
+                                            <TextBlock MinHeight="80"  Text="{Binding ViewModel.Jams}" />
+                                        </Paragraph>
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow   >
+                                    <TableCell Style="{StaticResource BorderedCell}" >
+                                        <Paragraph FontSize="16" Margin="0,3,0,0" FontWeight="SemiBold" LineHeight="25">
+                                            结案人</Paragraph>
+                                    </TableCell>
+                                    <TableCell Style="{StaticResource BorderedCell}">
+                                        <Paragraph FontSize="16" Margin="0,3,0,0">
+                                            <TextBlock  Text="{Binding ViewModel.Jarid}"/>
+                                        </Paragraph>
+                                    </TableCell>
+                                    <TableCell Style="{StaticResource BorderedCell}">
+                                        <Paragraph FontSize="16" FontWeight="SemiBold" Margin="0,3,0,0">结案时间</Paragraph>
+                                    </TableCell>
+                                    <TableCell Style="{StaticResource BorderedCell}">
+                                        <Paragraph FontSize="16" Margin="0,3,0,0">
+                                            <TextBlock  Text="{Binding ViewModel.BjriOrBjsjDesc}"/>
+                                        </Paragraph>
+                                    </TableCell>
+                                </TableRow>
+                            </TableRowGroup>
+                        </Table>
+                        <Paragraph FontSize="16" FontWeight="SemiBold" Margin="55,5,0,0">
+                            <Run>打印日期：</Run>
+                            <Run Text="{Binding PrintDate}"></Run>
+                        </Paragraph>
+                    </FlowDocument>
+                </FlowDocumentReader>
+            </Border>
+
+
+        </Grid>
+    </Border>
 </UserControl>

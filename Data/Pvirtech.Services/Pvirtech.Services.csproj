@@ -49,7 +49,9 @@
     <Compile Include="CommandCenter.cs" />
     <Compile Include="EventCenter.cs" />
     <Compile Include="HttpCommandExtension.cs" />
+    <Compile Include="HttpService.cs" />
     <Compile Include="IPoliceCaseRepository.cs" />
+    <Compile Include="IHttpService.cs" />
     <Compile Include="LocalData.cs" />
     <Compile Include="LocalDataCenter.cs" />
     <Compile Include="PoliceCaseRepository.cs" />

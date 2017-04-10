@@ -16,19 +16,13 @@ using System.Windows.Shapes;
 namespace Pvirtech.Modules.NormalAlarm.Views
 {
     /// <summary>
-    /// AlarmPrint.xaml 的交互逻辑
+    /// AlarmBaseInfo.xaml 的交互逻辑
     /// </summary>
-    public partial class AlarmPrint : UserControl
+    public partial class AlarmBaseInfo : UserControl
     {
-        public AlarmPrint()
+        public AlarmBaseInfo()
         {
             InitializeComponent();
-            this.Loaded += AlarmPrint_Loaded;
-        }
-
-        void AlarmPrint_Loaded(object sender, RoutedEventArgs e)
-        {
-            this.Height = SystemParameters.PrimaryScreenHeight - 100;
         }
     }
 }

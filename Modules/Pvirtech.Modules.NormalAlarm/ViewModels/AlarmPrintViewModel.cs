@@ -8,6 +8,7 @@ using Pvirtech.Modules.NormalAlarm.ViewModels;
 using System;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Windows;
 using System.Windows.Documents;
@@ -24,7 +25,7 @@ namespace Pvirtech.Modules.NormalAlarm.ViewModels
     public class AllFk
     {
         private string _Text;
-        
+
         public string Text
         {
             get
@@ -107,7 +108,7 @@ namespace Pvirtech.Modules.NormalAlarm.ViewModels
         /// <param name="obj"></param>
         private void PrintThisPage(object obj)
         {
-            MAlarmPrint.PrintPageClick(this,FlowDocument);
+            MAlarmPrint.PrintPageClick(this, FlowDocument);
         }
 
         private void LoadPrintPage()
@@ -159,7 +160,7 @@ namespace Pvirtech.Modules.NormalAlarm.ViewModels
                     if (!string.IsNullOrEmpty(item.StartTime))
                         sjtext = DateTime.ParseExact(item.StartTime, "yyyyMMddHHmmss", System.Globalization.CultureInfo.CurrentCulture).ToString("yyyy-MM-dd HH:mm:ss");
                     AlarmLogStatus alarmStatus = (AlarmLogStatus)item.Dzlx;
-                    sb.AppendFormat("[处警人]" + item.StartName + "[指派单位]" + item.TargetName +"[时间]"+ sjtext + "[内容]:" + alarmStatus.ToString()+ "\r\n");
+                    sb.AppendFormat("[处警人]" + item.StartName + "[指派单位]" + item.TargetName + "[时间]" + sjtext + "[内容]:" + alarmStatus.ToString() + "\r\n");
                 }
                 LogTexts = sb.ToString();
             }
@@ -175,19 +176,19 @@ namespace Pvirtech.Modules.NormalAlarm.ViewModels
             FlowDocument = null;
             if (IsShowPDAJieAn == false && IsShowPDAFanKui == false)
             {
-                ThisTemplateUrl = MAlarmPrint.AlarmXml.Items.FirstOrDefault(M => M.Key == "CaseFlowDocumentInfo").Url;
+                ThisTemplateUrl = "CaseFlowDocumentInfo";
             }
             else if (IsShowPDAJieAn == true && IsShowPDAFanKui == true)
             {
-                ThisTemplateUrl = MAlarmPrint.AlarmXml.Items.FirstOrDefault(M => M.Key == "CaseFlowDocument").Url;
+                ThisTemplateUrl = "CaseFlowDocument";
             }
             else if (IsShowPDAJieAn == true && IsShowPDAFanKui == false)
             {
-                ThisTemplateUrl = MAlarmPrint.AlarmXml.Items.FirstOrDefault(M => M.Key == "CaseFlowDocumentPDAJieAn").Url;
+                ThisTemplateUrl = "CaseFlowDocumentPDAJieAn";
             }
             else if (IsShowPDAJieAn == false & IsShowPDAFanKui == true)
             {
-                ThisTemplateUrl = MAlarmPrint.AlarmXml.Items.FirstOrDefault(M => M.Key == "CaseFlowDocumentPDAFk").Url;
+                ThisTemplateUrl = "CaseFlowDocumentPDAFk";
             }
             LoadXaml(ThisTemplateUrl);
             OnPropertyChanged("LogTexts");
@@ -200,19 +201,22 @@ namespace Pvirtech.Modules.NormalAlarm.ViewModels
         /// <param name="url"></param>
         public void LoadXaml(string url)
         {
-            Stream stream = XmlHelper.GetXmlStream(url);
+            string xmlPath = string.Format("Pvirtech.Framework.Resources.{0}", url);
+            Assembly myAssembly = Assembly.Load("Pvirtech.Modules.NormalAlarm");
+            Stream stream = myAssembly.GetManifestResourceStream(xmlPath);
+            //Stream stream = XmlHelper.GetXmlStream(url);
             FlowDocument = XamlReader.Load(stream) as FlowDocument;
             stream.Close();
         }
 
         private ICommand printPage;
-        
+
         public string Title { get; set; }
 
         public object Content { get; set; }
 
         private Visibility pDATickling;
-        
+
         /// <summary>
         /// 巡组反馈信息
         /// </summary>
@@ -264,7 +268,7 @@ namespace Pvirtech.Modules.NormalAlarm.ViewModels
         public System.Windows.ResizeMode ResizeMode { get; set; }
         public WindowState WindowState { get; set; }
         public bool IsModal { get; set; }
-        
+
         private FlowDocument flowDocument;
 
         private bool isShowPDAFanKui;
@@ -338,7 +342,7 @@ namespace Pvirtech.Modules.NormalAlarm.ViewModels
         }
 
         private string pDAJieAn;
-            
+
         /// <summary>
         /// PDA结案
         /// </summary>
@@ -383,7 +387,7 @@ namespace Pvirtech.Modules.NormalAlarm.ViewModels
                 _PrintDate = value;
             }
         }
-        
+
         /// <summary>
         /// 是否显示PDA反馈
         /// </summary>
@@ -419,7 +423,7 @@ namespace Pvirtech.Modules.NormalAlarm.ViewModels
                 OnPropertyChanged("IsShowPDAJieAn");
             }
         }
-       
+
 
         private string _PrintDate;
     }

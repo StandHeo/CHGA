@@ -123,8 +123,32 @@
     <Compile Include="ViewModels\CompletedAlarmsViewModel.cs" />
     <Compile Include="ViewModels\SendMessageViewModel.cs" />
     <Compile Include="ViewModels\ShowAlarmViewModel.cs" />
+    <Compile Include="Views\AlarmBaseInfo.xaml.cs">
+      <DependentUpon>AlarmBaseInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AlarmPatrols.xaml.cs">
+      <DependentUpon>AlarmPatrols.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\AlarmPrint.xaml.cs">
       <DependentUpon>AlarmPrint.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AlarmSendCombox.xaml.cs">
+      <DependentUpon>AlarmSendCombox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CaseExecuteDetails.xaml.cs">
+      <DependentUpon>CaseExecuteDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CaseExecuteProcess.xaml.cs">
+      <DependentUpon>CaseExecuteProcess.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CaseLogInfo.xaml.cs">
+      <DependentUpon>CaseLogInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CasePatrolInfo.xaml.cs">
+      <DependentUpon>CasePatrolInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CaseProcessPrint.xaml.cs">
+      <DependentUpon>CaseProcessPrint.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\WorkingAlarms.xaml.cs">
       <DependentUpon>WorkingAlarms.xaml</DependentUpon>
@@ -140,9 +164,57 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\AlarmBaseInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AlarmPatrols.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\AlarmPrint.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AlarmSendCombox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CaseExecuteDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CaseExecuteProcess.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CaseLogInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CasePatrolInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CaseProcessPrint.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PrintTables\CaseFlowDocument.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PrintTables\CaseFlowDocumentInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PrintTables\CaseFlowDocumentPDAFk.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PrintTables\CaseFlowDocumentPDAJieAn.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\WorkingAlarms.xaml">
       <SubType>Designer</SubType>
