@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Pvirtech.Modules.NormalAlarm.Views
+namespace Pvirtech.Modules.NormalAlarm.Views.PopUp
 {
     /// <summary>
-    /// AlarmPatrolList.xaml 的交互逻辑
+    /// PADReceiveControl.xaml 的交互逻辑
     /// </summary>
-    public partial class AlarmPatrols : UserControl
+    public partial class PADReceiveControl : UserControl
     {
-        public AlarmPatrols()
+        public PADReceiveControl()
         {
             InitializeComponent();
         }

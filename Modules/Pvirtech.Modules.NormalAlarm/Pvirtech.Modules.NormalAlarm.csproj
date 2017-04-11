@@ -37,6 +37,10 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ESRI.ArcGIS.Client, Version=10.2.5.0, Culture=neutral, PublicKeyToken=29c6dd6e8553d944, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Lib\ESRI.ArcGIS.Client.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Practices.ServiceLocation">
       <HintPath>..\..\Lib\Microsoft.Practices.ServiceLocation.dll</HintPath>
     </Reference>
@@ -106,6 +110,8 @@
     <Compile Include="StyleSlectors\AlarmStyleSlector.cs" />
     <Compile Include="ViewModels\AlarmPatrolList.cs" />
     <Compile Include="ViewModels\AlarmPrintViewModel.cs" />
+    <Compile Include="ViewModels\AlarmCommands.cs" />
+    <Compile Include="ViewModels\AlarmReplyIList.cs" />
     <Compile Include="ViewModels\AlarmStatus.cs" />
     <Compile Include="ViewModels\AlarmViewModel.cs" />
     <Compile Include="ViewModels\IAlarmViewModel.cs" />
@@ -116,6 +122,19 @@
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\MAlarmInfo.cs" />
     <Compile Include="ViewModels\MAlarmPrint.cs" />
+    <Compile Include="ViewModels\PopUp\AddTicklingControlViewModel.cs" />
+    <Compile Include="ViewModels\PopUp\AlarmHintControlViewModel.cs" />
+    <Compile Include="ViewModels\PopUp\ArriveControlViewModel.cs" />
+    <Compile Include="ViewModels\PopUp\ChuiCuControlViewModel.cs" />
+    <Compile Include="ViewModels\PopUp\CloseCaseControlViewModel.cs" />
+    <Compile Include="ViewModels\PopUp\DisposeAlarmViewModel.cs" />
+    <Compile Include="ViewModels\PopUp\ExcuteCaseViewModel.cs" />
+    <Compile Include="ViewModels\PopUp\LinkXunZuClontrolViewModel.cs" />
+    <Compile Include="ViewModels\PopUp\PADReceiveControlViewModel.cs" />
+    <Compile Include="ViewModels\PopUp\ReturnAlarmControlViewModel.cs" />
+    <Compile Include="ViewModels\PopUp\UCAlarmHintViewModel.cs" />
+    <Compile Include="ViewModels\PopUp\UCAlarmTypeViewModel.cs" />
+    <Compile Include="ViewModels\PopUp\UCHintWinViewModel.cs" />
     <Compile Include="ViewModels\SelectPatrolViewModel.cs" />
     <Compile Include="ViewModels\WorkingAlarmInfoViewModel.cs" />
     <Compile Include="ViewModels\CompletedAlarmInfoViewModel.cs" />
@@ -152,6 +171,42 @@
     </Compile>
     <Compile Include="Views\CaseProcessPrint.xaml.cs">
       <DependentUpon>CaseProcessPrint.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PopUp\AddTicklingControl.xaml.cs">
+      <DependentUpon>AddTicklingControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PopUp\AlarmHintControl.xaml.cs">
+      <DependentUpon>AlarmHintControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PopUp\ArriveControl.xaml.cs">
+      <DependentUpon>ArriveControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PopUp\ChuiCuControl.xaml.cs">
+      <DependentUpon>ChuiCuControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PopUp\CloseCaseControl.xaml.cs">
+      <DependentUpon>CloseCaseControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PopUp\DisposeAlarmControl.xaml.cs">
+      <DependentUpon>DisposeAlarmControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PopUp\LinkXunZuClontrol.xaml.cs">
+      <DependentUpon>LinkXunZuClontrol.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PopUp\PADReceiveControl.xaml.cs">
+      <DependentUpon>PADReceiveControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PopUp\ReturnAlarmControl.xaml.cs">
+      <DependentUpon>ReturnAlarmControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PopUp\UCAlarmHint.xaml.cs">
+      <DependentUpon>UCAlarmHint.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PopUp\UCAlarmType.xaml.cs">
+      <DependentUpon>UCAlarmType.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PopUp\UCHintWin.xaml.cs">
+      <DependentUpon>UCHintWin.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\WorkingAlarms.xaml.cs">
       <DependentUpon>WorkingAlarms.xaml</DependentUpon>
@@ -204,6 +259,54 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\CaseProcessPrint.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PopUp\AddTicklingControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PopUp\AlarmHintControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PopUp\ArriveControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PopUp\ChuiCuControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PopUp\CloseCaseControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PopUp\DisposeAlarmControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PopUp\LinkXunZuClontrol.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PopUp\PADReceiveControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PopUp\ReturnAlarmControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PopUp\UCAlarmHint.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PopUp\UCAlarmType.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PopUp\UCHintWin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

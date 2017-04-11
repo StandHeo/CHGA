@@ -1,0 +1,106 @@
+﻿<UserControl x:Class="Pvirtech.Modules.NormalAlarm.Views.PopUp.AddTicklingControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Pvirtech.Modules.NormalAlarm.Views.PopUp"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Border
+		BorderThickness="1">
+        <Grid Background="White">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="35"/>
+                </Grid.RowDefinitions>
+                <Grid Visibility="Collapsed">
+                    <TextBox IsReadOnly="True" Width="870" TextWrapping="Wrap" Margin="5" x:Name="txt_LogWrod" Text="{Binding LogInfo,Mode=OneWay}" Style="{x:Null}" />
+                </Grid>
+                <Grid Grid.Row="1">
+                    <Rectangle Height="1" Fill="#2DB0E6"/>
+                </Grid>
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="70"/>
+                        <ColumnDefinition Width="110"/>
+                        <ColumnDefinition Width="70"/>
+                        <ColumnDefinition Width="110"/>
+                        <ColumnDefinition Width="70"/>
+                        <ColumnDefinition Width="110"/>
+                        <ColumnDefinition Width="70"/>
+                        <ColumnDefinition Width="110"/>
+                        <ColumnDefinition Width="70"/>
+                        <ColumnDefinition Width="110"/>
+                    </Grid.ColumnDefinitions>
+                    <Label HorizontalAlignment="Right" VerticalAlignment="Center" Height="26" Margin="0,10,0,9" Width="58">反馈单位</Label>
+                    <TextBox Grid.Column="1" Width="105" Text="成华分局" Height="26" HorizontalAlignment="Center" VerticalAlignment="Center" IsEnabled="True" ></TextBox>
+                    <Label Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Right" Height="26" Margin="0,10,0,9" Width="60">报警类别</Label>
+                    <!-- SelectionChanged="{Binding }"-->
+                    <ComboBox Grid.Column="3" ItemsSource="{Binding BjlbDict}" Height="26" SelectedItem="{Binding Path=SelectBjlb,Mode=TwoWay}" DisplayMemberPath="note" />
+                    <Label Grid.Column="4" HorizontalAlignment="Right" VerticalAlignment="Center" Height="26" Margin="0,10,0,9" Width="60">报警类型：</Label>
+                    <ComboBox Grid.Column="5" Height="26" ItemsSource="{Binding BjlxDict}" SelectedItem="{Binding SelectBjlx,Mode=TwoWay}" DisplayMemberPath="note" />
+                    <Label Grid.Column="8" VerticalAlignment="Center" HorizontalAlignment="Right" Height="26" Margin="0,10,0,9" Width="60">涉案金额</Label>
+                    <ComboBox Grid.Column="9" x:Name="txt_saje" Height="26" Width="90" Text="{Binding Saje,Mode=TwoWay}">
+                        <ComboBoxItem Content="500以下"></ComboBoxItem>
+                        <ComboBoxItem Content="500-1500"></ComboBoxItem>
+                        <ComboBoxItem Content="1500-5000"></ComboBoxItem>
+                        <ComboBoxItem Content="5000-1万"></ComboBoxItem>
+                        <ComboBoxItem Content="1万以上"></ComboBoxItem>
+                    </ComboBox>
+                    <Label Grid.Column="6" VerticalAlignment="Center" Height="26" Margin="0,10,0,9" HorizontalAlignment="Right" Width="58">报警细类</Label>
+                    <ComboBox IsEditable="True" Grid.Column="7" Height="26" ItemsSource="{Binding BjxlDict}" SelectedItem="{Binding SelectBjxl,Mode=TwoWay}" DisplayMemberPath="note">
+                    </ComboBox>
+                </Grid>
+                <Grid Grid.Row="3">
+                    <Rectangle Height="1" Fill="#2DB0E6"/>
+                </Grid>
+                <Grid Grid.Row="4">
+                    <local:UCAlarmType DataContext="{Binding UCalarmType,Mode=TwoWay}"></local:UCAlarmType>
+                    
+                </Grid>
+                <Grid Grid.Row="5">
+                    <Rectangle Height="1" Fill="#2DB0E6"/>
+                </Grid>
+                <Grid Grid.Row="6" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="70"/>
+                        <ColumnDefinition Width="389*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label VerticalAlignment="Center" HorizontalAlignment="Right" Height="26" Margin="0" Width="34">情况</Label>
+                    <TextBox  Focusable="True"  Grid.Column="1" Width="Auto" Height="100"  TextWrapping="Wrap" AcceptsReturn="True" Text="{Binding Fknr,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" VerticalScrollBarVisibility="Visible" VerticalAlignment="Top" Margin="5,5,5,0" >
+                        <TextBox.InputBindings>
+                            <KeyBinding Key="Enter"  Command="{Binding FeedSaveCommand}"
+                CommandParameter="{Binding ElementName=txtParticular,Path=Text}" />
+                        </TextBox.InputBindings>
+                    </TextBox>
+                </Grid>
+                <Grid Grid.Row="7">
+                    <Rectangle Height="1" Fill="#2DB0E6"/>
+                </Grid>
+                <Grid Grid.Row="8">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="75"/>
+                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="150"/>
+                    </Grid.ColumnDefinitions>
+                    <Label VerticalContentAlignment="Center" HorizontalAlignment="Right" Width="46">反馈人</Label>
+                    <TextBox Grid.Column="1" x:Name="HandleUser" Text="{Binding LoginUser.UserName}" IsReadOnly="True" Height="26" />
+                    <ToolBar Grid.Column="3">
+                        <Button Height="26" Width="40" Command="{Binding JieAnCommand}">结案</Button>
+                        <Button Height="26" Width="40" Command="{Binding FeedSaveCommand}" CommandParameter="{Binding ElementName=txtParticular,Path=Text}">保存</Button>
+                        <Button Height="26" Width="40" Command="{Binding CancelCommand}">取消</Button>
+                    </ToolBar>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Border>
+</UserControl>

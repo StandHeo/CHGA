@@ -86,7 +86,7 @@
                        VerticalAlignment="Center">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="MouseLeftButtonDown">
-                        <i:InvokeCommandAction  Command="{Binding CallPhone} " CommandParameter="{Binding Bjdh}" />
+                        <i:InvokeCommandAction  Command="{Binding CallPhone}" CommandParameter="{Binding Bjdh}" />
                        
                     </i:EventTrigger>
                 </i:Interaction.Triggers>

@@ -1,0 +1,67 @@
+﻿<UserControl x:Class="Pvirtech.Modules.NormalAlarm.Views.PopUp.ReturnAlarmControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Pvirtech.Modules.NormalAlarm.Views.PopUp"
+             xmlns:LoadBing="clr-namespace:Pvirtech.Framework.Controls;assembly=Pvirtech.Framework.Controls"
+             mc:Ignorable="d" >
+    <Border BorderThickness="1">
+        <Grid Background="White">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" MinWidth="92"/>
+                    <ColumnDefinition Width="203"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="40"/>
+                </Grid.RowDefinitions>
+                <Label HorizontalAlignment="Right" Width="75" >接警单号：</Label>
+                <Label Grid.Column="1" HorizontalAlignment="Left" Height="26" x:Name="txt_PoliceID" Content="{Binding Jjdbh,Mode=TwoWay}"  VerticalAlignment="Top"   Width="200" />
+                <Label Grid.Column="2" HorizontalAlignment="Right" Width="75" >接警时间：</Label>
+                <TextBlock Grid.Column="3" HorizontalAlignment="Left"  Margin="0,5,0,0"  Text="{Binding Jjsj}" Width="200" />
+                <Label Grid.Row="1" HorizontalAlignment="Right" Width="62" >报警人：</Label>
+                <TextBlock Grid.Column="1" HorizontalAlignment="Left"  Grid.Row="1" TextWrapping="Wrap" Text="{Binding Bjrxm,Mode=TwoWay}" Margin="0,3,0,1"  Width="200" />
+                <Label Grid.Row="1" Grid.Column="2" HorizontalAlignment="Right" Width="88" >报警人性别：</Label>
+                <TextBlock Text="{Binding Bjrxb,Mode=TwoWay}" Grid.Column="3" Width="200" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="1" Height="26"  Margin="0,3,0,1" />
+                <Label Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right" Width="75" >报警方式：</Label>
+                <TextBlock Grid.Row="2" Grid.Column="1" Width="200" VerticalAlignment="Center" HorizontalAlignment="Left" Text="{Binding Bjfsbh,Mode=TwoWay}" Height="26" Margin="0,3,0,1"/>
+                <Label Grid.Column="2" Grid.Row="2" HorizontalAlignment="Right" Width="75" >联系电话：</Label>
+                <TextBlock Text="{Binding Lxdh,Mode=TwoWay}" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Column="3" Grid.Row="2" Width="200" Height="26" Margin="0,3,0,1"/>
+                <Label Grid.Row="3" Grid.Column="0" HorizontalAlignment="Right" Width="62" >接警员：</Label>
+                <TextBlock Grid.Column="1" HorizontalAlignment="Left" Height="26"  Grid.Row="3" TextWrapping="Wrap" Text="{Binding Jjyxm,Mode=TwoWay}" VerticalAlignment="Center" Width="200" Margin="0,2" />
+                <!--<Label Grid.Row="4" Grid.Column="0" HorizontalAlignment="Right" >接警时间：</Label>-->
+                <TextBlock Grid.Column="1" HorizontalAlignment="Left" Height="26"  Grid.Row="4" TextWrapping="Wrap" Text="{Binding Bjsj}" VerticalAlignment="Center" Width="200" Margin="0,2" />
+                <Label HorizontalAlignment="Right" Grid.Row="3" Grid.Column="2" Width="75" >报警类型：</Label>
+
+                <TextBlock Grid.Column="3" HorizontalAlignment="Left" Height="26"  Grid.Row="3" TextWrapping="Wrap"  VerticalAlignment="Center" Width="200" Margin="0,2" />
+                <!--<Label HorizontalAlignment="Right" Grid.Column="2" Grid.Row="4" >报警电话：</Label>-->
+                <!--<TextBlock Grid.Column="3" HorizontalAlignment="Left" Height="26"  Grid.Row="4" x:Name="cbxType" Text="{Binding Lxdh,Mode=TwoWay}"  VerticalAlignment="Center" Width="200"/>-->
+                <Label HorizontalAlignment="Right" VerticalAlignment="Top" Grid.Row="4" Height="26" Width="75"  >主要情节：</Label>
+                <TextBlock Grid.Column="1" HorizontalAlignment="Left"  Height="80" Grid.RowSpan="2"  Grid.Row="4" TextWrapping="Wrap" Text="{Binding Bjnr,Mode=TwoWay}" Margin="0,2,0,0" VerticalAlignment="Top" Width="200" />
+                <Label HorizontalAlignment="Right" Grid.Row="4" Grid.Column="2" VerticalAlignment="Top" Height="26" Width="75" >事发地址：</Label>
+                <TextBlock Grid.Column="3" Grid.RowSpan="2"  HorizontalAlignment="Left" Height="80" Grid.Row="4" TextWrapping="Wrap" Text="{Binding Sfdz,Mode=TwoWay}"  Margin="0,5,0,0" VerticalAlignment="Top" Width="200" />
+                <Label Grid.Column="0" Grid.Row="6" HorizontalAlignment="Right" Width="75">回退理由：</Label>
+                <TextBox Grid.Column="1" HorizontalAlignment="Left" x:Name="policeWrod" Width="500" Text="{Binding Jams,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Grid.ColumnSpan="3"  Grid.Row="6" Height="130" TextWrapping="Wrap"   VerticalAlignment="Top" />
+                <StackPanel Grid.Row="7" Grid.Column="3" Margin="120,7,0,7"  VerticalAlignment="Center" Orientation="Horizontal" Height="26" >
+                    <ToolBar>
+                        <Button Content="确认回退" x:Name="btnEndCase" Command="{Binding OKCommand}" CommandParameter="{Binding ElementName=policeWrod,Path=Text}" Tag="{Binding Jqlsh}" Width="60" Height="26"></Button>
+                        <Button   Content="取消" Margin="0,0,0,0" Height="26"  Width="50" Command="{Binding CancelCommand}"></Button>
+                    </ToolBar>
+                </StackPanel>
+            </Grid>
+            <Canvas HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="100">
+                <LoadBing:LoadWinControl x:Name="LoadWin"/>
+            </Canvas>
+        </Grid>
+    </Border>
+</UserControl>

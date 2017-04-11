@@ -79,7 +79,7 @@
         </StackPanel>
         <Grid Grid.Column="1" VerticalAlignment="Stretch">
             <GroupBox    VerticalAlignment="Top" VerticalContentAlignment="Stretch"   Header="指引规范"  Margin="0,1,0,0" >
-                <local1:SecondInstract     VerticalAlignment="Top" DataContext="{Binding viewModel}"/>
+                <uc:CaseExecuteDetails     VerticalAlignment="Top" DataContext="{Binding viewModel}"/>
             </GroupBox>
         </Grid>
 

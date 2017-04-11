@@ -1,0 +1,18 @@
+﻿<UserControl x:Class="Pvirtech.Framework.Controls.LoadWinControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Pvirtech.Framework.Controls"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             mc:Ignorable="d" >
+    <Canvas x:Name="cont" Visibility="Collapsed">
+        <telerik:RadBusyIndicator x:Name="message" Margin="-50,0,0,0" FontWeight="SemiBold" FontFamily="SimSun" BusyContent="请稍等 . . . " IsBusy="True" telerik:StyleManager.Theme="Windows8Touch" HorizontalAlignment="Center" VerticalAlignment="Center" Background="#F8F8F8" BorderThickness="0">
+            <telerik:RadBusyIndicator.OverlayStyle>
+                <Style TargetType="{x:Type Rectangle}">
+                    <Setter Property="Fill" Value="#00BBDDFF" />
+                </Style>
+            </telerik:RadBusyIndicator.OverlayStyle>
+        </telerik:RadBusyIndicator>
+    </Canvas>
+</UserControl>

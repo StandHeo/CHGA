@@ -17,6 +17,8 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Input;
+using Telerik.Windows.Controls;
+using Telerik.Windows.Controls.GridView;
 
 namespace Pvirtech.Modules.NormalAlarm.ViewModels
 {
@@ -37,16 +39,16 @@ namespace Pvirtech.Modules.NormalAlarm.ViewModels
             _regionManager = regionManager;
             _container = container;
             this._eventAggregator = eventAggregator;
-            updateSetCommand = new DelegateCommand(UpDataSet);
+            updateSetCommand = new Prism.Commands.DelegateCommand(UpDataSet);
             listRightMenue = new DelegateCommand<object>(RightMenueClick);
-            resetSeek = new DelegateCommand(ClearSeek);
-            countDate = new DelegateCommand(alarmCountDate);
+            resetSeek = new Prism.Commands.DelegateCommand(ClearSeek);
+            countDate = new Prism.Commands.DelegateCommand(alarmCountDate);
             eventAggregator.GetEvent<CommonEventArgs>().Subscribe(OnGetEvent, ThreadOption.UIThread, true);
             eventAggregator.GetEvent<TimeSpanEventArgs>().Subscribe(OnGetTimeSpanEvent, ThreadOption.UIThread, true);
             eventAggregator.GetEvent<BigLinkageStatusChangedArgs>().Subscribe(OnBigLinkageStatusChanged, ThreadOption.UIThread, true);
             eventAggregator.GetEvent<BigLinkageProgressBarVisibilityArgs>().Subscribe(OnProgressBarVisibilityChanged, ThreadOption.UIThread, true);
 
-            dblclick = new DelegateCommand(AlarmInfoWin);
+            dblclick = new Prism.Commands.DelegateCommand(AlarmInfoWin);
             Menu = new ObservableCollection<MenuItem>();
             lists = new ObservableCollection<WorkingAlarmInfoViewModel>();
             Application.Current.Dispatcher.BeginInvoke(new Action(() =>
@@ -61,7 +63,7 @@ namespace Pvirtech.Modules.NormalAlarm.ViewModels
             }), System.Windows.Threading.DispatcherPriority.Loaded);
         }
 
-        
+
         private int m_timeoutWaitingCount = 0;
 
         private void OnProgressBarVisibilityChanged(Tuple<string, Visibility> val)
@@ -467,52 +469,51 @@ namespace Pvirtech.Modules.NormalAlarm.ViewModels
         /// <param name="obj"></param>
         private void RightMenueClick(object obj)
         {
-            //Menu.Clear();
-            //var clickedItem = (obj as MouseButtonEventArgs).OriginalSource as FrameworkElement;
-            //if (clickedItem != null)
-            //{
-            //    var parentRow = clickedItem.ParentOfType<GridViewRow>();
-            //    if (parentRow != null)
-            //        parentRow.IsSelected = true;
-            //    if (SelectedAlarm != null)
-            //    {
-            //        SelectedAlarm.Init();
+            Menu.Clear();
+            var clickedItem = (obj as MouseButtonEventArgs).OriginalSource as FrameworkElement;
+            if (clickedItem != null)
+            {
+                var parentRow = clickedItem.ParentOfType<GridViewRow>();
+                if (parentRow != null)
+                    parentRow.IsSelected = true;
+                if (SelectedAlarm != null)
+                {
+                    SelectedAlarm.Init();
 
-            //        #region   处警右键功能
+                    #region   处警右键功能
 
-            //        foreach (AlarmPatrolCmdItem one in AlarmRunCmd.OperItems.CmdItems)
-            //        {
-            //            MenuItem mi = new MenuItem();
-            //            mi.Header = one.Name;
-            //            mi.Command = one.BindCommand;
-            //            mi.CommandParameter = one.Key + "," + SelectedAlarm.Jqlsh;
-            //            Menu.Add(mi);
-            //        }
+                    foreach (AlarmPatrolCmdItem one in AlarmCommands.OperItems.CmdItems)
+                    {
+                        MenuItem mi = new MenuItem();
+                        mi.Header = one.Name;
+                        mi.Command = one.BindCommand;
+                        mi.CommandParameter = one.Key + "," + SelectedAlarm.Jqlsh;
+                        Menu.Add(mi);
+                    }
 
-            //        #endregion
+                    #endregion
 
-            //        foreach (MAlarmPatrol one in SelectedAlarm.UsePatrols.Patrols)
-            //        {
-            //            MenuItem xzItem = new MenuItem();
-            //            //if(one.patrol!=null)
-            //            //{
-            //            xzItem.Header = one.patrol != null ? one.patrol.GroupName : string.Empty;
-            //            foreach (var nitem in one.Cmds)
-            //            {
-            //                MenuItem cmd = new MenuItem();
-            //                cmd.Command = nitem.BindCommand;
-            //                cmd.CommandParameter = nitem.Key;
-            //                cmd.Header = nitem.Name;
-            //                xzItem.Items.Add(cmd);
-            //            }
-            //            if (xzItem.HasItems)
-            //                Menu.Add(xzItem);
+                    foreach (MAlarmPatrol one in SelectedAlarm.UsePatrols.Patrols)
+                    {
+                        MenuItem xzItem = new MenuItem();
 
-            //            //}
+                        xzItem.Header = one.patrol != null ? one.patrol.GroupName : string.Empty;
+                        foreach (var nitem in one.Cmds)
+                        {
+                            MenuItem cmd = new MenuItem();
+                            cmd.Command = nitem.BindCommand;
+                            cmd.CommandParameter = nitem.Key;
+                            cmd.Header = nitem.Name;
+                            xzItem.Items.Add(cmd);
+                        }
+                        if (xzItem.HasItems)
+                        {
+                            Menu.Add(xzItem);
+                        }
 
-            //        }
-            //    }
-            //}
+                    }
+                }
+            }
         }
 
         private void OnGetEvent(MessageModel obj)
