@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MapConfig>
+  <Paras>
+    <BaseTile>{*MapServer*}/arcgis/rest/services/CHGAMAP/{0}/MapServer</BaseTile>
+    <BaseFeature>{*MapServer*}/arcgis/rest/services/Feature/Feature/MapServer/{0}</BaseFeature>
+    <GIS>{*MapServer*}/arcgis/rest/services/Feature/GIS/MapServer/{0}</GIS>
+    <CHXMJD>{*MapServer*}/arcgis/rest/services/Feature/XMJD/MapServer/{0}</CHXMJD>
+    <FilterArea>DEPTNO='{0}'</FilterArea>
+    <FilterBaseFeature0>SUBSTRING(GXDWBH,1,8)=SUBSTRING('{0}',1,8)</FilterBaseFeature0>
+    <FilterBaseFeature1>GXDWBH='{0}'</FilterBaseFeature1>
+    <TLVisible>True</TLVisible>
+    <TRVisible>True</TRVisible>
+    <BRVisible>False</BRVisible>
+    <BLVisible>False</BLVisible>
+    <CBVisible>False</CBVisible>
+    <TuliVisible>False</TuliVisible>
+  </Paras>
+  <!--初始化时默认加载的图层，按顺序-->
+  <MapView IsLogoVisible="False"  MinScale="75000" MaxScale="500">
+    <!--<MaximumExtent XMin="104.0188" YMin="30.0215" XMax="104.9824" YMax="31.5462" />-->
+  </MapView>
+  <Map>
+    <Extent XMin="104.0988" YMin="30.6215" XMax="104.1824" YMax="30.7462" />
+  </Map>
+  <Layers>
+    <MapGroup LayerID="TileStreet" Url="{*BaseTile*}" Mode="GroupHide">
+      <MapTiledLayer Para="DLG" />
+    </MapGroup>
+    <MapGroup LayerID="TileImage"  Url="{*BaseTile*}" Mode="GroupHide">
+      <MapTiledLayer Para="RASTER" />
+      <MapTiledLayer Para="RASTERLAB" />
+    </MapGroup>
+    <MapGroup LayerID="CHTS" Url="{*BaseFeature*}"  Mode="GroupHide">
+      <MapFeatureLayer Para="9" />
+    </MapGroup>
+    <MapGroup LayerID="CHXQ" Url="{*BaseFeature*}" Mode="GroupHide">
+      <MapFeatureLayer Para="15" />
+    </MapGroup>
+    <MapGroup LayerID="CHXQBJ" Url="{*BaseFeature*}" Mode="GroupHide">
+      <MapFeatureLayer Para="10" />
+    </MapGroup>
+    <MapGroup LayerID="CHBJ"  Url="{*BaseFeature*}" Mode="GroupHide">
+      <MapFeatureLayer Para="11" />
+    </MapGroup>
+    <MapGroup LayerID="CHXMJD" Url="{*CHXMJD*}" IsVisible="True" Mode="AddRemove" />
+    <MapGroup LayerID="CHBasic" Url="{*BaseFeature*}" IsVisible="True" Mode="AddRemove"/>
+    <MapGroup LayerID="GIS" Url="{*GIS*}" IsVisible="True" Mode="AddRemove"/>
+
+  </Layers>
+
+  <MapGroups>
+    <CGroup Name="图层" Target="CHBasic" >
+      <CItem  Name="警情"  Para="0" DT="jingqing" IsDefault="True" ImageName="jingqing"/>
+      <CItem  Name="巡组" Para="1" DT="xunzu" IsDefault="True" ImageName="xunzu"/>
+      <CItem  Name="快反" Para="2" DT="xunzu"  ImageName="kuaifan"/>
+      <CItem  Name="机动" Para="3" DT="xunzu"  ImageName="jidong"/>
+      <CItem  Name="单兵" Para="4" DT="danbing"  ImageName="danbing"/>
+      <CItem  Name="车载" Para="5" DT="chezai" ImageName="chezai"/>
+      <CItem  Name="天网" Para="6" DT="tianwang"  ImageName="tianwang"/>
+      <CItem  Name="公安机关" Para="7" DT="gonganjiguan"  ImageName="gonganjiguan"/>
+      <CItem  Name="辖区边界" Para="10" Target="CHXQBJ" IsDefault="True"  ImageName="xiaqubianjie"/>
+      <CItem  Name="成华边界" Para="11" Target="CHBJ"  ImageName="chbianjie" />
+      <CItem  Name="四道防线" Para="13"  ImageName="bayonetfour"/>
+      <CItem  Name="重点区域" Para="14"  DT="Important" ImageName="zdqy" IsDefault="True"/>
+
+    </CGroup>
+    <CGroup Name="XMJD" Target="CHXMJD" >
+      <CItem  Name="安保点位" Para="0" DT="pandapoint" IsDefault="True" ImageName="qyab"/>
+      <CItem  Name="基地边界"  Para="1"  IsDefault="True" ImageName="qybj"/>
+    </CGroup>
+    <CGroup Name="GIS图层" Target="GIS">
+      <CItem  Name="酒店" Para="0" DT="GIS" ImageName="hotel"/>
+      <CItem  Name="医院" Para="1"  DT="GIS" ImageName="hospital"/>
+      <CItem  Name="娱乐场所" Para="2" DT="GIS" ImageName="entertainment"/>
+      <CItem  Name="学校" Para="3" DT="GIS" ImageName="school"/>
+      <CItem  Name="视频" Para="4" DT="DWGIS"  ImageName="video"/>
+      <CItem  Name="事业单位" Para="5" DT="GIS" ImageName="institution"/>
+      <CItem  Name="政府机关" Para="6" DT="GIS" ImageName="office"/>
+      <CItem  Name="消防栓" Para="7" DT="GIS"  ImageName="xfs"/>
+      <CItem  Name="重点消防" Para="8" DT="DWGIS" ImageName="xfzddw"/>
+      <CItem  Name="网吧" Para="9" DT="GIS" ImageName="hlwswyycs"/>
+      <CItem  Name="加油站" Para="10" DT="GIS"  ImageName="jyz"/>
+      <CItem  Name="门牌信息" Para="-1" DT="GIS" ImageName="mpdz"/>
+      <CItem  Name="公安机关" Para="14" DT="GIS"  ImageName="gonganjiguan"/>
+      <CItem  Name="备勤点" Para="-5" DT="GIS" ImageName="lsbqd"/>
+      <CItem  Name="反恐重点" Para="15" DT="GIS" ImageName="fkzdmb"/>
+      <CItem  Name="宗教场所" Para="16" DT="GIS"  ImageName="zjcs"/>
+      <CItem  Name="大型活动" Para="17" DT="GIS"  ImageName="dxqzxhd"/>
+      <CItem  Name="路灯杆" Para="-6" DT="GIS" ImageName="ldg"/>
+      <CItem  Name="联动单位" Para="18" DT="GIS" ImageName="lddw"/>
+      <CItem  Name="指挥部" Para="-3" DT="GIS" ImageName="xczhb"/>
+      <CItem  Name="危爆库" Para="19" DT="GIS" ImageName="whk"/>
+      <CItem  Name="物流库" Para="20" DT="DWGIS" ImageName="wlk"/>
+      <CItem  Name="轨道交通" Para="21" DT="GIS" ImageName="bayonetgdjt"/>
+
+    </CGroup>
+    <CGroup Name="底图">
+      <CItem  Name="地图" Target="TileStreet"  IsDefault="True" ImageName="dt"
+              GroupName="TileGroup"
+              />
+      <CItem  Name="卫星" Target="TileImage"  ImageName="weixing"
+              GroupName="TileGroup"
+              />
+      <CItem  Name="态势" GroupName="AAA" Target="CHTS" IsDefault="True" ImageName="taishituxian"/>
+      <CItem  Name="辖区" GroupName="AAA" Target="CHXQ"   ImageName="xiaqutuxian"/>
+      <CItem  Name="辖区" GroupName="AAA" Target=""   ImageName="qxtx"/>
+    </CGroup>
+  </MapGroups>
+
+</MapConfig>

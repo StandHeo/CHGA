@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Root>
+	<LEDPolice>
+		<Item GroupName="G1" Title="值班局领导：" Key="510108000001"></Item>
+		<Item GroupName="G1" Title="值班  主任：" Key="510108000002"></Item>
+		<Item GroupName="G1" Title="指  挥  员：" Key="510108000003"></Item>
+		<Item GroupName="G1" Title="情  报  员：" Key="qby"></Item>
+		<Item GroupName="G1" Title="当日值班员：" Key="zhzxzby"></Item>
+		
+		<Item GroupName="G2" Title="备班主任" Key="bbzr"></Item>
+		<Item GroupName="G2" Title="刑侦大队" Key="510108360000"></Item>
+		<Item GroupName="G2" Title="巡警大队" Key="510108130000"></Item>
+		<Item GroupName="G2" Title="业务大队" Key="510108040000"></Item>
+		<Item GroupName="G2" Title="双桥210" Key="510108410000"></Item>
+		<Item GroupName="G2" Title="猛追220" Key="510108400000"></Item>
+		<Item GroupName="G2" Title="二仙230" Key="510108440000"></Item>
+		<Item GroupName="G2" Title="府青240" Key="510108430000"></Item>
+		<Item GroupName="G2" Title="建设260" Key="510108420000"></Item>
+
+		<Item GroupName="G3" Title="白莲270" Key="510108610000"></Item>
+		<Item GroupName="G3" Title="万年280" Key="510108480000"></Item>
+		<Item GroupName="G3" Title="桃蹊290" Key="510108490000"></Item>
+		<Item GroupName="G3" Title="双水310" Key="510108470000"></Item>
+		<Item GroupName="G3" Title="跳蹬320" Key="510108450000"></Item>
+		<Item GroupName="G3" Title="圣灯330" Key="510108500000"></Item>
+		<Item GroupName="G3" Title="保和340" Key="510108510000"></Item>
+		<Item GroupName="G3" Title="青龙350" Key="510108530000"></Item>
+		<Item GroupName="G3" Title="龙潭360" Key="510108520000"></Item>
+
+		<Item GroupName="G4" Title="在编  警力：" Key="offPoliceNum"></Item>
+		<Item GroupName="G4" Title="实有  警力：" Key="totalPoliceNum"></Item>
+		<Item GroupName="G4" Title="值班警力数：" Key="policeNum"></Item>
+		<Item GroupName="G4" Title="备勤警力数：" Key="prePoliceNum"></Item>
+    
+		<Item GroupName="G5" Title="接处  警组：" Key="patrolGroup"></Item>
+		<Item GroupName="G5" Title="机动巡防组：" Key="motorGroup"></Item>
+		<Item GroupName="G5" Title="快反  小组：" Key="quickGroup"></Item>
+		<Item GroupName="G5" Title="值班  枪支：" Key="gunNum"></Item>
+	</LEDPolice>
+	<LEDAlarm>
+    <Item GroupName="A" Title="标题" Key="jqtitle" sql=""/>
+    <Item GroupName="A" Title="今日关注" Key="jqtoday" sql=""/>
+    <Item GroupName="A" Title="重点关注" Key="jqkeyarea" sql="" ></Item>
+    <Item GroupName="A" Title="重大滚动" Key="L1Scroll" sql="caselevel=1" ></Item>
+		<Item GroupName="G1" Title="总 警 情:" Key="AlarmTotal" sql="1=1"></Item>
+		<Item GroupName="G1" Title="刑事警情:" Key="Alarm20" sql="bjlb='20'"></Item>
+    <Item GroupName="G1" Title="行政警情:" Key="Alarm30" sql="bjlb='30'"></Item>
+    <Item GroupName="G1" Title="其他警情:" Key="AlarmElse" sql="bjlb@#'20' AND bjlb@#'30'"></Item>
+
+    <Item GroupName="G2" Title="处 置 中:" Key="AlarmUnFinish" sql="ajzt@13"></Item>
+    <Item GroupName="G2" Title="重 报 数:" Key="AlarmValid" sql="bjnr like '%重报%'"></Item>
+		<Item GroupName="G2" Title="推 送 数:" Key="AlarmPush" sql="jqly@#0"></Item>
+		
+		<Item GroupName="G3" Title="抢劫" Key="201500" sql="bjlx='201500'"></Item>
+		<Item GroupName="G3" Title="抢夺" Key="203000" sql="bjlx='203000'"></Item>
+		<Item GroupName="G3" Title="扒窃" Key="201055" sql="bjxl='201055'" ></Item>
+		<Item GroupName="G3" Title="诈骗" Key="203500" sql="bjlx='203500'"></Item>
+
+		<Item GroupName="G4" Title="抢劫" Key="qj21" sql="1=2"></Item>
+		<Item GroupName="G4" Title="抢夺" Key="303000" sql="bjlx='303000'"></Item>
+		<Item GroupName="G4" Title="扒窃" Key="302020" sql="bjxl='302020'"></Item>
+		<Item GroupName="G4" Title="诈骗" Key="304000" sql="bjlx='304000'"></Item>
+
+    <Item GroupName="G5" Title="入盗" Key="201020" sql="bjxl='201020'"></Item>
+    <Item GroupName="G5" Title="机盗" Key="201010" sql="bjxl='201010'"></Item>
+    <Item GroupName="G5" Title="车盗" Key="201050" sql="bjxl='201050'"></Item>
+    <Item GroupName="G5" Title="电盗" Key="201025" sql="bjxl='201025'"></Item>
+
+    <Item GroupName="G6" Title="入盗" Key="302055" sql="bjxl='302055'"></Item>
+    <Item GroupName="G6" Title="机盗" Key="qj24" sql="1=2"></Item>
+    <Item GroupName="G6" Title="车盗" Key="302010" sql="bjxl='302010'"></Item>
+    <Item GroupName="G6" Title="电盗" Key="302065" sql="bjxl='302065'"></Item>
+
+    <Item GroupName="G7" Title="安全" Key="anquan" sql="bjlb='40'"/>
+    <Item GroupName="G7" Title="维稳" Key="weiwen" sql="bjlb='60'"></Item>
+	</LEDAlarm>
+</Root>

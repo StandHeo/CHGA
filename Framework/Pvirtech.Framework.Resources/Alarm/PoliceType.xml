@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Root>
+  <PoliceType ID="1" Key="1" Name="巡组" Desc="巡组" Icon="xunzu.png" />
+  <PoliceType ID="2" Key="2" Name="快反" Desc="快反" Icon="kuaifan.png" />
+  <PoliceType ID="3" Key="3" Name="机动" Desc="机动" Icon="jidong.png" />
+  <PoliceType ID="4" Key="4" Name="卡点" Desc="卡点" Icon="kadian.png" />
+</Root>

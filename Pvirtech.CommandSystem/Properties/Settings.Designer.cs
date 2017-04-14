@@ -34,5 +34,29 @@ namespace Pvirtech.CommandSystem.Properties {
                 this["IsBusy"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://10.65.65.204:7777/PoliceWorkPlatform/client/config.xml")]
+        public string QueryUrl {
+            get {
+                return ((string)(this["QueryUrl"]));
+            }
+            set {
+                this["QueryUrl"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://10.65.65.204:7777/PoliceWorkPlatform/client.do?method=config")]
+        public string QureyMapUrl {
+            get {
+                return ((string)(this["QureyMapUrl"]));
+            }
+            set {
+                this["QureyMapUrl"] = value;
+            }
+        }
     }
 }

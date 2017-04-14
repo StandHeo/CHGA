@@ -1,10 +1,16 @@
-﻿using Newtonsoft.Json;
+﻿using ESRI.ArcGIS.Client;
+using ESRI.ArcGIS.Client.Geometry;
+using Microsoft.Practices.ServiceLocation;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Pvirtech.Framework.Common;
+using Pvirtech.Framework.Domain;
+using Pvirtech.Framework.Message;
 using Pvirtech.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 namespace Pvirtech.Services
 {
@@ -14,7 +20,24 @@ namespace Pvirtech.Services
     /// </summary>
     public class LocalDataCenter : LocalData
     {
+        private static IMessageAgent _messageAgent;
+        private static IPoliceCaseRepository policeCaseRepository;
 
+        static LocalDataCenter()
+        {
+            policeCaseRepository = ServiceLocator.Current.GetInstance<IPoliceCaseRepository>();
+        }
+        /// <summary>
+        /// 启动数据中心，开启消息监听服务
+        /// </summary>
+        public static void Start(IMessageAgent messageAgent)
+        {
+            policeCaseRepository = new PoliceCaseRepository();
+            _messageAgent = messageAgent;
+            messageAgent.CreateAdapter(LocalUser.UserNo, LocalUser.Token, "", new MQClientAdapter.WhenMessageReceiveHandle(ReceiveServiceMsg));
+        }
+
+        
         public static ZhiYinXMLModel ZhiYinXML { get; set; }
         public static void SetZhiYin()
         {
@@ -24,9 +47,197 @@ namespace Pvirtech.Services
         /// <summary>
         /// 接收服务端推送消息
         /// </summary>
-        
+        public static async void ReceiveServiceMsg(object sender, string filter, string msgType, string body)
+        {
+            try
+            {
+                if (filter != "ALL")
+                    return;
+                JObject obj = new JObject();
+                obj = JObject.Parse(body);
+                string type = obj["method"].ToString();
+                switch (msgType)
+                {
+                    //更新警情
+                    case "alarmChange":
+                        #region 更新警情
+                        if (obj["result"] != null)
+                        {
+                            AlarmBase item = JsonConvert.DeserializeObject<AlarmBase>(obj["result"].ToString());
+                            if (!LocalUser.IsAllFunction)
+                            {
+                                if (item.Gxdwbh != LocalUser.DeptNo)
+                                {
+                                    return;
+                                }
+                            }
+                            //AlarmBase tmp = AlarmCollections.FirstOrDefault(alarm => alarm.jqlsh.Equals(item.jqlsh));
+                            /* 收到警情的通知
+                             * 1、移除原有警情内容
+                             * 2、移除原有警情处警记录
+                             * 3、移除原有警情操作记录
+                             * 4、移除原有警情反馈内容
+                             * */
+                            if (item.Sddwxzb == 0 || item.Sddwyzb == 0)
+                            {
+                                //绑定警情坐标  
+                                item.MapPoint = new MapPoint(item.Zddwxzb, item.Zddwyzb, new SpatialReference(4490));
+                            }
+                            else
+                            {
+                                item.MapPoint = new MapPoint(item.Sddwxzb, item.Sddwyzb, new SpatialReference(4490));
+                            }
 
-       
+                            alarmCollections.RemoveAll(aa => aa.Jqlsh == item.Jqlsh);
+                            if (item.Ajzt == (int)AlarmStatus.END)
+                            {
+                                /* 结案通知
+                                 * 1、移除警情内容
+                                 * 2、移除警情处警记录
+                                 * 3、移除警情操作记录
+                                 * 4、移除警情反馈内容
+                                 * */
+                            }
+                            else
+                            {
+                                /* 非结案警情通知
+                                 * 
+                                 * 1、添加（更新）到警情集合
+                                 * 2、查询处警记录,添加（更新）
+                                 * 3、查询操作记录,添加（更新）
+                                 * 4、查询反馈记录,添加（更新）
+                                 * */
+                                Dictionary<string, object> param = new Dictionary<string, object>();
+                                param.Add("jqlsh", item.Jqlsh);
+                                Result<List<AlarmOperation>> listOper = await policeCaseRepository.GetAlarmOperation(param);
+                                Result<List<AlarmOperationRecord>> listOperRcd = await policeCaseRepository.GetAlarmOperRcd(param);
+                                Result<List<AlarmFeedBack>> listFedBack = await policeCaseRepository.GetAlarmFeedBack(param);
+                                alarmCollections.Add(item);
+                                if (listOper != null)
+                                {
+                                    if (listOper.Code == ResultCode.SUCCESS)
+                                    {
+                                        alarmOper.RemoveAll(aa => aa.Jqlsh == item.Jqlsh);
+                                        alarmOper.AddRange(listOper.Model);
+                                    }
+                                }
+                                if (listOperRcd != null)
+                                {
+                                    if (listOperRcd.Code == ResultCode.SUCCESS)
+                                    {
+                                        alarmOperRcd.RemoveAll(aa => aa.Jqlsh == item.Jqlsh);
+                                        alarmOperRcd.AddRange(listOperRcd.Model);
+                                    }
+                                }
+                                if (listFedBack != null)
+                                {
+                                    if (listFedBack.Code == ResultCode.SUCCESS)
+                                    {
+                                        alarmFeedBack.RemoveAll(aa => aa.Jqlsh == item.Jqlsh);
+                                        alarmFeedBack.AddRange(listFedBack.Model);
+                                    }
+                                }
+                            }
+                            /*
+                             * 发布警情更新消息
+                             */
+                            MessageModel msg = new MessageModel();
+                            try
+                            {
+                                msg.MessageType = (MessageTypes)Enum.Parse(typeof(MessageTypes), type.ToUpper());
+                            }
+                            catch (System.Exception)
+                            {
+                                msg.MessageType = MessageTypes.UNKONW;
+                            }
+                            msg.MessageBody = item;
+                            _messageAgent.EventAggregator.GetEvent<CommonEventArgs>().Publish(msg);
+                        }
+                        #endregion
+                        break;
+                    //警力报备更新数据同步
+                    case "dutyChange":
+
+                        #region 报备更新
+                        if (obj["result"] != null)
+                        {
+                            // string s = string.Format("{0}:{1}\r\n", System.DateTime.Now.ToString("hh:mm:ss"), obj["result"].ToString());
+                            // System.IO.File.AppendAllText("D:\\LOG.TXT", s);
+                            Patrol item = JsonConvert.DeserializeObject<Patrol>(obj["result"].ToString());
+
+                            LogHelper.WriteLog(item.GroupNo + "--" + item.GroupName + "--" + item.AppStatus.ToString() + "--" + item.GroupStatus + "--" + item.Status);
+                            bool tmp = patrols.Exists(aa => aa.GroupNo == item.GroupNo);
+                            if (tmp)
+                            {
+                                patrols.RemoveAll(aa => aa.GroupNo == item.GroupNo);
+                                patrols.Add(item);
+                            }
+                            else
+                            {
+                                if (!LocalUser.IsAllFunction)
+                                {
+                                    if (item.GroupNo.Contains(LocalUser.DeptNo.Substring(0, 8)))
+                                    {
+                                        patrols.Add(item);
+                                    }
+                                }
+                                else
+                                    patrols.Add(item);
+                            }
+                            /*
+                             * 发布巡组状态变更
+                             */
+                            MessageModel msg = new MessageModel();
+                            try
+                            {
+                                msg.MessageType = (MessageTypes)Enum.Parse(typeof(MessageTypes), type.ToUpper());
+                            }
+                            catch (System.Exception)
+                            {
+                                msg.MessageType = MessageTypes.UNKONW;
+                            }
+                            msg.MessageBody = item;
+                            _messageAgent.EventAggregator.GetEvent<CommonEventArgs>().Publish(msg);
+                        }
+                        #endregion
+                        break;
+                    case "classChange":
+                        UpdateReportInfo();
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                LogHelper.WriteLog(body);
+                LogHelper.ErrorLog(ex, "DataCenter  ReceiveServiceMsg");
+            }
+        }
+
+        private static async void UpdateReportInfo()
+        {
+            var policeGroupRepository = ServiceLocator.Current.GetInstance<IPoliceGroupRepository>();
+
+            Result<List<Patrol>> patols = await policeGroupRepository.GetPatorl(departmentNo: !LocalUser.IsAllFunction ? LocalUser.DeptNo : string.Empty);
+            if (patols.Code == ResultCode.SUCCESS)
+            {
+                List<Patrol> oItems = new List<Patrol>();
+                foreach (var item in patols.Model)
+                {
+                    var findItem = oItems.Find(o => o.CallNo == item.CallNo);
+                    if (findItem == null)
+                    {
+                        oItems.Add(item);
+                    }
+                }
+                LocalDataCenter.SetPatrols(oItems);
+            }
+            MessageModel msg = new MessageModel();
+
+            msg.MessageType = MessageTypes.GROUPSTATUS;
+
+            msg.MessageBody = new Patrol();
+            _messageAgent.EventAggregator.GetEvent<CommonEventArgs>().Publish(msg);
+        }
 
         #region 设置数据
         /// <summary>
@@ -233,7 +444,7 @@ namespace Pvirtech.Services
         /// <summary>
         /// 巡组巡防区域
         /// </summary>
-        //public static IList<Graphic> XiaQuPolygons { get; set; }
+        public static IList<Graphic> XiaQuPolygons { get; set; }
 
 
         /// <summary>
@@ -297,5 +508,6 @@ namespace Pvirtech.Services
         /// </summary>
         public static List<SendAlarmTime> lstSendAlarmTime = new List<SendAlarmTime>();
         #endregion
+
     }
 }

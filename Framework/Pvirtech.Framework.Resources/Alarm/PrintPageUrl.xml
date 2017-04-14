@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Root>
+  <AlarmClose>
+    <AlarmInfo Name="案件基本信息打印单" PrintKey="CaseFlowDocumentInfo" Url="Alarm.CaseFlowDocumentInfo.xaml"></AlarmInfo>
+    <AlarmInfo Name="案件全部信息打印单" PrintKey="CaseFlowDocument" Url="Alarm.CaseFlowDocument.xaml"></AlarmInfo>
+    <AlarmInfo Name="案件PDA反馈打印单" PrintKey="CaseFlowDocumentPDAFk" Url="Alarm.CaseFlowDocumentPDAFk.xaml"></AlarmInfo>
+    <AlarmInfo Name="案件PDA结案打印单" PrintKey="CaseFlowDocumentPDAJieAn" Url="Alarm.CaseFlowDocumentPDAJieAn.xaml"></AlarmInfo>
+  </AlarmClose>
+</Root>

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Messanger>
+  <NEWALARM Caption="新警情" Header = "NewAlarmHeader" Content = "NewAlarmContent" 
+           AlertID="JQNEW{0}" Times="30" Back="Red" AutoClose="-2" Wave="NewAlarm.wav" 
+            PublishKey="NewAlarmWin" TimeOutKey="NewAlarmTimeOut"
+            />
+  <EXCUTEALARM Caption="已派警" Pre="JQNEW{0}"/>
+  <ALARMRECIVE Caption="PDA已接受" />
+  <ALARMSTART Caption="巡组已出发" Pre="JQCUI{0}"/>
+  <AlarmUrge Caption="请催促" Header = "NewAlarmHeader" Content = "NewAlarmContent"
+         AlertID="JQCUI{0}" Times="30" Back="OrangeRed" AutoClose="-2" Wave="Cuicu.wav"
+          PublishKey="UrgeAlarm" TimeOutKey="UrgeTimeOut"/>
+  <ALARMURGE Caption="已催促" Pre="JQCUI{0}"/>
+  <ALARMARRIVE Caption="已到达现场" Pre="JQCUI{0}"/>
+  <FEEDBACK Caption="已反馈" Pre="JQNEW{0}"/>
+  <ENDALARM Caption="已结案" Pre="JQNEW{0}"/>
+  <AlarmSendFailed Caption="PDA未接收" Pre="JQNEW{0}" Back="LightBlue"/>
+  <Prompt Caption="系统提示" Header="SystemPromptHeader" Content="SystemPromptContent" AutoClose="3"/>
+  <Error Caption="系统错误" Header="SystemErrorHeader" Content="SystemErrorContent" AutoClose="6"/>
+  <AlarmSendFailed Caption="派警失败" Header = "NewAlarmHeader" Content = "NewAlarmContent"
+         Back="Green" AutoClose="3" Wave="Cuicu.wav"
+            />
+</Messanger>

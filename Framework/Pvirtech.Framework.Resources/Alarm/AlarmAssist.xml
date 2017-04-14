@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Root>
+  
+  <!-- 
+  警情统计用户控件查询配置 
+  Name为名称  Key为编号（如盗窃Key="302000"）
+ “Key”值必须为数据库有效的值
+  Type为类别（如抢夺Key为303000 是行政案件下面的Type就是30）
+  -->
+  <AlarmAmount>
+    <Amount Name="刑事案件" Key="20" Type="1"></Amount>
+    <Amount Name="盗窃(刑)" Key="201000" Type="2"></Amount>
+    <Amount Name="入盗(刑)" Key="201020" Type="3"></Amount>
+  </AlarmAmount>
+  
+  
+  <!-- 警情统计用户控件更新时间-->
+  <UpDateAlarmCntTable>
+     <!-- 第一列数据刷新时间 -->
+     <Columnt1Alarm Number="1"></Columnt1Alarm>
+     <!-- 第二列数据刷新时间 -->
+     <Columnt2Alarm Number="1200"></Columnt2Alarm>
+     <!-- 第三列数据刷新时间 -->
+     <Columnt3Alarm Number="1800"></Columnt3Alarm>
+     <!-- 第四列数据刷新时间 -->
+     <Columnt4Alarm Number="2400"></Columnt4Alarm>
+  </UpDateAlarmCntTable>
+
+  <!-- 巡组Tip -->
+  <GroupCommand>
+    <Cmd Key="GetVideoByNo" Name="车辆视频" ImgSource="jingche_.jpg" newImgSource="jingche.jpg" IsShow="true" relevance="CarNo"></Cmd>
+    <Cmd Key="GetVideoByNo" Name="单兵视频" ImgSource="shouji_.jpg" newImgSource="shouji.jpg" IsShow="true" relevance="AppNo"></Cmd>
+    <Cmd Key="PlatformInform" Name="电台呼叫" ImgSource="shoutai_.jpg" newImgSource="shoutai.jpg" IsShow="true" relevance="CallNo"></Cmd>
+    <Cmd Key="SendMessager" Name="发送指令" ImgSource="danbing_.jpg" newImgSource="danbing.jpg" IsShow="true" relevance="GroupNo"></Cmd>
+    <Cmd Key="SendMessager" Name="枪" ImgSource="qiang_.jpg" newImgSource="qiang.jpg" IsShow="true" relevance="GunList"></Cmd>
+    <Cmd Key="ShowCarTrack" Name="行车轨迹" ImgSource="jingche.jpg" newImgSource="jingche.jpg" IsShow="true"  relevance="CarTrack"></Cmd>
+  </GroupCommand>
+</Root>

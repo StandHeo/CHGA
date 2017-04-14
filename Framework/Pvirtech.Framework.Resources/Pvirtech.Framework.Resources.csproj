@@ -1,17 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2659BCF3-EA1F-4499-A505-83A7A341EDC1}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{523687E8-A8F2-45F4-A90F-50A9F1714D4F}</ProjectGuid>
+    <OutputType>library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Pvirtech.Framework.Resources</RootNamespace>
     <AssemblyName>Pvirtech.Framework.Resources</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -30,19 +31,563 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\x64\Release\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Release\</OutputPath>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Utils.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Alarm\AlarmAssist.xml" />
+    <EmbeddedResource Include="Alarm\AlarmOperStatus.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Alarm\GaugePara.xml" />
+    <EmbeddedResource Include="Alarm\Messanger.xml" />
+    <EmbeddedResource Include="Alarm\PhraseWord.xml" />
+    <EmbeddedResource Include="Alarm\PoliceType.xml" />
+    <EmbeddedResource Include="Alarm\PrintPageUrl.xml" />
+    <EmbeddedResource Include="Alarm\SendAlarm.xml" />
+    <EmbeddedResource Include="Alarm\Zhiyinguifan.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Resource Include="Images\10.png" />
+    <Resource Include="Images\11.png" />
+    <Resource Include="Images\12.png" />
+    <Resource Include="Images\14.png" />
+    <Resource Include="Images\15.png" />
+    <Resource Include="Images\6.png" />
+    <Resource Include="Images\8.png" />
+    <Resource Include="Images\9.png" />
+    <Resource Include="Images\ALARMPLUS.png" />
+    <Resource Include="Images\alarm\alarmstate_blue.png" />
+    <Resource Include="Images\alarm\alarmstate_end.png" />
+    <Resource Include="Images\alarm\alarmstate_end1.png" />
+    <Resource Include="Images\alarm\alarmstate_green.png" />
+    <Resource Include="Images\alarm\alarmstate_red.png" />
+    <Resource Include="Images\alarm\alarmstate_three.png" />
+    <Resource Include="Images\alarm\alarmstate_yellow.png" />
+    <Resource Include="Images\alarm\alarm_blue.png" />
+    <Resource Include="Images\alarm\alarm_green.png" />
+    <Resource Include="Images\alarm\alarm_red.png" />
+    <Resource Include="Images\alarm\alarm_yellow.png" />
+    <Resource Include="Images\anzf.png" />
+    <Resource Include="Images\arrow_down_d.png" />
+    <Resource Include="Images\arrow_left.png" />
+    <Resource Include="Images\arrow_left_d.png" />
+    <Resource Include="Images\backgrand.png" />
+    <Resource Include="Images\bad.png" />
+    <Resource Include="Images\blue.png" />
+    <Resource Include="Images\call-delete.png" />
+    <Resource Include="Images\call-phone.png" />
+    <Resource Include="Images\call-stop.png" />
+    <Resource Include="Images\closed.png" />
+    <Resource Include="Images\controls\shadow_b.png" />
+    <Resource Include="Images\controls\shadow_bl.png" />
+    <Resource Include="Images\controls\shadow_br.png" />
+    <Resource Include="Images\controls\shadow_l.png" />
+    <Resource Include="Images\controls\shadow_r.png" />
+    <Resource Include="Images\controls\shadow_t.png" />
+    <Resource Include="Images\controls\shadow_tl.png" />
+    <Resource Include="Images\controls\shadow_tr.png" />
+    <Resource Include="Images\cs.png" />
+    <Resource Include="Images\dituqiehuan.png" />
+    <Resource Include="Images\DuanXing.png" />
+    <Resource Include="Images\fujiaotai.png" />
+    <Resource Include="Images\good.png" />
+    <Resource Include="Images\green.png" />
+    <Resource Include="Images\Important\Car.png" />
+    <Resource Include="Images\Important\Car2.png" />
+    <Resource Include="Images\Important\Car5.png" />
+    <Resource Include="Images\Important\CarOver.png" />
+    <Resource Include="Images\Important\CarSelected.png" />
+    <Resource Include="Images\Important\chaoshi.png" />
+    <Resource Include="Images\Important\completed.png" />
+    <Resource Include="Images\Important\dangzhengjiguan.png" />
+    <Resource Include="Images\Important\iw_tail.png" />
+    <Resource Include="Images\Important\jingqing-new.gif" />
+    <Resource Include="Images\Important\jinrong.png" />
+    <Resource Include="Images\Important\kuaidi.png" />
+    <Resource Include="Images\Important\map-marker-pink.png" />
+    <Resource Include="Images\Important\nocompleted.png" />
+    <Resource Include="Images\Important\Police.png" />
+    <Resource Include="Images\Important\policeman.png" />
+    <Resource Include="Images\Important\Tianwang.png" />
+    <Resource Include="Images\Important\tianyi.jpg" />
+    <Resource Include="Images\Important\tianyi.png" />
+    <Resource Include="Images\Important\weixianpin.png" />
+    <Resource Include="Images\Important\xinwenchuban.png" />
+    <Resource Include="Images\Important\xuexiao.png" />
+    <Resource Include="Images\Important\yiyuan.png" />
+    <Resource Include="Images\Important\交通.png" />
+    <Resource Include="Images\Important\住宿.png" />
+    <Resource Include="Images\Important\体育.png" />
+    <Resource Include="Images\Important\医疗.png" />
+    <Resource Include="Images\Important\娱乐.png" />
+    <Resource Include="Images\Important\政府.png" />
+    <Resource Include="Images\Important\教育.png" />
+    <Resource Include="Images\Important\景点.png" />
+    <Resource Include="Images\Important\服务.png" />
+    <Resource Include="Images\Important\美食.png" />
+    <Resource Include="Images\Important\购物.png" />
+    <Resource Include="Images\Important\金融.png" />
+    <Resource Include="Images\importtrack_0.png" />
+    <Resource Include="Images\importtrack_1.png" />
+    <Resource Include="Images\kongxian.png" />
+    <Resource Include="Images\Login\checkbox_off.png" />
+    <Resource Include="Images\Login\delete_about.png" />
+    <Resource Include="Images\Login\login_03.png" />
+    <Resource Include="Images\Login\login_05.png" />
+    <Resource Include="Images\Login\login_06.gif" />
+    <Resource Include="Images\Login\login_06.png" />
+    <Resource Include="Images\Login\login_07.gif" />
+    <Resource Include="Images\Login\login_08.gif" />
+    <Resource Include="Images\Login\login_09.gif" />
+    <Resource Include="Images\Login\login_10-11.gif" />
+    <Resource Include="Images\Login\login_10.gif" />
+    <Resource Include="Images\Login\login_12.gif" />
+    <Resource Include="Images\Login\login_13.png" />
+    <Resource Include="Images\Login\login_141.png" />
+    <Resource Include="Images\Login\login_15.gif" />
+    <Resource Include="Images\Login\login_bg2.png" />
+    <Resource Include="Images\Login\logo.png" />
+    <Resource Include="Images\Logo.ico" />
+    <Resource Include="Images\manglu.png" />
+    <Resource Include="Images\newzuofei.png" />
+    <Resource Include="Images\NoSendPhoneinfo.png" />
+    <Resource Include="Images\notbad.png" />
+    <Resource Include="Images\Open.png" />
+    <Resource Include="Images\pathplay.png" />
+    <Resource Include="Images\phone.png" />
+    <Resource Include="Images\phoneNum.png" />
+    <Resource Include="Images\PoliceBadge.png" />
+    <Resource Include="Images\PoliceType\danbing.jpg" />
+    <Resource Include="Images\PoliceType\danbing_.jpg" />
+    <Resource Include="Images\PoliceType\jidong.png" />
+    <Resource Include="Images\PoliceType\jingche.jpg" />
+    <Resource Include="Images\PoliceType\jingche_.jpg" />
+    <Resource Include="Images\PoliceType\kuaifan.png" />
+    <Resource Include="Images\PoliceType\phoneOffiline.png" />
+    <Resource Include="Images\PoliceType\phoneOnline.png" />
+    <Resource Include="Images\PoliceType\policeOpacity.png" />
+    <Resource Include="Images\PoliceType\qiang.jpg" />
+    <Resource Include="Images\PoliceType\qiang_.jpg" />
+    <Resource Include="Images\PoliceType\shouji.jpg" />
+    <Resource Include="Images\PoliceType\shouji_.jpg" />
+    <Resource Include="Images\PoliceType\shoutai.jpg" />
+    <Resource Include="Images\PoliceType\shoutai_.jpg" />
+    <Resource Include="Images\PoliceType\tantou_.jpg" />
+    <Resource Include="Images\PoliceType\xunzu.png" />
+    <Resource Include="Images\resourcearound\4gvideo.png" />
+    <Resource Include="Images\resourcearound\4gvideo_press.png" />
+    <Resource Include="Images\resourcearound\all.png" />
+    <Resource Include="Images\resourcearound\all_press.png" />
+    <Resource Include="Images\resourcearound\back.png" />
+    <Resource Include="Images\resourcearound\back_press.png" />
+    <Resource Include="Images\resourcearound\bayonet.png" />
+    <Resource Include="Images\resourcearound\bayonet1.png" />
+    <Resource Include="Images\resourcearound\bayonet1_map.png" />
+    <Resource Include="Images\resourcearound\bayonet1_press.png" />
+    <Resource Include="Images\resourcearound\bayonet2.png" />
+    <Resource Include="Images\resourcearound\bayonet2_map.png" />
+    <Resource Include="Images\resourcearound\bayonet2_press.png" />
+    <Resource Include="Images\resourcearound\bayonetfind.png" />
+    <Resource Include="Images\resourcearound\bayonetfind_press.png" />
+    <Resource Include="Images\resourcearound\bayonetfour.png" />
+    <Resource Include="Images\resourcearound\bayonetfour_press.png" />
+    <Resource Include="Images\resourcearound\bayonetgdjt.png" />
+    <Resource Include="Images\resourcearound\bayonetgdjt_press.png" />
+    <Resource Include="Images\resourcearound\bayonethch.png" />
+    <Resource Include="Images\resourcearound\bayonethch_press.png" />
+    <Resource Include="Images\resourcearound\bayonetone.png" />
+    <Resource Include="Images\resourcearound\bayonetone_press.png" />
+    <Resource Include="Images\resourcearound\bayonetthree.png" />
+    <Resource Include="Images\resourcearound\bayonetthree_press.png" />
+    <Resource Include="Images\resourcearound\bayonettwo.png" />
+    <Resource Include="Images\resourcearound\bayonettwo_press.png" />
+    <Resource Include="Images\resourcearound\bayonet_map.png" />
+    <Resource Include="Images\resourcearound\bayonet_press.png" />
+    <Resource Include="Images\resourcearound\chbianjie.png" />
+    <Resource Include="Images\resourcearound\chbianjie_press.png" />
+    <Resource Include="Images\resourcearound\chenghua.png" />
+    <Resource Include="Images\resourcearound\chenghuabianjie.png" />
+    <Resource Include="Images\resourcearound\chenghuabianjie_press.png" />
+    <Resource Include="Images\resourcearound\chenghua_press.png" />
+    <Resource Include="Images\resourcearound\chezai.png" />
+    <Resource Include="Images\resourcearound\chezai_press.png" />
+    <Resource Include="Images\resourcearound\circle.png" />
+    <Resource Include="Images\resourcearound\circle_press.png" />
+    <Resource Include="Images\resourcearound\clean_press.png" />
+    <Resource Include="Images\resourcearound\clear.png" />
+    <Resource Include="Images\resourcearound\danbing.png" />
+    <Resource Include="Images\resourcearound\danbing_press.png" />
+    <Resource Include="Images\resourcearound\delete.png" />
+    <Resource Include="Images\resourcearound\delete_press.png" />
+    <Resource Include="Images\resourcearound\ditu.png" />
+    <Resource Include="Images\resourcearound\ditu_press.png" />
+    <Resource Include="Images\resourcearound\dot.png" />
+    <Resource Include="Images\resourcearound\dot_press.png" />
+    <Resource Include="Images\resourcearound\dt.png" />
+    <Resource Include="Images\resourcearound\dt_press.png" />
+    <Resource Include="Images\resourcearound\dxqzxhd.png" />
+    <Resource Include="Images\resourcearound\dxqzxhd_map.png" />
+    <Resource Include="Images\resourcearound\dxqzxhd_press.png" />
+    <Resource Include="Images\resourcearound\entertainment.png" />
+    <Resource Include="Images\resourcearound\entertainment2.png" />
+    <Resource Include="Images\resourcearound\entertainment_press.png" />
+    <Resource Include="Images\resourcearound\fkzdmb.png" />
+    <Resource Include="Images\resourcearound\fkzdmb_map.png" />
+    <Resource Include="Images\resourcearound\fkzdmb_press.png" />
+    <Resource Include="Images\resourcearound\gajg.png" />
+    <Resource Include="Images\resourcearound\gajgfj_map.png" />
+    <Resource Include="Images\resourcearound\gajgpcs_map.png" />
+    <Resource Include="Images\resourcearound\gajgsj_map.png" />
+    <Resource Include="Images\resourcearound\gajgst_map.png" />
+    <Resource Include="Images\resourcearound\gajg_map.png" />
+    <Resource Include="Images\resourcearound\gajg_press.png" />
+    <Resource Include="Images\resourcearound\genus_gd.png" />
+    <Resource Include="Images\resourcearound\genus_hj.png" />
+    <Resource Include="Images\resourcearound\gonganjiguan.png" />
+    <Resource Include="Images\resourcearound\gonganjiguan_press.png" />
+    <Resource Include="Images\resourcearound\guanlian.png" />
+    <Resource Include="Images\resourcearound\guanlian_press.png" />
+    <Resource Include="Images\resourcearound\hlwswyycs.png" />
+    <Resource Include="Images\resourcearound\hlwswyycs_map.png" />
+    <Resource Include="Images\resourcearound\hlwswyycs_press.png" />
+    <Resource Include="Images\resourcearound\hospital.png" />
+    <Resource Include="Images\resourcearound\hospital2.png" />
+    <Resource Include="Images\resourcearound\hospital_press.png" />
+    <Resource Include="Images\resourcearound\hotel.png" />
+    <Resource Include="Images\resourcearound\hotel2.png" />
+    <Resource Include="Images\resourcearound\hotel_press.png" />
+    <Resource Include="Images\resourcearound\institution.png" />
+    <Resource Include="Images\resourcearound\institution_map.png" />
+    <Resource Include="Images\resourcearound\institution_press.png" />
+    <Resource Include="Images\resourcearound\jidong.png" />
+    <Resource Include="Images\resourcearound\jidong_press.png" />
+    <Resource Include="Images\resourcearound\jingli.png" />
+    <Resource Include="Images\resourcearound\jinglitongji.png" />
+    <Resource Include="Images\resourcearound\jinglitongji_press.png" />
+    <Resource Include="Images\resourcearound\jingli_press.png" />
+    <Resource Include="Images\resourcearound\jingqing.png" />
+    <Resource Include="Images\resourcearound\jingqingtongji.png" />
+    <Resource Include="Images\resourcearound\jingqingtongji_press.png" />
+    <Resource Include="Images\resourcearound\jingqing_press.png" />
+    <Resource Include="Images\resourcearound\jinritaishi.png" />
+    <Resource Include="Images\resourcearound\jinritaishi_press.png" />
+    <Resource Include="Images\resourcearound\jyz.png" />
+    <Resource Include="Images\resourcearound\jyz_map.png" />
+    <Resource Include="Images\resourcearound\jyz_press.png" />
+    <Resource Include="Images\resourcearound\kuaifan.png" />
+    <Resource Include="Images\resourcearound\kuaifan_press.png" />
+    <Resource Include="Images\resourcearound\lddw.png" />
+    <Resource Include="Images\resourcearound\lddw_map.png" />
+    <Resource Include="Images\resourcearound\lddw_press.png" />
+    <Resource Include="Images\resourcearound\ldg.png" />
+    <Resource Include="Images\resourcearound\ldg_map.png" />
+    <Resource Include="Images\resourcearound\ldg_press.png" />
+    <Resource Include="Images\resourcearound\liandong.png" />
+    <Resource Include="Images\resourcearound\liandong_press.png" />
+    <Resource Include="Images\resourcearound\line.png" />
+    <Resource Include="Images\resourcearound\line_press.png" />
+    <Resource Include="Images\resourcearound\list_bg.png" />
+    <Resource Include="Images\resourcearound\lsbqd.png" />
+    <Resource Include="Images\resourcearound\lsbqd_map.png" />
+    <Resource Include="Images\resourcearound\lsbqd_press.png" />
+    <Resource Include="Images\resourcearound\lsjqts.png" />
+    <Resource Include="Images\resourcearound\lsjqts_press.png" />
+    <Resource Include="Images\resourcearound\mpdz.png" />
+    <Resource Include="Images\resourcearound\mpdz_map.png" />
+    <Resource Include="Images\resourcearound\mpdz_press.png" />
+    <Resource Include="Images\resourcearound\office.png" />
+    <Resource Include="Images\resourcearound\office_map.png" />
+    <Resource Include="Images\resourcearound\office_press.png" />
+    <Resource Include="Images\resourcearound\other.png" />
+    <Resource Include="Images\resourcearound\other_map.png" />
+    <Resource Include="Images\resourcearound\other_press.png" />
+    <Resource Include="Images\resourcearound\pic.png" />
+    <Resource Include="Images\resourcearound\polygon.png" />
+    <Resource Include="Images\resourcearound\polygon_press.png" />
+    <Resource Include="Images\resourcearound\queryscope.png" />
+    <Resource Include="Images\resourcearound\qxtx.png" />
+    <Resource Include="Images\resourcearound\qxtx_press.png" />
+    <Resource Include="Images\resourcearound\rectangle.png" />
+    <Resource Include="Images\resourcearound\rectangle_press.png" />
+    <Resource Include="Images\resourcearound\ryxx.png" />
+    <Resource Include="Images\resourcearound\ryxx_map.png" />
+    <Resource Include="Images\resourcearound\ryxx_press.png" />
+    <Resource Include="Images\resourcearound\school.png" />
+    <Resource Include="Images\resourcearound\school2.png" />
+    <Resource Include="Images\resourcearound\school_press.png" />
+    <Resource Include="Images\resourcearound\search.png" />
+    <Resource Include="Images\resourcearound\search_press.png" />
+    <Resource Include="Images\resourcearound\shezhi.png" />
+    <Resource Include="Images\resourcearound\shezhi_press.png" />
+    <Resource Include="Images\resourcearound\shiju.png" />
+    <Resource Include="Images\resourcearound\shiju_.png" />
+    <Resource Include="Images\resourcearound\shiju_press.png" />
+    <Resource Include="Images\resourcearound\shiju_press1.png" />
+    <Resource Include="Images\resourcearound\slider.png" />
+    <Resource Include="Images\resourcearound\slider_dot.png" />
+    <Resource Include="Images\resourcearound\taishituxian.png" />
+    <Resource Include="Images\resourcearound\taishituxian_press.png" />
+    <Resource Include="Images\resourcearound\tianwang.png" />
+    <Resource Include="Images\resourcearound\tianwang_press.png" />
+    <Resource Include="Images\resourcearound\tuceng.png" />
+    <Resource Include="Images\resourcearound\tuceng_press.png" />
+    <Resource Include="Images\resourcearound\tuli.png" />
+    <Resource Include="Images\resourcearound\tuli_press.png" />
+    <Resource Include="Images\resourcearound\video.png" />
+    <Resource Include="Images\resourcearound\video1.png" />
+    <Resource Include="Images\resourcearound\video3.png" />
+    <Resource Include="Images\resourcearound\video_press.png" />
+    <Resource Include="Images\resourcearound\weixing.png" />
+    <Resource Include="Images\resourcearound\weixing_press.png" />
+    <Resource Include="Images\resourcearound\whk.png" />
+    <Resource Include="Images\resourcearound\whk_press.png" />
+    <Resource Include="Images\resourcearound\wlk.png" />
+    <Resource Include="Images\resourcearound\wlk_press.png" />
+    <Resource Include="Images\resourcearound\xczhb.png" />
+    <Resource Include="Images\resourcearound\xczhb_map.png" />
+    <Resource Include="Images\resourcearound\xczhb_press.png" />
+    <Resource Include="Images\resourcearound\xfs.png" />
+    <Resource Include="Images\resourcearound\xfs_map.png" />
+    <Resource Include="Images\resourcearound\xfs_press.png" />
+    <Resource Include="Images\resourcearound\xfzddw.png" />
+    <Resource Include="Images\resourcearound\xfzddw_map.png" />
+    <Resource Include="Images\resourcearound\xfzddw_press.png" />
+    <Resource Include="Images\resourcearound\xiaqubianjie.png" />
+    <Resource Include="Images\resourcearound\xiaqubianjie_press.png" />
+    <Resource Include="Images\resourcearound\xiaqutuxian.png" />
+    <Resource Include="Images\resourcearound\xiaqutuxian_press.png" />
+    <Resource Include="Images\resourcearound\xunzu.png" />
+    <Resource Include="Images\resourcearound\xunzu_press.png" />
+    <Resource Include="Images\resourcearound\yibiaopan.png" />
+    <Resource Include="Images\resourcearound\yibiaopan_press.png" />
+    <Resource Include="Images\resourcearound\zdqy.png" />
+    <Resource Include="Images\resourcearound\zdqy_press.png" />
+    <Resource Include="Images\resourcearound\zhongda.png" />
+    <Resource Include="Images\resourcearound\zhongda_press.png" />
+    <Resource Include="Images\resourcearound\zjcs.png" />
+    <Resource Include="Images\resourcearound\zjcs_map.png" />
+    <Resource Include="Images\resourcearound\zjcs_press.png" />
+    <Resource Include="Images\resourcearound\zqdd.png" />
+    <Resource Include="Images\resourcearound\zqdd_map.png" />
+    <Resource Include="Images\resourcearound\zqdd_press.png" />
+    <Resource Include="Images\resourcearound\zqzd.png" />
+    <Resource Include="Images\resourcearound\zqzd_map.png" />
+    <Resource Include="Images\resourcearound\zqzd_press.png" />
+    <Resource Include="Images\resourcearound\zqzzd.png" />
+    <Resource Include="Images\resourcearound\zqzzd_map.png" />
+    <Resource Include="Images\resourcearound\zqzzd_press.png" />
+    <Resource Include="Images\resourcearound\分组显示.png" />
+    <Resource Include="Images\resourcearound\分组显示_Press.png" />
+    <Resource Include="Images\resourcearound\分组管理.png" />
+    <Resource Include="Images\resourcearound\分组管理_press.png" />
+    <Resource Include="Images\resourcearound\周边资源.png" />
+    <Resource Include="Images\resourcearound\周边资源_press.png" />
+    <Resource Include="Images\resourcearound\图标管理.png" />
+    <Resource Include="Images\resourcearound\图标管理_press.png" />
+    <Resource Include="Images\resourcearound\收藏.png" />
+    <Resource Include="Images\resourcearound\收藏_press.png" />
+    <Resource Include="Images\resourcearound\综合查询.png" />
+    <Resource Include="Images\resourcearound\综合查询_press.png" />
+    <Resource Include="Images\SendPhoneinfo.png" />
+    <Resource Include="Images\sousuo.png" />
+    <Resource Include="Images\youbian.png" />
+    <Resource Include="Images\youbian2.jpg" />
+    <Resource Include="Images\yuntaiImages\add.png" />
+    <Resource Include="Images\yuntaiImages\brightness.png" />
+    <Resource Include="Images\yuntaiImages\clear-btn.png" />
+    <Resource Include="Images\yuntaiImages\color.png" />
+    <Resource Include="Images\yuntaiImages\contrast.png" />
+    <Resource Include="Images\yuntaiImages\focus-far.png" />
+    <Resource Include="Images\yuntaiImages\focus-near.png" />
+    <Resource Include="Images\yuntaiImages\hide-btn.png" />
+    <Resource Include="Images\yuntaiImages\iris-large.png" />
+    <Resource Include="Images\yuntaiImages\iris-small.png" />
+    <Resource Include="Images\yuntaiImages\light.png" />
+    <Resource Include="Images\yuntaiImages\ptz-auto.png" />
+    <Resource Include="Images\yuntaiImages\ptz-down.png" />
+    <Resource Include="Images\yuntaiImages\ptz-left-down.png" />
+    <Resource Include="Images\yuntaiImages\ptz-left-up.png" />
+    <Resource Include="Images\yuntaiImages\ptz-left.png" />
+    <Resource Include="Images\yuntaiImages\ptz-right-down.png" />
+    <Resource Include="Images\yuntaiImages\ptz-right-up.png" />
+    <Resource Include="Images\yuntaiImages\ptz-right.png" />
+    <Resource Include="Images\yuntaiImages\ptz-up.png" />
+    <Resource Include="Images\yuntaiImages\saturation.png" />
+    <Resource Include="Images\yuntaiImages\search-btn.png" />
+    <Resource Include="Images\yuntaiImages\sub.png" />
+    <Resource Include="Images\yuntaiImages\wiper.png" />
+    <Resource Include="Images\yuntaiImages\zoomin.png" />
+    <Resource Include="Images\yuntaiImages\zoomout.png" />
+    <Resource Include="Images\yuntaiImages\界面.png" />
+    <Resource Include="Images\刷新.png" />
+    <Resource Include="Images\声音.png" />
+    <Resource Include="Images\天翼.png" />
+    <Resource Include="Images\文件上传.png" />
+    <Resource Include="Images\警薇.png" />
+    <Resource Include="Images\选中.png" />
+    <Resource Include="Map\chbianjie.png" />
+    <Resource Include="Map\chbianjie_press.png" />
+    <Resource Include="Map\chenghua.png" />
+    <Resource Include="Map\chenghuabianjie.png" />
+    <Resource Include="Map\chenghuabianjie_press.png" />
+    <Resource Include="Map\chenghua_press.png" />
+    <Resource Include="Map\chezai.png" />
+    <Resource Include="Map\chezai_press.png" />
+    <Resource Include="Map\danbing.png" />
+    <Resource Include="Map\danbing_press.png" />
+    <Resource Include="Map\ditu.png" />
+    <Resource Include="Map\ditu_press.png" />
+    <Resource Include="Map\dt.png" />
+    <Resource Include="Map\dt_press.png" />
+    <Resource Include="Map\gonganjiguan.png" />
+    <Resource Include="Map\gonganjiguan_press.png" />
+    <Resource Include="Map\guanlian.png" />
+    <Resource Include="Map\guanlian_press.png" />
+    <Resource Include="Map\jidong.png" />
+    <Resource Include="Map\jidong_press.png" />
+    <Resource Include="Map\jingli.png" />
+    <Resource Include="Map\jinglitongji.png" />
+    <Resource Include="Map\jinglitongji_press.png" />
+    <Resource Include="Map\jingli_press.png" />
+    <Resource Include="Map\jingqing.png" />
+    <Resource Include="Map\jingqingtongji.png" />
+    <Resource Include="Map\jingqingtongji_press.png" />
+    <Resource Include="Map\jingqing_press.png" />
+    <Resource Include="Map\jinritaishi.png" />
+    <Resource Include="Map\jinritaishi_press.png" />
+    <Resource Include="Map\kuaifan.png" />
+    <Resource Include="Map\kuaifan_press.png" />
+    <Resource Include="Map\liandong.png" />
+    <Resource Include="Map\liandong_press.png" />
+    <Resource Include="Map\shezhi.png" />
+    <Resource Include="Map\shezhi_press.png" />
+    <Resource Include="Map\shiju.png" />
+    <Resource Include="Map\shiju_.png" />
+    <Resource Include="Map\shiju_press.png" />
+    <Resource Include="Map\shiju_press1.png" />
+    <Resource Include="Map\tianwang.png" />
+    <Resource Include="Map\tianwang_press.png" />
+    <Resource Include="Map\tuceng.png" />
+    <Resource Include="Map\tuceng_press.png" />
+    <Resource Include="Map\tuli.png" />
+    <Resource Include="Map\tuli_press.png" />
+    <Resource Include="Map\weixing.png" />
+    <Resource Include="Map\weixing_press.png" />
+    <Resource Include="Map\xiaqubianjie.png" />
+    <Resource Include="Map\xiaqubianjie_press.png" />
+    <Resource Include="Map\xunzu.png" />
+    <Resource Include="Map\xunzu_press.png" />
+    <Resource Include="Map\yibiaopan.png" />
+    <Resource Include="Map\yibiaopan_press.png" />
+    <Resource Include="Map\zhongda.png" />
+    <Resource Include="Map\zhongda_press.png" />
+    <EmbeddedResource Include="ServerInterface\ServerInterface.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Resource Include="Images\resourcearound\qyab.png" />
+    <Resource Include="Images\resourcearound\qyab_press.png" />
+    <Resource Include="Images\resourcearound\qybj.png" />
+    <Resource Include="Images\resourcearound\qybj_press.png" />
+    <Resource Include="Images\PoliceType\kadian.png" />
+    <None Include="Images\loding_1.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Images\loading01.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Images\loding_1222.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <Resource Include="Images\radiophone.png" />
+    <Resource Include="Images\resourcearound\bayonet22.png" />
+    <Resource Include="Images\resourcearound\bayonet22_press.png" />
+    <Content Include="Wave\Cuicu.wav" />
+    <Content Include="Wave\Jiean.wav" />
+    <Content Include="Wave\NewAlarm.wav" />
+    <EmbeddedResource Include="Xml\LED\Led.xml" />
+    <EmbeddedResource Include="Xml\Map\MapPosture.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Alarm\CaseFlowDocument.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Alarm\CaseFlowDocumentInfo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Alarm\CaseFlowDocumentPDAFk.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Alarm\CaseFlowDocumentPDAJieAn.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
 </Project>

@@ -7,6 +7,7 @@ using System;
 using Prism.Unity;
 using Pvirtech.Modules.NormalAlarm.ViewModels;
 using Pvirtech.Modules.NormalAlarm.Views;
+using Pvirtech.Services;
 
 namespace Pvirtech.Modules.NormalAlarm
 {
@@ -33,9 +34,12 @@ namespace Pvirtech.Modules.NormalAlarm
 
             _unityContainer.RegisterType<WorkingAlarms>(new ContainerControlledLifetimeManager());
             _unityContainer.RegisterType<CompletedAlarms>(new ContainerControlledLifetimeManager());
+            _unityContainer.RegisterType<IPoliceCaseRepository, PoliceCaseRepository>(new ContainerControlledLifetimeManager());
             // View discovery
             this._regionManager.RegisterViewWithRegion(RegionNames.AlarmTabRegion, () => this._unityContainer.Resolve<WorkingAlarms>());
             this._regionManager.RegisterViewWithRegion(RegionNames.AlarmTabRegion, () => this._unityContainer.Resolve<CompletedAlarms>());
+
+
 
         }
     }

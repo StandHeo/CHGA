@@ -1,0 +1,321 @@
+﻿<?xml version="1.0"?>
+<ArrayOfHttpCommand xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <HttpCommand Name="searchUnfshAlarmPC" Dest="查询未完成警情" >
+    <Host>@BC1</Host>
+    <ProjectName>PoliceWorkPlatform</ProjectName>
+    <ModuleName>alarmManager.do</ModuleName>
+    <MethodName>searchUnfshAlarmPC</MethodName>
+  </HttpCommand>
+  <HttpCommand Name="pcUserLogin" Dest="PC登录接口" >
+    <Host>@BC1</Host>
+    <ProjectName>PoliceWorkPlatform</ProjectName>
+    <ModuleName>i_user.do</ModuleName>
+    <MethodName>userLoginPC</MethodName>
+    <JsonData></JsonData>
+  </HttpCommand>
+  <HttpCommand Name="pcUserLogout" Dest="PC退出登录" >
+    <Host>@BC1</Host>
+    <ProjectName>PoliceWorkPlatform</ProjectName>
+    <ModuleName>i_user.do</ModuleName>
+    <MethodName>userLogout</MethodName>
+    <JsonData></JsonData>
+  </HttpCommand>
+  <HttpCommand Name="dictionaryQuery" Dest="字典查询接口" >
+    <Host>@BC1</Host>
+    <ProjectName>PoliceWorkPlatform</ProjectName>
+    <ModuleName>i_dictionaryManager</ModuleName>
+    <MethodName>dictionaryQuery</MethodName>
+    <JsonData></JsonData>
+  </HttpCommand>
+  <HttpCommand Name="queryReportInfo" Dest="警力信息查询接口" >
+    <Host>@BC1</Host>
+    <ProjectName>PoliceWorkPlatform</ProjectName>
+    <ModuleName>dutyReport.do</ModuleName>
+    <MethodName>queryReportInfo</MethodName>
+    <JsonData></JsonData>
+  </HttpCommand>
+  <HttpCommand Name="urgeAlarmUnit" Dest="警力催促接口" >
+    <Host>@BC1</Host>
+    <ProjectName>PoliceWorkPlatform</ProjectName>
+    <ModuleName>alarmManager.do</ModuleName>
+    <MethodName>urgeAlarmUnit</MethodName>
+    <JsonData></JsonData>
+  </HttpCommand>
+  <HttpCommand Name="searchPopeTrendData" Dest="各辖区态势统计" >
+    <Host>@BC1</Host>
+    <ProjectName>PoliceWorkPlatform</ProjectName>
+    <ModuleName>alarmTrend.do</ModuleName>
+    <MethodName>searchPopeTrendData</MethodName>
+    <JsonData></JsonData>
+  </HttpCommand>
+  <HttpCommand Name="searchFinishAlarmPC" Dest="查询已完成的警情" >
+    <Host>@BC1</Host>
+    <ProjectName>PoliceWorkPlatform</ProjectName>
+    <ModuleName>alarmManager.do</ModuleName>
+    <MethodName>searchFinishAlarmPC</MethodName>
+    <JsonData></JsonData>
+  </HttpCommand>
+  <HttpCommand Name="changeStatusPC" Dest="用户状态" >
+    <Host>@BC1</Host>
+    <ProjectName>PoliceWorkPlatform</ProjectName>
+    <ModuleName>alarmManager.do</ModuleName>
+    <MethodName>changeStatusPC</MethodName>
+    <JsonData></JsonData>
+  </HttpCommand>
+  <HttpCommand Name="searchAlarmTypeCount" Dest="获取当日警情信息" >
+    <Host>@BC1</Host>
+    <ProjectName>PoliceWorkPlatform</ProjectName>
+    <ModuleName>alarmTrend.do</ModuleName>
+    <MethodName>searchAlarmTypeCount</MethodName>
+    <JsonData></JsonData>
+  </HttpCommand>
+  <HttpCommand Name="getAlarmUnitPC" Dest="获取警情出警单位" >
+    <Host>@BC1</Host>
+    <ProjectName>PoliceWorkPlatform</ProjectName>
+    <ModuleName>alarmManager.do</ModuleName>
+    <MethodName>getAlarmUnitPC</MethodName>
+    <JsonData></JsonData>
+  </HttpCommand>
+  <HttpCommand Name="searchAlarmDetailPC" Dest="获取打印警情单信息" >
+    <Host>@BC1</Host>
+    <ProjectName>PoliceWorkPlatform</ProjectName>
+    <ModuleName>alarmManager.do</ModuleName>
+    <MethodName>searchAlarmDetailPC</MethodName>
+    <JsonData></JsonData>
+  </HttpCommand>
+  <HttpCommand Name="addUnRecord" Dest="发送延迟出警记录" >
+    <Host>@BC1</Host>
+    <ProjectName>PoliceWorkPlatform</ProjectName>
+    <ModuleName>alarmManager.do</ModuleName>
+    <MethodName>addUnRecord</MethodName>
+    <JsonData></JsonData>
+  </HttpCommand>
+  <HttpCommand Name="dealCasePC" Dest="接受/3出发/4到达/5结案" >
+    <Host>@BC1</Host>
+    <ProjectName>PoliceWorkPlatform</ProjectName>
+    <ModuleName>alarmManager.do</ModuleName>
+    <MethodName>dealCasePC</MethodName>
+    <JsonData></JsonData>
+  </HttpCommand>
+  <HttpCommand Name="addFedBckAlarm" Dest="添加反馈" >
+    <Host>@BC1</Host>
+    <ProjectName>PoliceWorkPlatform</ProjectName>
+    <ModuleName>alarmManager.do</ModuleName>
+    <MethodName>addFedBckAlarm</MethodName>
+    <JsonData></JsonData>
+  </HttpCommand>
+  <HttpCommand Name="searchFedBckAlarm" Dest="获取警情反馈信息" >
+    <Host>@BC1</Host>
+    <ProjectName>PoliceWorkPlatform</ProjectName>
+    <ModuleName>alarmManager.do</ModuleName>
+    <MethodName>searchFedBckAlarm</MethodName>
+    <JsonData></JsonData>
+  </HttpCommand>
+  <HttpCommand Name="changeAlarmPC" Dest="警情修改" >
+    <Host>@BC1</Host>
+    <ProjectName>PoliceWorkPlatform</ProjectName>
+    <ModuleName>alarmManager.do</ModuleName>
+    <MethodName>changeAlarmPC</MethodName>
+    <JsonData></JsonData>
+  </HttpCommand>
+  <HttpCommand Name="serachGroupPC" Dest="根据警员编号获取全部巡组" >
+    <Host>@BC1</Host>
+    <ProjectName>PoliceWorkPlatform</ProjectName>
+    <ModuleName>patrolGroup.do</ModuleName>
+    <MethodName>serachGroupPC</MethodName>
+    <JsonData></JsonData>
+  </HttpCommand>
+  <HttpCommand Name="cancleUnit" Dest="巡组作废" >
+    <Host>@BC1</Host>
+    <ProjectName>PoliceWorkPlatform</ProjectName>
+    <ModuleName>alarmManager.do</ModuleName>
+    <MethodName>cancleUnit</MethodName>
+    <JsonData></JsonData>
+  </HttpCommand>
+  <HttpCommand Name="executeAlarmPC" Dest="处警接口" >
+    <Host>@BC1</Host>
+    <ProjectName>PoliceWorkPlatform</ProjectName>
+    <ModuleName>alarmManager.do</ModuleName>
+    <MethodName>executeAlarmPC</MethodName>
+    <JsonData></JsonData>
+  </HttpCommand>
+  <HttpCommand Name="send2Dld" Dest="移交大联动" >
+    <Host>@BC1</Host>
+    <ProjectName>PoliceWorkPlatform</ProjectName>
+    <ModuleName>alarmManager.do</ModuleName>
+    <MethodName>send2Dld</MethodName>
+    <JsonData></JsonData>
+  </HttpCommand>
+
+  <HttpCommand Name="sendSms" Dest="发送短信" >
+    <Host>@BC1</Host>
+    <ProjectName>PoliceWorkPlatform</ProjectName>
+    <ModuleName>i_smsManager</ModuleName>
+    <MethodName>sendSms</MethodName>
+    <JsonData></JsonData>
+  </HttpCommand>
+  <HttpCommand Name="changeRuleTrendDtl" Dest="修改警情态势规则" >
+    <Host>@BC1</Host>
+    <ProjectName>PoliceWorkPlatform</ProjectName>
+    <ModuleName>alarmTrend.do</ModuleName>
+    <MethodName>changeRuleTrendDtl</MethodName>
+    <JsonData></JsonData>
+  </HttpCommand>
+  <HttpCommand Name="getAlarmOptRcd" Dest="获取警情处置记录" >
+    <Host>@BC1</Host>
+    <ProjectName>PoliceWorkPlatform</ProjectName>
+    <ModuleName>alarmManager.do</ModuleName>
+    <MethodName>getAlarmOptRcd</MethodName>
+    <JsonData></JsonData>
+  </HttpCommand>
+  <HttpCommand Name="getAlarmOperation" Dest="获取警情处警记录" >
+    <Host>@BC1</Host>
+    <ProjectName>PoliceWorkPlatform</ProjectName>
+    <ModuleName>alarmManager.do</ModuleName>
+    <MethodName>getAlarmOperation</MethodName>
+    <JsonData></JsonData>
+  </HttpCommand>
+
+  <!--视频中心 START-->
+  <HttpCommand Name="queryVideoList" Dest="获取视频中心目录" >
+    <Host>@BC1</Host>
+    <ProjectName>PoliceWorkPlatform</ProjectName>
+    <ModuleName>i_resourceManager</ModuleName>
+    <MethodName>queryVideoList</MethodName>
+    <JsonData></JsonData>
+  </HttpCommand>
+  <HttpCommand Name="queryVideoInfo" Dest="获取视频设备信息" >
+    <Host>@BC1</Host>
+    <ProjectName>PoliceWorkPlatform</ProjectName>
+    <ModuleName>i_deviceManager</ModuleName>
+    <MethodName>queryVideoInfo</MethodName>
+    <JsonData></JsonData>
+  </HttpCommand>
+  <!--视频中心 END-->
+
+  <!--指令相关  START-->
+  <HttpCommand Name="sendMessage" Dest="消息发送接口" >
+    <Host>@BC1</Host>
+    <ProjectName>PoliceWorkPlatform</ProjectName>
+    <ModuleName>connection.do</ModuleName>
+    <MethodName>sendMessage</MethodName>
+    <JsonData></JsonData>
+  </HttpCommand>
+  <HttpCommand Name="searchAlarmsNumByType" Dest="警情数量统计" >
+    <Host>@BC1</Host>
+    <ProjectName>PoliceWorkPlatform</ProjectName>
+    <ModuleName>alarmTrend.do</ModuleName>
+    <MethodName>searchAlarmsNumByType</MethodName>
+    <JsonData></JsonData>
+  </HttpCommand>
+  <HttpCommand Name="addGroup" Dest="添加自定义联系组" >
+    <Host>@BC1</Host>
+    <ProjectName>PoliceWorkPlatform</ProjectName>
+    <ModuleName>connection.do</ModuleName>
+    <MethodName>addGroup</MethodName>
+    <JsonData></JsonData>
+  </HttpCommand>
+  <HttpCommand Name="queryOrderGroup" Dest="获取联系组列表" >
+    <Host>@BC1</Host>
+    <ProjectName>PoliceWorkPlatform</ProjectName>
+    <ModuleName>connection.do</ModuleName>
+    <MethodName>queryGroup</MethodName>
+    <JsonData></JsonData>
+  </HttpCommand>
+  <HttpCommand Name="queryOrderPeople" Dest="获取联系人列表" >
+    <Host>@BC1</Host>
+    <ProjectName>PoliceWorkPlatform</ProjectName>
+    <ModuleName>connection.do</ModuleName>
+    <MethodName>queryPeople</MethodName>
+    <JsonData></JsonData>
+  </HttpCommand>
+  <HttpCommand Name="querySession" Dest="4．获取会话列表" >
+    <Host>@BC1</Host>
+    <ProjectName>PoliceWorkPlatform</ProjectName>
+    <ModuleName>connection.do</ModuleName>
+    <MethodName>querySession</MethodName>
+    <JsonData></JsonData>
+  </HttpCommand>
+  <HttpCommand Name="queryOrder" Dest="5．获取指令列表" >
+    <Host>@BC1</Host>
+    <ProjectName>PoliceWorkPlatform</ProjectName>
+    <ModuleName>connection.do</ModuleName>
+    <MethodName>queryOrder</MethodName>
+    <JsonData></JsonData>
+  </HttpCommand>
+  <HttpCommand Name="queryMessage" Dest="6．获取消息列表" >
+    <Host>@BC1</Host>
+    <ProjectName>PoliceWorkPlatform</ProjectName>
+    <ModuleName>connection.do</ModuleName>
+    <MethodName>queryMessage</MethodName>
+    <JsonData></JsonData>
+  </HttpCommand>
+  <HttpCommand Name="createSession" Dest="7．创建会话" >
+    <Host>@BC1</Host>
+    <ProjectName>PoliceWorkPlatform</ProjectName>
+    <ModuleName>connection.do</ModuleName>
+    <MethodName>createSession</MethodName>
+    <JsonData></JsonData>
+  </HttpCommand>
+  <HttpCommand Name="sendOrder" Dest="8．指令发送接口" >
+    <Host>@BC1</Host>
+    <ProjectName>PoliceWorkPlatform</ProjectName>
+    <ModuleName>connection.do</ModuleName>
+    <MethodName>sendOrder</MethodName>
+    <JsonData></JsonData>
+  </HttpCommand>
+  <HttpCommand Name="queryReportPoliceNum" Dest="LED警力统计" >
+    <Host>@BC1</Host>
+    <ProjectName>PoliceWorkPlatform</ProjectName>
+    <ModuleName>dutyReport.do</ModuleName>
+    <MethodName>queryReportPoliceNum</MethodName>
+    <JsonData></JsonData>
+  </HttpCommand>
+  <HttpCommand Name="selGpsTrack" Dest="轨迹查询" >
+    <Host>@BC1</Host>
+    <ProjectName>PoliceWorkPlatform</ProjectName>
+    <ModuleName>i_resourceManager</ModuleName>
+    <MethodName>selGpsTrack</MethodName>
+    <JsonData></JsonData>
+  </HttpCommand>
+  <HttpCommand Name="receiveAlarmDld" Dest="大联动警情录入" >
+    <Host>@BC2</Host>
+    <ProjectName>PoliceWorkPlatform</ProjectName>
+    <ModuleName>alarmmanager.do</ModuleName>
+    <MethodName>receiveAlarmDldHand</MethodName>
+    <JsonData></JsonData>
+  </HttpCommand>
+  <HttpCommand Name="receiveAlarmMajor" Dest="流转至应急处置" >
+    <Host>@BC1</Host>
+    <ProjectName>PoliceWorkPlatform</ProjectName>
+    <ModuleName>alarmManager.do</ModuleName>
+    <MethodName>receiveAlarmMajor</MethodName>
+    <JsonData></JsonData>
+  </HttpCommand>
+
+  <HttpCommand Name="sendQRCodeTimeOut" Dest="流转超时" >
+    <Host>@BC2</Host>
+    <ProjectName>PoliceWorkPlatform</ProjectName>
+    <ModuleName>alarmmanager.do</ModuleName>
+    <MethodName>sendQRCodeTimeOut</MethodName>
+    <JsonData></JsonData>
+  </HttpCommand>
+  
+   <HttpCommand Name="sendQRCodeToDld" Dest="流转至大联动" >
+    <Host>@BC2</Host>
+    <ProjectName>PoliceWorkPlatform</ProjectName>
+    <ModuleName>alarmmanager.do</ModuleName>
+    <MethodName>sendQRCodeToDld</MethodName>
+    <JsonData></JsonData>
+  </HttpCommand>
+  
+    <HttpCommand Name="generateQRCode" Dest="流转失败跳转二维码页面" >
+    <Host>@BC2</Host>
+    <ProjectName>PoliceWorkPlatform</ProjectName>
+    <ModuleName>alarmmanager.do</ModuleName>
+    <MethodName>generateQRCode</MethodName>
+    <JsonData></JsonData>
+  </HttpCommand>
+
+  <!--指令相关  END-->
+</ArrayOfHttpCommand>

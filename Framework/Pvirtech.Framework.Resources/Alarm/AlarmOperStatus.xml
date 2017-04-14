@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <OperItems>
+    <OperItem Status="-1" Key="SendFailed" Name="警情发送失败" Color="Red" >
+      <CmdItems>
+        <CmdItem Key="AcceptAlarm" Name="接受" />
+      </CmdItems>
+    </OperItem>
+    <OperItem Status="0" Key="Unknown" Name="待发送" Color="Red" >
+      <CmdItems>
+        <CmdItem Key="AcceptAlarm" Name="接受" />
+      </CmdItems>
+    </OperItem>
+    <OperItem Status="1" Key="PDAAccept" Name="PDA接收" Color="OrangeRed">
+      <CmdItems>
+        <CmdItem Key="UrgeAlarm" Name="催促" />
+        <CmdItem Key="AcceptAlarm" Name="接受" />
+      </CmdItems>
+    </OperItem>
+    <OperItem Status="2" Key="Accept" Name="警情接受" Color="Orange" >
+      <CmdItems>
+        <CmdItem Key="UrgeAlarm" Name="催促" />
+        <CmdItem Key="StartAlarm" Name="出发" />
+      </CmdItems>
+    </OperItem>
+    <OperItem Status="3" Key="StartOff" Name="已出发" Color="Yellow" >
+      <CmdItems>
+          <CmdItem Key="UrgeAlarm" Name="催促" />
+          <CmdItem Key="ArriveAlarm" Name="到达" />
+      </CmdItems>
+    </OperItem>
+    <OperItem Status="4" Key="Arrived" Name="到达现场"  Color="Green" >
+      <CmdItems>
+          <CmdItem Key="UrgeAlarm" Name="催促" />
+      </CmdItems>
+    </OperItem>
+    <OperItem Status="6" Key="Fk" Name="已反馈"  Color="Gray" >
+       <CmdItems>
+          <CmdItem Key="UrgeAlarm" Name="催促" />
+      </CmdItems>
+    </OperItem>
+    <OperItem Status="5" Key="Finish" Name="处理完成"  Color="Gray" />
+  </OperItems>
+  <MenuItems>
+    <CmdItem Name="详细" Key="AlarmDetail" />
+    <CmdItem Name="派警" Key="SendAlarmWin" />
+    <CmdItem Name="流转至指令信息中心" Key="SendLinkAgeCmd" />
+    <CmdItem Name="流转至大联动" Key="SendLinkAge" />
+    <CmdItem Name="反馈" Key="FeedBackAlarm" />
+    <CmdItem Name="结案" Key="CloseAlarm"  />
+  </MenuItems>
+  <RunCmdItems>
+    <CmdItem Name="反馈" Key="FeedBackAlarm" />
+    <CmdItem Name="结案" Key="CloseAlarm"  />
+  </RunCmdItems>
+  <Messager Key="10010" Name="结案提示">
+    <Succeed Key="SucceedMes" Value="结案成功"></Succeed>
+    <Defeated Key="DefeatedMes" Value="结案失败"></Defeated>
+    <Catch Key="CatchMes" Value="异常提示：此异常来至【{0}】"></Catch>
+    <ValueError Key="NullValueMes" Value="参数不能为空"></ValueError>
+    <Illegality Key="UnableMes" Value="你无权访对此功能进行操作"></Illegality>
+  </Messager>
+</Root>

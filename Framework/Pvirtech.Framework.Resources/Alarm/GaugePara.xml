@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Root>
+  <M1>10</M1>
+  <M2>15</M2>
+  <M3>20</M3>
+  <M4>25</M4>
+  <Color1>Green</Color1>
+  <Color2>Yellow</Color2>
+  <Color3>Orange</Color3>
+  <Color4>Red</Color4>
+  <BaseWidth>0.25</BaseWidth>
+</Root>

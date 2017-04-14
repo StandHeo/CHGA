@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using ESRI.ArcGIS.Client.Geometry;
+using System.Collections.Generic;
 namespace Pvirtech.Model
 {
     /// <summary>
@@ -127,6 +128,7 @@ namespace Pvirtech.Model
         /// 是否初始化反馈记录
         /// </summary>
         public bool IsInitFdb { get; set; }
+        public MapPoint MapPoint { get; set; }
 
         public override string ToString()
         {

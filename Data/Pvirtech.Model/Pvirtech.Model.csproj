@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ESRI.ArcGIS.Client, Version=10.2.5.0, Culture=neutral, PublicKeyToken=29c6dd6e8553d944, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Lib\ESRI.ArcGIS.Client.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Newtonsoft.Json.10.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -48,6 +52,7 @@
     <Compile Include="AlarmOperation.cs" />
     <Compile Include="AlarmOperationRecord.cs" />
     <Compile Include="AllEnum.cs" />
+    <Compile Include="AppModuleInfo.cs" />
     <Compile Include="CarInfoItem.cs" />
     <Compile Include="CommandMessage.cs" />
     <Compile Include="DictItem.cs" />
@@ -61,6 +66,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReturnResult.cs" />
     <Compile Include="SendAlarmTime.cs" />
+    <Compile Include="TodayCaseCount.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserAuthors.cs" />
     <Compile Include="UserInfoItem.cs" />

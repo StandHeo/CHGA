@@ -5,5 +5,11 @@
     <Setting Name="IsBusy" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
+    <Setting Name="QueryUrl" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://10.65.65.204:7777/PoliceWorkPlatform/client/config.xml</Value>
+    </Setting>
+    <Setting Name="QureyMapUrl" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://10.65.65.204:7777/PoliceWorkPlatform/client.do?method=config</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

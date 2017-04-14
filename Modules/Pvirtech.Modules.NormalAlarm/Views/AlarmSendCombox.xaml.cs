@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Telerik.Windows.Controls;
 
 namespace Pvirtech.Modules.NormalAlarm.Views
 {
@@ -23,6 +24,25 @@ namespace Pvirtech.Modules.NormalAlarm.Views
         public AlarmSendCombox()
         {
             InitializeComponent();
+        }
+
+        private void RadComboBox_DropDownClosed(object sender, EventArgs e)
+        {
+            RadComboBox one = sender as RadComboBox;
+            one.SelectedIndex = -1;
+
+        }
+
+        private void RadComboBox_DropDownOpened(object sender, EventArgs e)
+        {
+            RadComboBox one = sender as RadComboBox;
+            if (one.ActualWidth < 350)
+                one.DropDownWidth = new GridLength(350);
+        }
+
+        private void RadComboBoxItem_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            e.Handled = true;
         }
     }
 }

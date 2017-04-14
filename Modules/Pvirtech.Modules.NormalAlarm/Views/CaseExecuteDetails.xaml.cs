@@ -24,5 +24,17 @@ namespace Pvirtech.Modules.NormalAlarm.Views
         {
             InitializeComponent();
         }
+
+        private void TextBlock_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (this.spOne.Visibility == Visibility.Visible)
+            {
+                this.spOne.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                this.spOne.Visibility = Visibility.Visible;
+            }
+        }
     }
 }
